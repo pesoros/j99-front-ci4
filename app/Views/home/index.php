@@ -11,7 +11,7 @@
 <?= $this->endSection() ?>
 
 <?= $this->section('content') ?>
-
+    
 <section class="home">
 	<div class="list-main">
 		<div class="item-main" style="background-image: url(assets/img/bg-main-one.jpg);">
