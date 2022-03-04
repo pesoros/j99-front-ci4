@@ -6,6 +6,7 @@ class Home extends BaseController
 {
     public function index()
     {
-        return view('home/index');
-    }
+        $ldata['footer'] = view('layouts/footer'); 
+        return view('home/index',$ldata);
+    }  
 }
