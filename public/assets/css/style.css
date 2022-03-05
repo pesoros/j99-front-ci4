@@ -251,6 +251,36 @@ footer .footer-logo {
     background: #FFFFFF;
     border-radius: 24px 24px 0px 0px;
 }
+footer .payment {
+    margin-top: 15px;
+}
+footer .payment p {
+    font-style: normal;
+    font-weight: 800;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0.5px;
+    color: #FFFFFF;
+    margin-right: 10px;
+    margin-bottom: 0;
+}
+footer .payment span {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 7px;
+    line-height: 8px;
+    color: #1A1D24;
+    width: 40px;
+    height: 22px;   
+    background-color: #FFFFFF;
+    margin-right: 10px;
+    border-radius: 2px;
+    padding-left: 5px;
+    padding-top: 3px;
+}
+footer .payment span:nth-child(4) {
+    padding-top: 6px;
+}
 footer .footer2 {
     border-top: 2px solid #FFFFFF;
 }

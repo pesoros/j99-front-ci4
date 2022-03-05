@@ -23,6 +23,13 @@
                         <a href="" target="_blank"><i class="fas fa-location-arrow"></i>&nbsp; Jl. Komud ABD. Saleh No.</a>
                     </div>
                 </div>
+                <div class="d-flex justify-content-center align-items-center payment">
+                    <p>Kami Menerima</p>
+                    <span>Virtual <br>Accounts</span>
+                    <span>Credit <br>Cards</span>
+                    <span>E-Wallets</span>
+                    <span>Gerai <br>Ritel</span>
+                </div>
             </div>
             <div class="mb-md-0 mb-4 download">
                 <a href="" class="btn btn-cs mx-lg-auto">
