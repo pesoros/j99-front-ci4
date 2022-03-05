@@ -285,3 +285,36 @@ footer .footer2 {
     }
 }
 /* end footer */
+
+/* ui autocomplete */
+ul.ui-autocomplete {
+    background: #1A1D24e6;
+    padding: 10px;
+    border-radius: 3px;
+    margin-left: -10%;
+}
+ul.ui-autocomplete li {
+    border-bottom:1px solid #FFFFFF;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+ul.ui-autocomplete li h5 {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 17px;
+    letter-spacing: 0.5px;
+    color: #FFFFFF;
+    margin-bottom: 3px;
+}
+ul.ui-autocomplete li p {
+    font-family: 'Lato', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 0.5px;
+    color: #FFFFFF;
+    margin-bottom: 0;
+}
+/* end ui autocomplete */

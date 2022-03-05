@@ -32,7 +32,11 @@
 .list-main .slick-dots {
     bottom: 10px;
 }
-.content .nav-tiket {
+.content .navbar-tiket {
+    list-style-type: none;
+    padding-left: 0;
+}
+.content .navbar-tiket .nav-item {
     text-decoration: none;
     font-style: normal;
     font-weight: 800;
@@ -43,24 +47,39 @@
     padding-right: 5px;
     color: #E1E1E1;
 }
-.content .nav-tiket:hover,
-.content .nav-tiket:active,
-.content .nav-tiket:focus {
+.content .navbar-tiket .nav-item:hover,
+.content .navbar-tiket .nav-item:active,
+.content .navbar-tiket .nav-item:focus {
     color: #FFFFFF;
 }
-.content .nav-tiket.active {
+.content .navbar-tiket .nav-item.active {
     color: #FFFFFF;
     border-bottom: 1px solid #FFFFFF;
+}
+.item-form {
+    display: none;
+}
+.item-form.active {
+    display: block;
 }
 .form-tiket {
     background: rgba(0, 0, 0, 0.5);
     border-radius: 24px 24px 0px 0px;
     color: #FFFFFF;
+    max-width: 327px;
+    margin-left: auto;
 }
 .form-tiket .form-item {
     border-bottom:1px solid #FFFFFF;
     padding-bottom: 7px;
     margin-bottom: 7px;
+    position: relative;
+}
+.form-tiket .textarea {
+    border-bottom:unset;
+    padding-bottom: 7px;
+    margin-bottom: 7px;
+    position: relative;
 }
 .form-tiket i.gj-icon {
     display: none;
@@ -75,15 +94,22 @@
     margin-bottom: -4px;
 }
 .form-tiket span.icon {
+    position: relative;
     background: transparent;
     border: 1px solid #FFFFFF;
     border-radius: 50%;
     color: #FFFFFF;
-    font-size: 18px;
-    padding: 1px 7.4px;
+    font-size: 14px;
+    padding: 1px 14px;
     width: 30px;
     height: 30px;
     margin-top: 5px;
+}
+.form-tiket span.icon i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 .form-tiket label {
     font-style: normal;
@@ -94,11 +120,25 @@
     color: #FFFFFF;
     margin-bottom: 0;
 }
+.form-tiket .textarea label {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0.5px;
+    color: #FFFFFF;
+    margin-bottom: 10px;
+}
 .form-tiket input,
 .form-tiket input:focus,
 .form-tiket input:active,
-.form-tiket input:hover {
-    background: transparent;
+.form-tiket input:hover,
+.form-tiket select,
+.form-tiket select:focus,
+.form-tiket select:active,
+.form-tiket select:hover,
+.form-tiket select option {
+    background: transparent !important;
     font-style: normal;
     font-weight: 500;
     font-size: 14px;
@@ -110,12 +150,78 @@
     height: auto;
     box-shadow: none;
 }
-.form-tiket input:read-only {
+.form-tiket textarea,
+.form-tiket textarea:focus,
+.form-tiket textarea:active,
+.form-tiket textarea:hover,
+.form-tiket textarea option {
+    background: transparent !important;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0.5px;
+    color: #FFFFFF;
+    border: 1px solid #FFFFFF;
+    padding:0;
+    height: auto;
+    box-shadow: none;
+}
+.form-item .select2-container {
+    width: 100% !important;
+    position: relative;
+    border: unset;
+    margin-top: -10px;
+}
+.form-item .select2-container--default .select2-selection--single {
+    color: #FFFFFF !important;
+    background: transparent !important;
+    border: unset !important;
+    height: auto !important;
+}
+.form-item .select2-container--default .select2-selection--single .select2-selection__rendered {
+    color: #FFFFFF !important;
+    background: transparent !important;
+    font-size: 14px !important;
+    line-height: 17px !important;
+    padding: 0px !important;
+}
+.form-item .select2-container--default .select2-selection--single .select2-selection__arrow b {
+    border-color: #FFFFFF transparent transparent transparent !important;
+    margin-top: -5px !important;
+}
+.select2-container--default .select2-results>.select2-results__options {
+    background-color: #1A1D24e6;
+    border: unset;
+}
+.select2-results__option {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0.5px;
+    color: #FFFFFF;
+}
+.select2-container--default .select2-results__option--highlighted.select2-results__option--selectable,
+.select2-container--default .select2-results__option--selected {
+    color: #FFFFFF;
+    background-color: rgb(26, 29, 36) !important;
+    font-weight: 800;
+}
+.select2-container--open .select2-dropdown--below {
+    border: unset !important;
+    margin-top: 5px;
+}
+.select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow b {
+    border-width: 5px 4px 0 4px !important;
+}
+.form-tiket input:read-only,
+.form-tiket select:read-only {
     background: transparent;
 }
 .form-tiket input::placeholder {
     background: transparent;
-    color: #FFFFFF;
+    color: hsla(0, 0%, 100%, 0.7);
     opacity: 1;
 }
 .form-tiket .btn-submit {
@@ -165,6 +271,10 @@
 }
 
 @media (max-width:576px){
+    .form-tiket {   
+        max-width: 100%;
+        margin-left: 0;
+    }
     .list-info {
         margin-left: -15px;
         margin-right: -15px;
