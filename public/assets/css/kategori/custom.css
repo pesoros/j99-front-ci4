@@ -1,0 +1,78 @@
+body {
+    background-image: url(../../img/bg-kategori.jpg);
+    height: 100%;
+    width: 100%;
+    background-color: transparent;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+}
+h2 {
+    font-style: normal;
+    font-weight: 800;
+    font-size: 32px;
+    line-height: 48px;
+    padding-bottom: 25px;
+    letter-spacing: 0.5px;
+    text-align: center;
+    background: -webkit-linear-gradient(#FFFFFF, #636363);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.content-header img {
+    width: 350px;
+}
+#executive {
+    padding-top: 100px;
+}
+.content-item {
+    display: block;
+    position: relative;
+    margin-bottom: 30px;
+}
+.content-item img {
+    border-radius: 15px;
+}
+.content-item .content-desc {
+    position: absolute;
+    top: 0;
+    display: block;
+    width: calc(100% - 30px);
+    height: 100%;
+    background-color: rgb(26, 29, 36, 0.4);
+    padding: 10px 10px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 15px;
+}
+.content-item .content-desc span {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 18px;
+    text-align: right;
+    letter-spacing: 0.5px;
+    color: #FFFFFF;
+}
+.content-item .content-desc h3 {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 2.75rem;
+    line-height: 45px;
+    letter-spacing: 0.5px;
+    color: #FFFFFF;
+    margin-top: 15px;
+}
+.content-item p {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: 0.5px;
+    color: #f1f1f1;
+    padding-right: 25px;
+    padding-left: 25px;
+}

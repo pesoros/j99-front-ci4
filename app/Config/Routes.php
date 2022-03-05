@@ -34,6 +34,7 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'Home::index');
 $routes->get('reservasi', 'Reservasi::index');
 $routes->get('reservasi/isidata', 'Reservasi::isidata');
+$routes->get('kategori', 'Kategori::index');
 
 /*
  * --------------------------------------------------------------------

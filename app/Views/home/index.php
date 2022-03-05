@@ -105,7 +105,7 @@
 							
 							<div class="item-form" id="pariwisata">
 								<form class="form-tiket mt-3 p-4">
-									<a href="" class="btn btn-submit">Cari Kelas Armada</a>
+									<a href="<?= base_url('kategori') ?>" class="btn btn-submit">Cari Kelas Armada</a>
 									<div class="py-2 mt-2 form-item">
 										<div class="form-group mb-0 w-100">
 											<input type="text" name="nama" class="form-control" autocomplete="off" placeholder="Nama" >
@@ -254,10 +254,7 @@
 		</div>
 	</div>
 </section>
-<div class="d-flex flex-column item-auto">
-	<h5></h5>
-	<p></p>
-</div>
+
 <?= $this->endSection() ?>
 
 <?= $this->section('footer') ?>
