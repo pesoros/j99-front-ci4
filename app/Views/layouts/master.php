@@ -32,7 +32,7 @@
                             <a class="nav-link" href="<?= base_url('reservasi') ?>">Fasilitas</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="<?= base_url('kategori') ?>">Kelas Armada</a>
+                            <a class="nav-link" href="<?= base_url('kelas-armada') ?>">Kelas Armada</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Agen</a>
