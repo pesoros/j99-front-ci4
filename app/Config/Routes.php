@@ -35,6 +35,9 @@ $routes->get('/', 'Home::index');
 $routes->get('reservasi', 'Reservasi::index');
 $routes->get('reservasi/isidata', 'Reservasi::isidata');
 $routes->get('kategori', 'Kategori::index');
+$routes->get('paket', 'Paket::index');
+$routes->get('tiket', 'Tiket::index');
+$routes->get('tiket/detail', 'Tiket::detail');
 
 /*
  * --------------------------------------------------------------------

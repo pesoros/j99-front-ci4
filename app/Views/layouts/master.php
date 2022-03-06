@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdn1.katadata.co.id/template/assets/fonts/pro/css/pro.min.css"> 
     <?= $this->renderSection('library') ?>
     
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="<?= base_url() ?>/assets/css/style.css">
     <?= $this->renderSection('styles') ?>
 </head>
 
@@ -17,7 +17,7 @@
     <header>
         <nav class="navbar navbar-expand-lg fixed-top">
             <div class="container">
-                <img src="assets/img/logo.png" alt="Juragan 99" class="navbar-brand">
+                <img src="<?= base_url() ?>/assets/img/logo.png" alt="Juragan 99" class="navbar-brand">
                 <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="icon-bar top-bar"></span>
                     <span class="icon-bar middle-bar"></span>
@@ -66,7 +66,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous"></script>
-    <script src="assets/js/default.js"></script>
+    <script src="<?= base_url() ?>/assets/js/default.js"></script>
     <?= $this->renderSection('scripts') ?>
 
 </body>

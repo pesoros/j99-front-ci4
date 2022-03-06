@@ -93,7 +93,7 @@
 							</div>
 							
 							<div class="item-form" id="cekiket">
-								<form class="form-tiket mt-3 p-4">
+								<form class="form-tiket mt-3 p-4" action="<?= base_url('tiket') ?>">
 									<div class="py-2 my-3 form-item">
 										<div class="form-group mb-0 w-100">
 											<input type="text" name="noboked" class="form-control" autocomplete="off" placeholder="Nomor Booking / Tiket" >
@@ -105,7 +105,7 @@
 							
 							<div class="item-form" id="pariwisata">
 								<form class="form-tiket mt-3 p-4">
-									<a href="<?= base_url('kategori') ?>" class="btn btn-submit">Cari Kelas Armada</a>
+									<a href="<?= base_url('reservasi') ?>" class="btn btn-submit">Cari Kelas Armada</a>
 									<div class="py-2 mt-2 form-item">
 										<div class="form-group mb-0 w-100">
 											<input type="text" name="nama" class="form-control" autocomplete="off" placeholder="Nama" >
@@ -137,7 +137,7 @@
 							</div>
 							
 							<div class="item-form" id="cekpaket">
-								<form class="form-tiket mt-3 p-4">
+								<form class="form-tiket mt-3 p-4" action="<?= base_url('paket') ?>">
 									<div class="py-2 my-3 form-item">
 										<div class="form-group mb-0 w-100">
 											<input type="text" name="noresi" class="form-control" autocomplete="off" placeholder="Nomor Resi" >

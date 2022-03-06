@@ -5,7 +5,7 @@
 <?= $this->endSection() ?>
 
 <?= $this->section('styles') ?>
-	<link rel="stylesheet" href="assets/css/kategori/custom.css">
+	<link rel="stylesheet" href="<?= base_url() ?>/assets/css/kategori/custom.css">
 <?= $this->endSection() ?>
 
 <?= $this->section('content') ?>
@@ -13,13 +13,13 @@
 <section id="executive">
 	<div class="container">
         <div class="content-header">
-            <img src="assets/img/logo.png" alt="Juragan 99" class="img-fluid mx-auto d-block">
+            <img src="<?= base_url() ?>/assets/img/logo.png" alt="Juragan 99" class="img-fluid mx-auto d-block">
             <h2>EXECUTIVE CLASS</h2>
         </div>
         <div class="content-body">
             <div class="row">
                 <div class="col-12 col-sm-6 col-lg-4 content-item">
-                    <img src="assets/img/img-1.jpg" alt="Smart TV" class="img-fluid img-portrait">
+                    <img src="<?= base_url() ?>/assets/img/img-1.jpg" alt="Smart TV" class="img-fluid img-portrait">
                     <div class="content-desc">
                         <div class="d-flex justify-content-between">
                             <span>Fasilitas</span>
@@ -30,7 +30,7 @@
                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.</p>
                 </div>
                 <div class="col-12 col-sm-6 col-lg-4 content-item">
-                    <img src="assets/img/img-2.jpg" alt="USB Charge" class="img-fluid img-portrait">
+                    <img src="<?= base_url() ?>/assets/img/img-2.jpg" alt="USB Charge" class="img-fluid img-portrait">
                     <div class="content-desc">
                         <div class="d-flex justify-content-between">
                             <span>Fasilitas</span>
@@ -41,7 +41,7 @@
                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.</p>
                 </div>
                 <div class="col-12 col-sm-6 col-lg-4 content-item">
-                    <img src="assets/img/img-3.jpg" alt="Arm Rest" class="img-fluid img-portrait">
+                    <img src="<?= base_url() ?>/assets/img/img-3.jpg" alt="Arm Rest" class="img-fluid img-portrait">
                     <div class="content-desc">
                         <div class="d-flex justify-content-between">
                             <span>Fasilitas</span>
@@ -59,13 +59,13 @@
 <section id="superior">
 	<div class="container">
         <div class="content-header">
-            <img src="assets/img/logo.png" alt="Juragan 99" class="img-fluid mx-auto d-block">
+            <img src="<?= base_url() ?>/assets/img/logo.png" alt="Juragan 99" class="img-fluid mx-auto d-block">
             <h2>SUPERIOR CLASS</h2>
         </div>
         <div class="content-body">
             <div class="row">
                 <div class="col-12 col-sm-6 col-lg-4 content-item">
-                    <img src="assets/img/img-1.jpg" alt="Smart TV" class="img-fluid img-portrait">
+                    <img src="<?= base_url() ?>/assets/img/img-1.jpg" alt="Smart TV" class="img-fluid img-portrait">
                     <div class="content-desc">
                         <div class="d-flex justify-content-between">
                             <span>Fasilitas</span>
@@ -76,7 +76,7 @@
                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.</p>
                 </div>
                 <div class="col-12 col-sm-6 col-lg-4 content-item">
-                    <img src="assets/img/img-2.jpg" alt="USB Charge" class="img-fluid img-portrait">
+                    <img src="<?= base_url() ?>/assets/img/img-2.jpg" alt="USB Charge" class="img-fluid img-portrait">
                     <div class="content-desc">
                         <div class="d-flex justify-content-between">
                             <span>Fasilitas</span>
@@ -87,7 +87,7 @@
                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.</p>
                 </div>
                 <div class="col-12 col-sm-6 col-lg-4 content-item">
-                    <img src="assets/img/img-3.jpg" alt="Arm Rest" class="img-fluid img-portrait">
+                    <img src="<?= base_url() ?>/assets/img/img-3.jpg" alt="Arm Rest" class="img-fluid img-portrait">
                     <div class="content-desc">
                         <div class="d-flex justify-content-between">
                             <span>Fasilitas</span>

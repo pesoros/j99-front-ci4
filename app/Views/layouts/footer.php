@@ -2,7 +2,7 @@
     <div class="container text-md-start mt-5">
         <div class="d-flex flex-column flex-sm-row justify-content-sm-between mt-3">
             <div class="col-12 col-md-2 mb-4">
-                <img src="assets/img/logo-2.png" alt="Juragan 99" class="img-fluid mx-auto mx-sm-0 d-block">
+                <img src="<?= base_url() ?>/assets/img/logo-2.png" alt="Juragan 99" class="img-fluid mx-auto mx-sm-0 d-block">
             </div>
             <div class=" col-12 col-sm-6 mb-4">
                 <div class="d-flex flex-row justify-content-center">
@@ -68,5 +68,5 @@
 </div>
 
 <div class="text-center p-4 footer-logo" >
-    <img src="assets/img/logo.png" alt="Juragan 99">
+    <img src="<?= base_url() ?>/assets/img/logo.png" alt="Juragan 99">
 </div>

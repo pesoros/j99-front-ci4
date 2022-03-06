@@ -4,14 +4,35 @@ body {
     font-family: 'Lato', sans-serif;
     background: #1A1D24;
 }
-a {
+a,
+a:hover,
+a:active
+a:focus {
     text-decoration: none;
 }
 section {
     padding-top: 25px;
     padding-bottom: 25px;
 }
-
+.btn-submit {
+    color: #FFFFFF;
+    background: #D5031E;
+    border-radius: 7px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    letter-spacing: 0.5px;
+    width: 100%;
+    margin-top: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.btn-submit:hover,
+.btn-submit:focus,
+.btn-submit:active {
+    color: #FFFFFF;
+}
 /* slick */
 .slick-slider .slick-dots li {
     width: 10px;
@@ -141,6 +162,15 @@ section {
 .navbar .nav-link:active,
 .navbar .nav-link:focus {
     font-weight: 800;
+}
+.header2 .content-header {
+    display: block;
+    height: 90px;
+    margin-top: 66px;
+    width: 100%;
+    background: #D5031E;
+    border-bottom-left-radius: 24px;
+    border-bottom-right-radius: 24px;
 }
 /* end header */
 
@@ -348,3 +378,207 @@ ul.ui-autocomplete li p {
     margin-bottom: 0;
 }
 /* end ui autocomplete */
+
+/*tiket*/
+.content-tiket {
+    display: block;
+    position: relative;
+    background-color: #1A1D24;
+}
+.content-tiket .header-tiket {
+    background: #D5031E;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    display: block;
+    padding: 40px 30px 20px 30px;
+}
+.content-tiket .header-tiket .item h3 {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 29px;
+    letter-spacing: 0.5px;
+    color: #1A1D24;
+    margin-bottom: 0;
+    display: block;
+}
+.content-tiket .header-tiket .item p {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0.5px;
+    color: #1A1D24;
+    margin-bottom: 1px;
+    display: block;
+}
+.content-tiket .header-tiket .item span {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 0.5px;
+    color: #FFFFFF;
+    display: block;
+}
+.content-tiket .body-tiket {
+    background-color: #FFFFFF;
+    padding: 30px;
+}
+.content-tiket .body-tiket .dtl .form-group label {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0.5px;
+    color: #AAAAAA;
+    display: block;
+    margin-bottom: 3px;
+}
+.content-tiket .body-tiket .dtl .form-group span {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0.5px;
+    color: #000000;
+    display: block;
+}
+.content-tiket .footer-tiket {
+    display: block;
+    position: relative;
+    background-color: #FFFFFF;
+    padding: 15px 30px;
+    border-top: 3px dashed #1A1D24;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+.dots {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    display: block;
+    border-radius: 50%;
+    top: -2px;
+    transform: translateY(-50%);
+    background-color: #1A1D24;
+}
+.dots.dot-left {
+    left: -10px;
+}
+.dots.dot-right {
+    right: -10px;
+}
+.dots.dot-left-top {
+    left: -12px;
+    top: 6px;
+}
+.dots.dot-left-bottom {
+    left: -12px;
+    bottom: -13px;
+    top: auto;
+}
+
+.content-tiket-landscape {
+    display: block;
+    position: relative;
+    background-color: #1A1D24;
+}
+.content-tiket-landscape .header-tiket {
+    background: #1A1D24;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    display: block;
+    padding: 20px 30px 20px 15px;
+    border: 1px solid #FFFFFF;
+    border-right: dashed 2px #FFFFFF;
+}
+.content-tiket-landscape .header-tiket .item p {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 9px;
+    line-height: 11px;
+    letter-spacing: 0.5px;
+    color: #FFFFFF;
+    margin-bottom: 0;
+    display: block;
+}
+.content-tiket-landscape .header-tiket .item span {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 9px;
+    line-height: 11px;
+    letter-spacing: 0.5px;
+    color: #AAAAAA;
+    display: block;
+}
+.content-tiket-landscape .dots-vertical {
+    display: block;
+    position: relative;
+    text-align: center;
+    width: 100%;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.content-tiket-landscape .dots-vertical span {
+    width: 5px;
+    height: 5px;
+    display: block;
+    border-radius: 50%;
+    background-color: #AAAAAA;
+    margin-left: auto;
+    margin-right: auto;
+}
+.content-tiket-landscape .dots-vertical span:nth-child(2) {
+    width: 1px;
+    height: 15px;
+    display: block;
+    border-left: 1px dashed #AAAAAA;
+    background-color: transparent;
+    margin: 2px auto;
+}
+.content-tiket-landscape .body-tiket {
+    position: relative;
+    background: #1A1D24;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    display: block;
+    padding: 30px 15px 15px 15px;
+    border: 1px solid #FFFFFF;
+    border-left: 0px;
+}
+.content-tiket-landscape .body-tiket .dtl .form-group {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.content-tiket-landscape .body-tiket .dtl .form-group label {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 10px;
+    line-height: 12px;
+    letter-spacing: 0.5px;
+    color: #AAAAAA;
+    display: block;
+}
+.content-tiket-landscape .body-tiket .dtl .form-group span {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 0.5px;
+    color: #FFFFFF;
+    display: block;
+}
+.content-tiket-landscape .body-tiket .dtl .form-group span.harga {
+    font-weight: 600;
+    color: #D5031E;
+}
+.content-tiket-landscape .dots.dot-left-bottom {
+    border: 1px solid #FFFFFF;
+    border-bottom: 1px solid #1A1D24;
+}
+.content-tiket-landscape .dots.dot-left-top {
+    border: 1px solid #FFFFFF;
+    border-top: 1px solid #1A1D24;
+}
+/*end tiket*/
