@@ -33,6 +33,22 @@ section {
 .btn-submit:active {
     color: #FFFFFF;
 }
+@keyframes spinner {
+    to {transform: rotate(360deg);}
+}
+.btn.sm-loading:before {
+    content: '';
+    box-sizing: border-box;
+	display: inline-block;
+    width: 14px;
+    height: 14px;
+    margin-bottom: -2.5px;
+	margin-right: 5px;
+    border-radius: 50%;
+    border: 2px solid #DDDDDD;
+    border-top-color: #FFFFFF;
+    animation: spinner .6s linear infinite;
+}
 /* slick */
 .slick-slider .slick-dots li {
     width: 10px;
@@ -582,3 +598,121 @@ ul.ui-autocomplete li p {
     border-top: 1px solid #1A1D24;
 }
 /*end tiket*/
+
+/*end wizard*/
+.wizard {
+    position: relative;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 100%;
+}
+.wizard .nav-tabs {
+    border: unset;
+    width: auto;
+}
+.wizard ul > li span:nth-child(1) {
+    position: relative;
+    width: 58px;
+    height: 3px;
+    border: 3px solid #FFFFFF;
+} 
+.wizard ul > li:nth-child(1) span, 
+.wizard ul > li span:nth-child(2) {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    display: block;
+    border-radius: 50%;
+    background-color: #FFFFFF;
+    border: 3px solid #FFFFFF;
+} 
+.wizard ul > li.active span {
+    background-color: #1A1D24;
+    border: 3px solid #1A1D24;
+} 
+/*end wizard*/
+.gj-icon {
+    display: none;
+}
+.reservasi-header select, .reservasi-header input.datepicker {
+    box-sizing: border-box;
+    color: #FFFFFF;
+    background-color: rgb(26, 29, 36) !important;
+    height: 28px;
+    font-size: 14px !important;
+    line-height: 24px !important;
+    padding: 0px 20px 0px 8px;
+}
+.reservasi-header input.datepicker {
+    border: 1px solid #FFFFFFa6;
+    border-radius: 5px;
+}
+.select2-results {
+    border: 1px solid #FFFFFF;
+    border-top: unset;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+.select2-search--dropdown {
+    padding: 0 !important;
+    background-color: rgb(26, 29, 36) !important;
+}
+.select2-container--default .select2-search--dropdown .select2-search__field {
+    border: 1px solid #FFFFFFa6;
+    border-radius: 5px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    background-color: rgb(26, 29, 36) !important;
+    height: 28px;
+    font-size: 14px !important;
+    line-height: 24px !important;
+    padding: 0px 20px 0px 8px;
+}
+.select2-container--default .select2-selection--single {
+    color: #FFFFFF !important;
+    background: transparent !important;
+}
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    color: #FFFFFF !important;
+    background: transparent !important;
+    font-size: 14px !important;
+    line-height: 24px !important;
+}
+.select2-container--default .select2-selection--single .select2-selection__arrow b {
+    border-color: #FFFFFF transparent transparent transparent !important;
+    top: 14px !important;
+    right: 4px !important;
+}
+.select2-container--default .select2-results>.select2-results__options {
+    background-color: #1A1D24;
+    border: unset;
+}
+.select2-results__option {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0.5px;
+    color: #FFFFFF;
+}
+.select2-container--default .select2-results__option--highlighted.select2-results__option--selectable,
+.select2-container--default .select2-results__option--selected {
+    color: #FFFFFF;
+    background-color: #2e2e2e !important;
+    font-weight: 800;
+}
+.select2-container--open .select2-dropdown--below {
+    border: unset !important;
+    margin-top: -30px;
+    background-color: transparent !important;
+}
+.select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow b {
+    border-width: 5px 4px 0 4px !important;
+}
+.gj-datepicker input {
+    margin-top: 5px;
+}
+.gj-datepicker [role=right-icon] {
+    display: none;
+}

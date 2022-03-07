@@ -1,10 +1,9 @@
 <?= $this->extend('layouts/master') ?>
 
-<?= $this->section('library') ?>
+<?= $this->section('library') ?>	
+	<link rel="stylesheet" href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css">
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"/>
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"/>
-	<link rel="stylesheet" href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css">
-	<link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
 	<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 <?= $this->endSection() ?>
 
@@ -32,19 +31,32 @@
 						</ul>
 						<div id="content-form" >
 							<div class="item-form active" id="belitiket">
-								<form class="form-tiket mt-3 p-4">
+								<form class="form-tiket mt-3 p-4" id="formcaritiket" name="form" method="POST">
+									<div id="alert-tiket" role="alert"></div>
 									<div class="d-flex align-items-center form-item">
 										<span class="icon"><i class="fal fa-map-marker-alt"></i></span>
 										<div class="form-group ml-3 mb-0 w-100">
 											<label>Dari</label>
-											<input type="text" name="dari" id="dck" class="form-control" placeholder="Masukan Nama Daerah">
+											<select class="form-control" name="dari" id="slcdari">
+												<option value=""></option>
+												<option value="jakarta">Jakarta</option>
+												<option value="surabaya">Surabaya</option>
+												<option value="madura">Madura</option>
+												<option value="jayapura">Jayapura</option>
+											</select>
 										</div>
 									</div>
 									<div class="d-flex align-items-center form-item">
 										<span class="icon"><i class="fal fa-map-marker-alt"></i></span>
 										<div class="form-group ml-3 mb-0 w-100" >
 											<label>Ke</label>
-											<input type="text" name="tujuan" id="tck" class="form-control" placeholder="Masukan Nama Daerah" readonly>
+											<select class="form-control" name="tujuan" id="slctujuan">
+												<option value=""></option>
+												<option value="jakarta">Jakarta</option>
+												<option value="surabaya">Surabaya</option>
+												<option value="madura">Madura</option>
+												<option value="jayapura">Jayapura</option>
+											</select>
 										</div>
 									</div>
 									<div class="d-flex align-items-center form-item">
@@ -82,30 +94,32 @@
 										<div class="form-group ml-3 mb-0 w-100" >
 											<label>Kelas</label>
 											<select class="form-control d-none" name="kelas" id="slckelas">
-												<option value="0">Pilih Kelas</option>
+												<option value=""></option>
 												<option value="1">Executive</option>
 												<option value="2">Superior</option>
 											</select>
 										</div>
 									</div>
-									<button type="submit" class="btn btn-submit">Cari Tiket</button>
+									<button type="submit" class="btn btn-submit"  id="btn-cari-tiket">Cari Tiket</button>
 								</form>
 							</div>
 							
-							<div class="item-form" id="cekiket">
+							<div class="item-form" id="cekiket" name="formcektiket" method="POST">
 								<form class="form-tiket mt-3 p-4" action="<?= base_url('tiket') ?>">
+									<div id="alert-serach-ticket" role="alert"></div>
 									<div class="py-2 my-3 form-item">
 										<div class="form-group mb-0 w-100">
 											<input type="text" name="noboked" class="form-control" autocomplete="off" placeholder="Nomor Booking / Tiket" >
 										</div>
 									</div>
-									<button type="submit" class="btn btn-submit">Cari Tiket</button>
+									<button type="submit" class="btn btn-submit" id="btn-cek-tiket">Cek Tiket</button>
 								</form>
 							</div>
 							
-							<div class="item-form" id="pariwisata">
-								<form class="form-tiket mt-3 p-4">
+							<div class="item-form" id="pariwisata" name="formkelas" method="POST">
+								<form class="form-tiket mt-3 p-4" id="pesanarmada" name="formarmada" method="POST">
 									<a href="<?= base_url('kelas-armada') ?>" class="btn btn-submit">Cari Kelas Armada</a>
+									<div id="alert-pesan-armada" role="alert"></div>
 									<div class="py-2 mt-2 form-item">
 										<div class="form-group mb-0 w-100">
 											<input type="text" name="nama" class="form-control" autocomplete="off" placeholder="Nama" >
@@ -132,18 +146,19 @@
 											<textarea class="form-control" name="keterangan" rows="3"></textarea>
 										</div>
 									</div>
-									<button type="submit" class="btn btn-submit">Pesan</button>
+									<button type="submit" class="btn btn-submit" id="btn-kelas-armada">Pesan</button>
 								</form>
 							</div>
 							
-							<div class="item-form" id="cekpaket">
+							<div class="item-form" id="cekpaket" name="formcekpaket" method="POST">
 								<form class="form-tiket mt-3 p-4" action="<?= base_url('paket') ?>">
+									<div id="alert-serach-packet" role="alert"></div>
 									<div class="py-2 my-3 form-item">
 										<div class="form-group mb-0 w-100">
 											<input type="text" name="noresi" class="form-control" autocomplete="off" placeholder="Nomor Resi" >
 										</div>
 									</div>
-									<button type="submit" class="btn btn-submit">Cari Paket</button>
+									<button type="submit" class="btn btn-submit" id="btn-cari-paket">Cari Paket</button>
 								</form>
 							</div>
 						</div>
@@ -264,7 +279,6 @@
 <?= $this->section('scripts') ?>
 	<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script><script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js"></script>
-	<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 	<script>
 		var mdots = false, udots = true;

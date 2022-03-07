@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Juragan 99</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn1.katadata.co.id/template/assets/fonts/pro/css/pro.min.css"> 
+    <link rel="stylesheet" href="<?= base_url(); ?>/assets/fonts/pro/css/pro.min.css"> 
     <?= $this->renderSection('library') ?>
     
     <link rel="stylesheet" href="<?= base_url() ?>/assets/css/style.css">

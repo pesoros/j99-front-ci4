@@ -1,3 +1,5 @@
+var issubmit = false;
+//show hide input pulang
 var pp = document.getElementById("pulangpergi");
 var pu = document.getElementById("pulang");
 var crtd = '', slcd = '';
@@ -10,45 +12,99 @@ pp.addEventListener('click',function(){
         $('#pulang').html('');
     }
 },false);
-
-function setpulang() {
+setpulang = function() {
     var phtml = '<div class="d-flex align-items-center"><span class="icon"><i class="fal fa-calendar"></i></span><div id="date-pulang" class="form-group ml-3 mb-0 w-100"><label>Pulang</label><input name="pulang" class="form-control" placeholder="mm/dd/yyyy" readonly></div></div>';
     $('#pulang').append(phtml);
     pu.classList.remove("d-none");
-    $('#date-pulang input').datepicker({ format: 'dd/mm/yyyy' });
-}
-
-function navTabs($id) {
-    const tabs = document.getElementById($id);
-    tabs.addEventListener('click',function(e) {
-        e = e || window.event;
-        if (document.querySelector('#'+$id+' li.active') !== null) {
-            document.querySelector('#'+$id+' li.active').classList.remove('active');
-        }
-        e.target.className += " active";
-        var dt = e.target.getAttribute('data-target');
-        if (dt !== null) {
-            var target = document.getElementById(dt);
-            var parent = target.parentNode.id;
-            if (document.querySelector('#'+ parent +' .active') !== null) {
-                document.querySelector('#'+ parent +' .active').classList.remove('active');
-            }
-            target.classList.add('active');
-        }
+    $('#date-pulang input').datepicker({ 
+        format: 'dd/mm/yyyy',
+        uiLibrary: 'bootstrap4',
+        iconsLibrary: 'fontawesome',
+        size: 'default'
     });
 }
+//end sho hide input pulang
 
-const ein = document.getElementsByClassName('input-number');
-for (var i = 0; i < ein.length; i++) {
-    ein[i].addEventListener('keypress',function (evt) {
-        this.value = this.value.replace(/[^+0-9]/, '');
-    });
+//submit cari tiket
+sbttiket = function(e) {
+    if(!issubmit) {
+        e.preventDefault();
+        var targetform = e.target.id;
+        issubmit = true;
+        btnloading('btn-cari-tiket',true);
+        $.ajax({
+			type	: "POST",
+			cache	: false,
+			url		: base_url+"/home/searchtiket",
+			data	: $('#'+targetform).serializeArray(),
+			success: function(data) {
+				if (data.indexOf("error-")<0){
+					window.location.href = base_url+"/reservasi";
+				} else {
+					alertform('alert-tiket', data, 'Error');
+                    btnloading('btn-cari-tiket',false, 'Cari Tiket');
+				}
+                issubmit = false;
+			},
+			error: function (xhr, ajaxOptions, thrownError) {
+				alertform('alert-tiket', thrownError, 'Error');
+                btnloading('btn-cari-tiket',false, 'Cari Tiket');
+                issubmit = false;
+			}
+		});
+    }
 }
+document.getElementById("formcaritiket").onsubmit = function(e) {
+    sbttiket(e);
+    return false;
+};
+// end submit cari tiket
+
+//submit kelas armada
+sbtarmada = function(e) {
+    if(!issubmit) {
+        e.preventDefault();
+        var targetform = e.target.id;
+        issubmit = true;
+        btnloading('btn-kelas-armada',true);
+        $.ajax({
+			type	: "POST",
+			cache	: false,
+			url		: base_url+"/home/requestarmada",
+			data	: $('#'+targetform).serializeArray(),
+			success: function(data) {
+				if (data.indexOf("error-")<0){
+					alertform('alert-pesan-armada', data, 'Success');
+                    var resetform = document.getElementById(targetform);
+                    resetform.reset();
+				} else {
+					alertform('alert-pesan-armada', data, 'Error');
+				}
+                btnloading('btn-kelas-armada',false, 'Pesan');
+                issubmit = false;
+			},
+			error: function (xhr, ajaxOptions, thrownError) {
+				alertform('alert-pesan-armada', thrownError, 'Error');
+                btnloading('btn-kelas-armada',false, 'Pesan');
+                issubmit = false;
+			}
+		});
+    }
+}
+document.getElementById("pesanarmada").onsubmit = function(e) {
+    sbtarmada(e);
+    return false;
+};
+// end submit kelas armada
 
 $( document ).ready(function() {
     navTabs('navbar-tiket');
-    $('#date-pergi input.datepicker').datepicker({ format: 'dd/mm/yyyy' });
-    
+    $('#date-pergi input.datepicker').datepicker({ 
+        format: 'dd/mm/yyyy',
+        uiLibrary: 'bootstrap4',
+        iconsLibrary: 'fontawesome',
+        size: 'default'
+    });
     $('.list-main').slick({
         dots: mdots,
         infinite: false,
@@ -104,120 +160,26 @@ $( document ).ready(function() {
         nextArrow: "#nextGallery",         
         autoplay: true
     });
-    var datalokasi = [
-        {
-            "searchFormLabel": "Jakarta",
-            "searchResultDefaultLabel": "Jakarta",
-            "label": "Jakarta",
-            "subLabel": "All terminals / boarding points in Jakarta",
-            "additionalInfo": null,
-            "code": "a102813",
-            "type": "CITY_GEO"
-        },
-        {
-            "searchFormLabel": "Bandung",
-            "searchResultDefaultLabel": "Bandung",
-            "label": "Bandung",
-            "subLabel": "All terminals / boarding points in Bandung",
-            "additionalInfo": null,
-            "code": "a103859",
-            "type": "CITY_GEO"
-        },
-        {
-            "searchFormLabel": "Surabaya",
-            "searchResultDefaultLabel": "Surabaya",
-            "label": "Surabaya",
-            "subLabel": "All terminals / boarding points in Surabaya",
-            "additionalInfo": null,
-            "code": "a103570",
-            "type": "CITY_GEO"
-        },
-        {
-            "searchFormLabel": "Yogyakarta",
-            "searchResultDefaultLabel": "Yogyakarta",
-            "label": "Yogyakarta",
-            "subLabel": "All terminals / boarding points in Yogyakarta",
-            "additionalInfo": null,
-            "code": "a107442",
-            "type": "CITY_GEO"
-        },
-        {
-            "searchFormLabel": "Semarang",
-            "searchResultDefaultLabel": "Semarang",
-            "label": "Semarang",
-            "subLabel": "All terminals / boarding points in Semarang",
-            "additionalInfo": null,
-            "code": "a106587",
-            "type": "CITY_GEO"
-        }
-    ];
-    var dck = document.getElementById('dck');
-    dck.addEventListener('click',function() {
-        this.readOnly = false;
-    });
-    dck.addEventListener('change',function() {
-        if(!slct) { this.value = crtd;} else {slct = false;}
-        this.readOnly = false;
-    });
-    $("#dck").autocomplete({
-        // source: "url('datalokasi/lokasi')",
-        source: datalokasi,
-        select: function( event, ui ) {
-            $( "#dck" ).val( ui.item.label );
-            crtd = ui.item.label;
-            slcd = true;
-            dck.readOnly = false;
-        },
-        change: function( event, ui ) {
-            if (!slcd) {
-                dck.value = crtd;
-            } else {
-                slcd = false;
-            }
-        }
-    }).data( "ui-autocomplete" )._renderItem = function( ul, item ) {
-        var inner_html = '<div class="d-flex flex-column item-auto"><h5>' + item.label + '</h5><p>' + item.subLabel + '</p></div>';
-        return $( "<li></li>" )
-                .data( "item.autocomplete", item )
-                .append(inner_html)
-                .appendTo( ul );
-    };
-    var tck = document.getElementById('tck');
-    tck.addEventListener('click',function() {
-        this.readOnly = false;
-    });
-    tck.addEventListener('change',function() {
-        if(!slct) { this.value = crtt;} else {slct = false;}
-        this.readOnly = false;
-    });
-    $("#tck").autocomplete({
-        // source: "url('datalokasi/lokasi')",
-        source: datalokasi,
-        select: function( event, ui ) {
-            $( "#tck" ).val( ui.item.label );
-            crtt = ui.item.label;
-            slct = true;
-            tck.readOnly = false;
-        },
-        change: function( event, ui ) {
-            if (!slct) {
-                tck.value = crtt;
-            } else {
-                slct = false;
-            }
-        }
-    }).data( "ui-autocomplete" )._renderItem = function( ul, item ) {
-        var inner_html = '<div class="d-flex flex-column item-auto"><h5>' + item.label + '</h5><p>' + item.subLabel + '</p></div>';
-        return $( "<li></li>" )
-                .data( "item.autocomplete", item )
-                .append(inner_html)
-                .appendTo( ul );
-    };
     
+    $("#slcdari").select2({
+        dropdownPosition: 'below',
+        placeholder: "Masukan Nama Daerah"
+    });
+    $("#slctujuan").select2({
+        dropdownPosition: 'below',
+        placeholder: "Masukan Nama Daerah"
+    });
     $("#slckelas").select2({
-        minimumResultsForSearch: -1
+        minimumResultsForSearch: -1,
+        dropdownPosition: 'below',
+        placeholder: "Pilih Kelas"
     });
     $("#slcpenumpang").select2({
-        minimumResultsForSearch: -1
+        minimumResultsForSearch: -1,
+        dropdownPosition: 'below'
+    });
+    
+    $(document).on('select2:open', () => {
+        document.querySelector('.select2-search__field').focus();
     });
 });

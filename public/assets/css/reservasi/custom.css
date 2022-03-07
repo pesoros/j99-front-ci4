@@ -1,0 +1,182 @@
+.content-reservasi, .reservasi-header {
+    display: block;
+    position: relative;
+}
+.content-reservasi h2 {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 22px;
+    letter-spacing: 0.5px;
+    color: #FFFFFF;
+}
+.reservasi-header label {
+    font-style: normal;
+    font-weight: 800;
+    font-size: 10px;
+    line-height: 12px;
+    letter-spacing: 0.5px;
+    color: #FFFFFF;
+}
+.reservasi-header .btn-submit {
+    font-size: 14px;
+    line-height: 24px;
+    height: 28px;
+    margin-top: 0;
+    padding: 0;
+    text-align: center;
+}
+#select2-slcpenumpang-results, #select2-slckelas-results {
+    margin-top: 30px !important;
+}
+.embed-responsive-13by9::before {
+    padding-top: 76.224%;
+}
+.card-item-one-top-left p {
+    font-style: normal;
+    font-weight: 800;
+    font-size: 16px;
+    line-height: 22px;
+    letter-spacing: 0.5px;
+    color: #1A1D24;
+    margin-bottom: 0;
+    text-align: left;
+}
+.card-item-one-top-left span {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 14px;
+    text-align: center;
+    letter-spacing: 0.5px;
+    color: #AAAAAA;;
+    margin-bottom: 0;
+}
+.card-item-one-top-right span {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: 0.5px;
+    color: #1A1D24;
+    text-align: right;
+    display: block;
+}
+.card-item-one-top-right p.harga {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 22px;
+    color: #D5031E;
+    text-align: right;
+}
+.card-item-one-top-right p.harga span {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 9px;
+    line-height: 11px;
+    color: #AAAAAA;
+    display:inline-block;
+}
+.card-item-one-bottom-left .item-bottom-left span {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 9px;
+    line-height: 11px;
+    letter-spacing: 0.5px;
+    color: #AAAAAA;
+}
+.card-item-one-bottom-left .item-bottom-left p {
+    font-style: normal;
+    font-weight: 800;
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 0.5px;
+    color: #1A1D24;
+    margin-bottom: -8px;
+    margin-top: -4px;
+    display: block;
+}
+.card-item-one-bottom-left .item-bottom-left span.dots:nth-child(1) {
+    margin-left: 5px;
+}
+.card-item-one-bottom-left .item-bottom-left span.dots:nth-child(3) {
+    margin-right: 5px;
+}
+.card-item-one-bottom-left .item-bottom-left span.dots {
+    position: relative;
+    width: 5px;
+    height: 5px;
+    display: block;
+    border-radius: 50%;
+    top: 0px;
+    transform: unset;
+    background-color: #AAAAAA;
+}
+.card-item-one-bottom-left .item-bottom-left span.dot-dashed {
+    position: relative;
+    width: auto;
+    min-height: 1px;
+    display: block;
+    border-bottom: 1px dashed #AAAAAA;
+    margin-bottom: 11px;
+    text-align: center;
+    padding-right: 3px;
+    padding-left: 3px;
+}
+.card-item-one-bottom-left .item-bottom-left span.dot-dashed span {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 6px;
+    line-height: 7px;
+    letter-spacing: 0.5px;
+    color: #AAAAAA;
+}
+.card-item-one-bottom-right p {
+    font-style: normal;
+    font-weight: 800;
+    font-size: 11px;
+    line-height: 13px;
+    text-align: right;
+    letter-spacing: 0.5px;
+    color: #1A1D24;
+    margin-bottom: 0;
+}
+.card-item-one-bottom-right p span {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 8px;
+    line-height: 10px;
+    text-align: right;
+    letter-spacing: 0.5px;
+    color: #AAAAAA;
+    display: block;
+}
+.card-item-one-bottom-right .btn-black {
+    font-style: normal;
+    font-weight: normal;
+    width: 30px;
+    height: 30px;
+    font-size: 14px;
+    line-height: 18px;
+    text-align: center;
+    letter-spacing: 0.5px;
+    color: #FFFFFF;
+    display: block;
+    background: #1A1D24;
+    padding: 0px 7px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.card-item-one-bottom-right .btn-submit {
+    height: 30px;
+    width: 60px;
+    font-weight: 800;
+    font-size: 10px;
+    line-height: 12px;
+    text-align: center;
+    letter-spacing: 0.5px;
+    color: #FFFFFF;
+    padding: 0px 5px;
+    margin-top: 0;
+}
