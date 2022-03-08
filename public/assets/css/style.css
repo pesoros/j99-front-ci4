@@ -716,3 +716,52 @@ ul.ui-autocomplete li p {
 .gj-datepicker [role=right-icon] {
     display: none;
 }
+
+/*loading bar*/
+#loadingbar  {
+    padding:10px;
+    width: 100%;
+}
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
+    }
+}
+@keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
+    }
+}
+.loading {
+    display: block;
+    width: 70px;
+    height: 78px;
+    margin: 30px auto;
+    background-image: url(../img/logo-2.png);
+    background-position: center center;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    position: relative;
+}
+.loading .spin {
+    border-radius: 50%;
+    width: 85px;
+    height: 85px;
+    margin-left: -8px;
+    margin-top: -9px;
+    border: 0.25rem solid rgba(138, 138, 138, 0.2);
+    border-top-color: #D5031E;
+    -webkit-animation: spin 1s infinite linear;
+    animation: spin 1s infinite linear;
+    position: absolute;
+}

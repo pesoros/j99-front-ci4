@@ -86,24 +86,39 @@ alertform = function(id, alertinfo, status) {
 }
 
 //change loading button submit
-btnloading = function(id, status, btntxt) {
+btnloading = function({ id = '', status = false, btntext = '', hidebtntext = false}) {
     if(id =='' || id == null) {return false;}
-    console.log(id); 
     if(status) {
         var target = document.getElementById(id);
         target.classList.add('sm-loading');
-        target.innerHTML = 'Loading...';
+        if (hidebtntext) {
+            target.innerHTML = '';
+        } else {
+            target.innerHTML = 'Loading...';
+        }
         target.disabled = true;
     } else {
         var target = document.getElementById(id);
         target.classList.remove('sm-loading');
-        target.innerHTML = btntxt;
+        target.innerHTML = btntext;
         target.removeAttribute("disabled");
+    }
+    return false;
+}
+
+loadingmore = function(id, status) {
+    if(id =='' || id == null) {return false;}
+    if(status) {
+        const target = document.getElementById(id);
+        var inerHtml = '<div id="loadingbar"><div class="loading"><div class="spin"></div></div></div>';
+        target.innerHTML += inerHtml;
+    } else {
+        const target = document.getElementById('loadingbar');
+        target.remove();
     }
 }
 
 //slect2 always above
-
 $( document ).ready(function() {
     var Defaults = $.fn.select2.amd.require('select2/defaults');
     $.extend(Defaults.defaults, {

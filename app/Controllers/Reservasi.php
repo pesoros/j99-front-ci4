@@ -14,4 +14,26 @@ class Reservasi extends BaseController
     {
         return view('reservasi/isidata');
     }
+    public function getFilterData()
+    {
+        return view('reservasi/listmore');
+    }
+    public function getmoredata()
+    {
+        $page = isset($_GET['page']) ? $_GET['page'] : '';
+        if($page != '' && $page > 1) {
+            if ($page <= 3) {
+                return view('reservasi/listmore');
+            }
+        } else {
+            return '';
+        }
+    }
+    public function getseatreserved()
+    {
+        $ldata['reserved'] =  Array( "A1", "A4","A5","B1","B4", "B5","B6", "C1", "D1");
+        
+        header('Content-Type: application/json');
+        echo json_encode($ldata);
+    }
 }

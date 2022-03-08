@@ -31,7 +31,10 @@ sbttiket = function(e) {
         e.preventDefault();
         var targetform = e.target.id;
         issubmit = true;
-        btnloading('btn-cari-tiket',true);
+        btnloading({
+            id : 'btn-cari-tiket',
+            status : true
+        });
         $.ajax({
 			type	: "POST",
 			cache	: false,
@@ -42,13 +45,21 @@ sbttiket = function(e) {
 					window.location.href = base_url+"/reservasi";
 				} else {
 					alertform('alert-tiket', data, 'Error');
-                    btnloading('btn-cari-tiket',false, 'Cari Tiket');
+                    btnloading({
+                        id : 'btn-cari-tiket',
+                        status : false,
+                        btntext : 'Cari Tiket',
+                    });
 				}
                 issubmit = false;
 			},
 			error: function (xhr, ajaxOptions, thrownError) {
 				alertform('alert-tiket', thrownError, 'Error');
-                btnloading('btn-cari-tiket',false, 'Cari Tiket');
+                btnloading({
+                    id : 'btn-cari-tiket',
+                    status : false,
+                    btntext : 'Cari Tiket',
+                });
                 issubmit = false;
 			}
 		});
@@ -56,7 +67,6 @@ sbttiket = function(e) {
 }
 document.getElementById("formcaritiket").onsubmit = function(e) {
     sbttiket(e);
-    return false;
 };
 // end submit cari tiket
 
@@ -66,7 +76,10 @@ sbtarmada = function(e) {
         e.preventDefault();
         var targetform = e.target.id;
         issubmit = true;
-        btnloading('btn-kelas-armada',true);
+        btnloading({
+            id : 'btn-kelas-armada',
+            status : true
+        });
         $.ajax({
 			type	: "POST",
 			cache	: false,
@@ -80,12 +93,20 @@ sbtarmada = function(e) {
 				} else {
 					alertform('alert-pesan-armada', data, 'Error');
 				}
-                btnloading('btn-kelas-armada',false, 'Pesan');
+                btnloading({
+                    id : 'btn-kelas-armada',
+                    status : false,
+                    btntext : 'Pesan',
+                });
                 issubmit = false;
 			},
 			error: function (xhr, ajaxOptions, thrownError) {
 				alertform('alert-pesan-armada', thrownError, 'Error');
-                btnloading('btn-kelas-armada',false, 'Pesan');
+                btnloading({
+                    id : 'btn-kelas-armada',
+                    status : false,
+                    btntext : 'Pesan',
+                });
                 issubmit = false;
 			}
 		});
@@ -93,7 +114,6 @@ sbtarmada = function(e) {
 }
 document.getElementById("pesanarmada").onsubmit = function(e) {
     sbtarmada(e);
-    return false;
 };
 // end submit kelas armada
 

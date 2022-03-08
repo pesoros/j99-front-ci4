@@ -180,3 +180,76 @@
     padding: 0px 5px;
     margin-top: 0;
 }
+/*kursi*/
+@media (min-width: 576px) {
+    #kursibusModal .modal-sm {
+        max-width: 250px;
+    }
+}
+#kursibusModal .modal-body,
+#kursibusModal .modal-content {
+    background: #C4C4C4;
+    border-radius: 24px;
+}
+#kursibusModal table tr {
+    margin-bottom: 10px;
+    display: inline-block;
+}
+#kursibusModal .item-top-right table tr,
+#kursibusModal .item-bottom-right table tr {
+    float: right;
+}
+#kursibusModal table tr td {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #DDDDDD;
+    box-sizing: border-box;
+    border-radius: 10px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 25px;
+    letter-spacing: 0.5px;
+    color: #000000;
+    text-align: center;
+    background-color: transparent;
+    margin-left: 3px;
+    margin-right: 3px;
+    display: inline-block;
+}
+
+#kursibusModal table tr td.reserved {
+    color: #AAAAAA;
+    background-color: #DDDDDD;
+    
+}
+#kursibusModal .modal-footer {
+    padding-top: 0;
+}
+#kursibusModal .modal-footer .info-status {
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+#kursibusModal .modal-footer .info-status span {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0.5px;
+    color: #000000;
+    position: relative;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+#kursibusModal .modal-footer .info-status span span {
+    width: 13px;
+    height: 13px;
+    border: 1px solid #DDDDDD;
+    border-radius: 50%;
+    background: transparent;
+    display: inline-block;
+    margin-bottom: -2px;
+}
+#kursibusModal .modal-footer .info-status span:nth-child(2) span {
+    background: #DDDDDD;
+}
