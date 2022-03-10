@@ -41,7 +41,7 @@
                 <div class="card-item-one-bottom-right d-flex">
                     <p><span>Sisa Kursi</span> 20 Kursi</p>
                     <button type="button" class="btn btn-black btn-reserved" data="A<?= $i ?>"><i class="fas fa-loveseat"></i></button>
-                    <button type="button" class="btn btn-submit">Pessan</button>
+                    <a href="<?= base_url('reservasi/isidata')?>" class="btn btn-submit">Pessan</a>
                 </div>
             </div>
         </div>

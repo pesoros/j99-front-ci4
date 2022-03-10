@@ -12,7 +12,7 @@ pp.addEventListener('click',function(){
         $('#pulang').html('');
     }
 },false);
-setpulang = function() {
+function setpulang() {
     var phtml = '<div class="d-flex align-items-center"><span class="icon"><i class="fal fa-calendar"></i></span><div id="date-pulang" class="form-group ml-3 mb-0 w-100"><label>Pulang</label><input name="pulang" class="form-control" placeholder="mm/dd/yyyy" readonly></div></div>';
     $('#pulang').append(phtml);
     pu.classList.remove("d-none");
@@ -26,7 +26,7 @@ setpulang = function() {
 //end sho hide input pulang
 
 //submit cari tiket
-sbttiket = function(e) {
+function sbttiket(e) {
     if(!issubmit) {
         e.preventDefault();
         var targetform = e.target.id;
@@ -71,7 +71,7 @@ document.getElementById("formcaritiket").onsubmit = function(e) {
 // end submit cari tiket
 
 //submit kelas armada
-sbtarmada = function(e) {
+function sbtarmada(e) {
     if(!issubmit) {
         e.preventDefault();
         var targetform = e.target.id;
@@ -118,6 +118,7 @@ document.getElementById("pesanarmada").onsubmit = function(e) {
 // end submit kelas armada
 
 $( document ).ready(function() {
+    setSelect2Above();
     navTabs('navbar-tiket');
     $('#date-pergi input.datepicker').datepicker({ 
         format: 'dd/mm/yyyy',

@@ -25,8 +25,8 @@ window.addEventListener("resize", setHeight);
 //regex input number
 const ein = document.getElementsByClassName('input-number');
 for (var i = 0; i < ein.length; i++) {
-    ein[i].addEventListener('keypress',function (evt) {
-        this.value = this.value.replace(/[^+0-9]/, '');
+    ein[i].addEventListener('keyup',function (evt) {
+        this.value = this.value.replace(/[^0-9]/g, '');
     });
 }
 
@@ -119,7 +119,7 @@ loadingmore = function(id, status) {
 }
 
 //slect2 always above
-$( document ).ready(function() {
+function setSelect2Above() {
     var Defaults = $.fn.select2.amd.require('select2/defaults');
     $.extend(Defaults.defaults, {
         dropdownPosition: 'auto'
@@ -189,4 +189,4 @@ $( document ).ready(function() {
         this.$dropdownContainer.css(css);
     };
 
-});
+};

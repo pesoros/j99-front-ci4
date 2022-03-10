@@ -1,6 +1,6 @@
 //get seat available
 var isshow = false;
-showseat = function(id) {
+function showseat(id) {
     if(!isshow) {
         isshow = true;
         $.ajax({
@@ -46,7 +46,7 @@ showseat = function(id) {
         return false;
     }
 }
-setbtnreserved = function() {
+function setbtnreserved() {
     const btnreserved = document.getElementsByClassName('btn-reserved');
     for (var i = 0; i < btnreserved.length; i++) {
         btnreserved[i].addEventListener('click',function () {
@@ -70,7 +70,7 @@ $(window).scroll(function () {
     }
 });
 
-infinteLoadMore = function() {
+function infinteLoadMore() {
     if (!isload) {
         isload = true;
         loadingmore('listresevasi', true);
@@ -102,7 +102,7 @@ infinteLoadMore = function() {
 //end load more data
 
 //filter data
-filterdata = function(e) {
+function filterdata(e) {
     if (!isload) {
         e.preventDefault();
         var targetform = e.target.id;
@@ -151,6 +151,7 @@ document.getElementById("searchform").onsubmit = function(e) {
 //end filter data
 
 $( document ).ready(function() {
+    setSelect2Above();
     $('#dateto').datepicker({ 
         format: 'dd/mm/yyyy',
         uiLibrary: 'bootstrap4',

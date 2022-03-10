@@ -36,7 +36,7 @@
         <div class="content-reservasi">
             <h2>Tiket Pergi</h2>
             <div class="reservasi-header">
-                <form class="search-form" id="searchform" name="form" method="POST">
+                <form class="search-form" id="searchform" name="formsearch" method="POST">
                     <div class="row align-items-center">
                         <div class="col-6 col-sm-3 col-lg-2">
                             <div class="form-group" >
@@ -156,7 +156,7 @@
                                     <div class="card-item-one-bottom-right d-flex">
                                         <p><span>Sisa Kursi</span> 20 Kursi</p>
                                         <button type="button" class="btn btn-black btn-reserved" data="A<?= $i ?>"><i class="fas fa-loveseat"></i></button>
-                                        <button type="button" class="btn btn-submit">Pessan</button>
+                                        <a href="<?= base_url('reservasi/isidata')?>" class="btn btn-submit">Pessan</a>
                                     </div>
                                 </div>
                             </div>

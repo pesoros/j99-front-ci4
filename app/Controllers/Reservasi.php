@@ -12,8 +12,10 @@ class Reservasi extends BaseController
 
     public function isidata()
     {
-        return view('reservasi/isidata');
+        $ldata['footer'] = view('layouts/footer'); 
+        return view('reservasi/isidata',$ldata);
     }
+
     public function getFilterData()
     {
         return view('reservasi/listmore');
@@ -35,5 +37,35 @@ class Reservasi extends BaseController
         
         header('Content-Type: application/json');
         echo json_encode($ldata);
+    }
+    public function payment()
+    {
+        $ldata['footer'] = view('layouts/footer'); 
+        return view('reservasi/payment',$ldata);
+    }
+    public function invoice()
+    {
+        $ldata['footer'] = view('layouts/footer'); 
+        return view('reservasi/invoice',$ldata);
+    }
+    public function addbooking()
+    {
+        return 'success';
+    }
+    public function addpayment()
+    {
+        return '079867';
+    }
+    public function confirmotp()
+    {
+        return '079867';
+    }
+    public function sentotp()
+    {
+        return '079867';
+    }
+    public function sentotpmail()
+    {
+        return '079867';
     }
 }
