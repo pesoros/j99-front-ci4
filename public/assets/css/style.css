@@ -36,6 +36,12 @@ section {
 .bg-black {
     background-color: #1A1D24;
 }
+.embed-responsive-13by9::before {
+    padding-top: 76.224%;
+}
+.border-radius-12 {
+    border-radius: 12px;
+}
 @keyframes spinner {
     to {transform: rotate(360deg);}
 }
@@ -182,10 +188,14 @@ section {
 .navbar .nav-link:focus {
     font-weight: 800;
 }
+.header2 {
+    display: block;
+    margin-top: 66px;
+    width: 100%;
+}
 .header2 .content-header {
     display: block;
     height: 90px;
-    margin-top: 66px;
     width: 100%;
     background: #D5031E;
     border-bottom-left-radius: 24px;

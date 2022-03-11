@@ -52,6 +52,8 @@ $routes->get('tiket', 'Tiket::index');
 $routes->get('tiket/detail', 'Tiket::detail');
 $routes->get('tentang-kami', 'Tentang_kami::index');
 $routes->get('fasilitas', 'Fasilitas::index');
+$routes->get('promosi', 'Promosi::index');
+$routes->get('promosi/getmoredata', 'Promosi::getmoredata');
 
 /*
  * --------------------------------------------------------------------

@@ -39,7 +39,7 @@
                         </li>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Promosi</a>
+                            <a class="nav-link" href="<?= base_url('promosi') ?>">Promosi</a>
                         </li>
                         </li>
                         <li class="nav-item">

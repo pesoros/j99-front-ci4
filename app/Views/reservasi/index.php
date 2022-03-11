@@ -115,9 +115,9 @@
                 <div class="row align-items-center mt-5" id="listresevasi">
                     <?php for($i=0; $i<6; $i++) { ?>
                     <div class="col-12 col-sm-6 col-lg-4 mb-4">
-                        <div class="card p-2">
+                        <div class="card p-2 border-radius-12">
                             <div class="embed-responsive embed-responsive-13by9">
-                                <img class="embed-responsive-item" src="<?= base_url(); ?>/assets/img/img-bus-1.jpg" alt="Card image cap">
+                                <img class="embed-responsive-item border-radius-12" src="<?= base_url(); ?>/assets/img/img-bus-1.jpg" alt="Card image cap">
                             </div>
                             <div class="card-body px-0 py-2">
                                 <div class="d-flex flex-row justify-content-between">
