@@ -35,6 +35,7 @@ $routes->get('/', 'Home::index');
 $routes->get('/', 'Home::searchtiket');
 $routes->get('/', 'Home::requestarmada');
 $routes->get('reservasi', 'Reservasi::index');
+$routes->get('reservasi/pulang', 'Reservasi::pulang');
 $routes->get('reservasi/isidata', 'Reservasi::isidata');
 $routes->get('reservasi/getmoredata', 'Reservasi::getmoredata');
 $routes->get('reservasi/getFilterData', 'Reservasi::getFilterData');
@@ -49,6 +50,8 @@ $routes->get('kelas-armada', 'Kategori::index');
 $routes->get('paket', 'Paket::index');
 $routes->get('tiket', 'Tiket::index');
 $routes->get('tiket/detail', 'Tiket::detail');
+$routes->get('tentang-kami', 'Tentang_kami::index');
+$routes->get('fasilitas', 'Fasilitas::index');
 
 /*
  * --------------------------------------------------------------------

@@ -9,6 +9,11 @@ class Reservasi extends BaseController
         $ldata['footer'] = view('layouts/footer'); 
         return view('reservasi/index',$ldata);
     }
+    public function pulang()
+    {
+        $ldata['footer'] = view('layouts/footer'); 
+        return view('reservasi/index2',$ldata);
+    }
 
     public function isidata()
     {

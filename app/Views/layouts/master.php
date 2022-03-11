@@ -29,7 +29,7 @@
                             <a class="nav-link" href="<?= base_url('') ?>">Beranda</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="<?= base_url('reservasi') ?>">Fasilitas</a>
+                            <a class="nav-link" href="<?= base_url('fasilitas') ?>">Fasilitas</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="<?= base_url('kelas-armada') ?>">Kelas Armada</a>
@@ -43,7 +43,7 @@
                         </li>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Tentang Kami</a>
+                            <a class="nav-link" href="<?= base_url('tentang-kami') ?>">Tentang Kami</a>
                         </li>
                         </li>
                         <li class="nav-item">

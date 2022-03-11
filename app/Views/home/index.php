@@ -78,7 +78,7 @@
 										
 									</div>
 									<div class="d-flex align-items-center form-item">
-										<span class="icon"><i class="fab fa-user-alt"></i></span>
+										<span class="icon"><i class="fal fa-user"></i></span>
 										<div class="form-group ml-3 mb-0 w-100" >
 											<label>Penumpang</label>
 											<select class="form-control d-none" name="penumpang" id="slcpenumpang">
