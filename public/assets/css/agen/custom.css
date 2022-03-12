@@ -1,0 +1,218 @@
+section {
+    display: block;
+    position: relative;
+    height: auto;
+    width: 100%;
+    padding-top: 40px;
+    margin-top: 66px;
+}
+#secagen h2 {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 43px;
+    letter-spacing: 0.5px;
+    color: #FFFFFF;
+}
+.content-header {
+    margin-bottom: 15px;
+}
+.content-header input#customsearch {
+    border: 1px solid #ffffffb3;
+    height: calc(1.5em + 0.75rem + 2px);
+    padding: 0.375rem 0.75rem;
+    background: transparent !important;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0.5px;
+    color: #000000;
+    letter-spacing: 0.5px;
+    height: auto;
+    box-shadow: none;
+}
+.content-header input::placeholder{
+    background: transparent;
+    color: rgba(161, 161, 161, 0.7);
+    opacity: 1;
+}
+.content-header .btn-rsch{
+    background: #FFFFFF;
+    border-radius: 6px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    letter-spacing: 0.5px;
+    color: #000000;
+    margin-left: 5px;
+}
+.content-header ul.navtabs {
+    list-style: none;
+    margin-bottom: 0;
+}
+.content-header .nav-tabs {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: 0.5px;
+    color: #FFFFFF;
+    margin-left: 20px;
+    margin-right: 20px;
+    cursor: pointer;
+    padding-left: 0;
+}
+.content-header .nav-tabs:nth-child(1) {
+    margin-left: 0;
+}
+.content-header .nav-tabs:last-child {
+    margin-right: 0;
+}
+.content-body {
+    background: #262A33;
+    border-radius: 12px;
+    padding: 25px;
+}
+#tablelist_wrapper {
+    min-height: 250px;
+}
+#tablelist {
+    margin-bottom: 20px;
+}
+#tablelist thead tr {
+    border-bottom: 1px solid #FFFFFF;
+}
+#tablelist thead tr th {
+    border: unset;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0.5px;
+    color: #FFFFFF;
+    border-bottom: 1px solid #FFFFFF;
+}
+#tablelist tbody tr {
+    background: transparent;
+}
+#tablelist tbody tr td {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0.5px;
+    color: #FFFFFF;
+    border: unset;
+}
+
+.dataTables_info {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 0.5px;
+    color: #FFFFFF !important;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+    font-style: normal;
+    font-weight: 400;
+    color: #FFFFFF !important;
+    padding: 0em 0.6em;
+    background: transparent !important;
+    letter-spacing: 0.5px;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover,
+.dataTables_wrapper .dataTables_paginate .paginate_button:active,
+.dataTables_wrapper .dataTables_paginate .paginate_button:focus {
+    font-weight: 600;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button.disabled,
+.dataTables_wrapper .dataTables_paginate .paginate_button.disabled:hover,
+.dataTables_wrapper .dataTables_paginate .paginate_button.disabled:active,
+.dataTables_wrapper .dataTables_paginate .paginate_button.disabled:focus {
+    color: #c2c2c2 !important;
+    font-weight: 400;
+    cursor: no-drop;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button.current {
+    font-style: normal;
+    font-weight: 800;
+    color: #FFFFFF !important;
+    padding: 0em 0.6em;
+    background: transparent !important;
+    letter-spacing: 0.5px;
+    border: unset;  
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.current:hover,
+.dataTables_wrapper .dataTables_paginate .paginate_button.current:active,
+.dataTables_wrapper .dataTables_paginate .paginate_button.current:focus {
+    font-weight: 800;
+    color: #FFFFFF !important;
+    padding: 0em 0.6em;
+    background: transparent !important;
+    letter-spacing: 0.5px;
+    border: unset;  
+}
+@media (min-width: 992px) {
+    
+    .dataTables_info {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
+    #tablelist_paginate {
+        position: absolute;
+        bottom: -7px;
+        right: 0;
+    }
+}
+
+@media (max-width: 1199px) {
+    .position-1 {
+        -webkit-box-ordinal-group: 2;
+        -moz-box-ordinal-group: 2;
+        -ms-flex-order: 2;
+        -webkit-order: 2;
+        order: 1;
+        margin-bottom: 15px;
+        margin-left: auto;
+    }
+    .position-2 ul.navtabs::-webkit-scrollbar {
+        display: block;
+        width: 5px;
+    }
+    .position-2 ul.navtabs {
+        overflow-x: scroll !important;
+        white-space: nowrap;
+        width: 100%;
+        overflow: hidden; 
+        margin-bottom: -15px;
+    }
+    .position-2 {
+        -webkit-box-ordinal-group: 2;
+        -moz-box-ordinal-group: 2;
+        -ms-flex-order: 2;
+        -webkit-order: 2;
+        order: 2;
+    }
+}
+@media (max-width: 991px) {
+    .position-2 ul.navtabs {
+        width: calc(100vw - 30px);
+    }
+}
+@media (max-width: 576px) {
+    
+    #table-responsive {
+        overflow-x:auto;
+    }
+    #tablelist {
+        border-collapse: collapse;
+        border-spacing: 0;
+        width: 650px !important;
+    }
+}

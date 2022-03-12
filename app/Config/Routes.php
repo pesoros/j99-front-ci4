@@ -54,6 +54,8 @@ $routes->get('tentang-kami', 'Tentang_kami::index');
 $routes->get('fasilitas', 'Fasilitas::index');
 $routes->get('promosi', 'Promosi::index');
 $routes->get('promosi/getmoredata', 'Promosi::getmoredata');
+$routes->get('agen', 'Agen::index');
+$routes->get('agen/getdata', 'Agen::getData');
 
 /*
  * --------------------------------------------------------------------
