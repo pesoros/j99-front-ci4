@@ -176,7 +176,7 @@ section {
 }
 .navbar .nav-link {
     font-style: normal;
-    font-weight: 500;
+    font-weight: 400;
     font-size: 18px;
     line-height: 22px;
     letter-spacing: 0.5px;
@@ -185,7 +185,7 @@ section {
 .navbar .nav-link:hover,
 .navbar .nav-link:active,
 .navbar .nav-link:focus {
-    font-weight: 800;
+    font-weight: 600;
 }
 .header2 {
     display: block;
