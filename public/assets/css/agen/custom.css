@@ -204,6 +204,11 @@ section {
     .position-2 ul.navtabs {
         width: calc(100vw - 30px);
     }
+    .position-1 {
+        margin-left: 0;
+        margin-left: 0;
+        width: 100%;
+    }
 }
 @media (max-width: 576px) {
     
