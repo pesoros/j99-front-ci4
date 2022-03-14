@@ -16,9 +16,9 @@ class Agen extends BaseController
         $draw = $_POST['draw'];
         $row = $_POST['start'];
         $rowperpage = $_POST['length']; // Rows display per page
-        $columnIndex = $_POST['order'][0]['column']; // Column index
-        $columnName = $_POST['columns'][$columnIndex]['data']; // Column name
-        $columnSortOrder = $_POST['order'][0]['dir']; // asc or desc
+        // $columnIndex = $_POST['order'][0]['column']; // Column index
+        // $columnName = $_POST['columns'][$columnIndex]['data']; // Column name
+        // $columnSortOrder = $_POST['order'][0]['dir']; // asc or desc
         $searchValue = $_POST['search']['value']; // Search value
         if ($searchByKota != '' || $searchByPropinsi != '' ) {
             
@@ -43,14 +43,14 @@ class Agen extends BaseController
                 1=> Array(
                     "id" => '2',
                     "kota" => 'Jakarta',
-                    "namaAgen" => 'Agen Surabaya Oy',
+                    "namaAgen" => 'Agen Jakarta Oy',
                     "alamat" => 'Jl. Jalan Men No. 01, 60181',
                     "telepon" => '081234567890'
                 ),
                 2=> Array(
                     "id" => '3',
                     "kota" => 'Bandung',
-                    "namaAgen" => 'Agen Surabaya Oy',
+                    "namaAgen" => 'Agen Bandung Oy',
                     "alamat" => 'Jl. Jalan Men No. 01, 60181',
                     "telepon" => '081234567890'
                 )
