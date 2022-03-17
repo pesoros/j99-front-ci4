@@ -30,6 +30,7 @@
                 </li>
             </ul>
         </div>
+    </div>
 </div>
 <section>
 	<div class="container">

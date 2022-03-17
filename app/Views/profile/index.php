@@ -1,0 +1,136 @@
+<?= $this->extend('layouts/master') ?>
+
+<?= $this->section('library') ?>	
+	<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css">
+<?= $this->endSection() ?>
+
+<?= $this->section('styles') ?>
+    <link rel="stylesheet" href="<?= base_url(); ?>/assets/css/profile/custom.css">
+<?= $this->endSection() ?>
+
+<?= $this->section('content') ?>
+<section>
+	<div class="container">
+        <div class="d-flex flex-column flex-md-row">
+            <div class="card-header" id="cardheader">
+                <ul class="d-flex flex-row flex-md-column">
+                    <li class="nav-item-scroolto active" data-target="yourprofile">Profile</li>
+                    <li class="nav-item-scroolto" data-target="mobilephone">Mobile Phone</li>
+                    <li class="nav-item-scroolto" data-target="changepass">Change Password</li>
+                </ul>
+            </div>
+            <div class="card-body" id="cardbody">
+                <div class="item-card" >
+                    <? //Profile ?>
+                    <div class="card-header has-anchor" id="yourprofile">
+                        <p class="profile-header">Your Profile</p>
+                        <p class="profile-title">Personal information</p>
+                        <p>This information helps with identification so that others on your team are able to recognize you easily.</p>
+                    </div>
+                    <div class="card-body">
+                        <form class="form-your-profile" id="formyourprofile" name="formyourprofile" method="POST">
+                            <div id="alert-profile" role="alert"></div>
+                            <div class="mb-0 form-group">
+                                <div class="input-text">
+                                    <div class="input-text-label">
+                                        <span>Full name</span>
+                                    </div>
+                                    <div class="input-text-content">
+                                        <input type="text" name="fullName" id="profilefullname" value="" placeholder="Enter your full name">
+                                    </div>
+                                </div>
+                                <div class="input-text">
+                                    <div class="input-text-label">
+                                        <span>Email</span>
+                                    </div>
+                                    <div class="input-text-content">
+                                        <input type="text" name="email" id='profileemail' value="" placeholder="Enter your email">
+                                    </div>
+                                </div>
+                                <button class="btn btn-submit btn-md btn-block w-auto mt-4" disabled="" type="submit" id="btnprofile">Save</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="divider-settings my-4"></div>
+                    
+                    <? //Mobile ?>
+                    <div class="card-header has-anchor" id="mobilephone">
+                        <p class="profile-title">Mobile settings</p>
+                        <p>Register your phone number to add greater security to your account.</p>
+                    </div>
+                    <div class="card-body">
+                        <form class="form-mobile-phone" id="formmobilephone" name="formmobilephone" method="POST">
+                            <div id="alert-phone" role="alert"></div>
+                            <div class="input-phone-number-container">
+                                <div class="d-flex">
+                                    <div class="selector selector-country-code">
+                                        <div class="selector-selected">
+                                            <div class="d-flex">
+                                                <img class="country-flag-img m-auto" src="https://country-flags-images.s3.amazonaws.com/flags/id.svg" alt="country-flag" />
+                                                <span class="country-label-selected">+62</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="input-text input-phone-number-value block">
+                                        <div class="input-text-content">
+                                            <input type="tel" autocomplete="off" value="" placeholder="Enter your phoen number" class="input-number" id="phonenumber"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="btn btn-submit btn-md btn-block w-auto mt-4" type="submit" disabled="" id="btnphone">Save</button>
+                        </form>
+                    </div>
+
+                    <div class="divider-settings my-4"></div>
+
+                    <? //Change password ?>
+                    <div class="card-header has-anchor" id="changepass">
+                        <p class="profile-title">Change password</p>
+                    </div>
+                    <div class="card-body pt-0">
+                        <form class="form--change-password" id="formchangepassword" name="formchangepassword" method="POST">
+                            <div id="alert-change-password" role="alert"></div>
+                            <div class="mb-0 form-group" >
+                                <div class="input-text">
+                                    <div class="input-text-label">
+                                        <span> Current password</span>
+                                    </div>
+                                    <div class="input-text-content">
+                                        <input type="password" placeholder="Enter your current password" name="currentPassword" id="currentpassword" value="" />
+                                    </div>
+                                </div>
+                                <div class="input-text">
+                                    <div class="input-text-label">
+                                        <span>New password</span>
+                                    </div>
+                                    <div class="input-text-content with-icon">
+                                        <input type="password" placeholder="Enter your new password" name="newPassword" id="newpassword" value="" />
+                                        <div class="input-text-icon right cursor">
+                                            <span class="toggle-password" id="toggle-password">
+                                                <i class="fal fa-eye"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="btn btn-submit btn-md btn-block w-auto mt-4" disabled="" type="submit" id="btnchangepass">Save</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+	</div>
+</section>
+
+<?= $this->endSection() ?>
+
+<?= $this->section('footer') ?>
+	<?= $footer; ?>
+<?= $this->endSection() ?>
+
+<?= $this->section('scripts') ?>
+    <script src="<?= base_url(); ?>/assets/js/profile/custom.js"></script>
+<?= $this->endSection() ?> 

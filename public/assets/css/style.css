@@ -42,6 +42,10 @@ section {
 .border-radius-12 {
     border-radius: 12px;
 }
+.divider-settings {
+    border: 1px solid #f2f2f2;
+    margin: -2.25rem;
+}
 @keyframes spinner {
     to {transform: rotate(360deg);}
 }
