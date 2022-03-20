@@ -1,8 +1,7 @@
 <?= $this->extend('layouts/master') ?>
 
 <?= $this->section('library') ?>	
-	<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css">
+
 <?= $this->endSection() ?>
 
 <?= $this->section('styles') ?>

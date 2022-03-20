@@ -784,3 +784,97 @@ ul.ui-autocomplete li p {
     animation: spin 1s infinite linear;
     position: absolute;
 }
+
+/* login */
+#loginmodal .modal-content {
+    background-color: #1a1d24;
+    color: #FFFFFF;
+    border-radius: 12px;
+}
+.text-label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 7px;
+    margin-top: 10px;
+}
+.text-label span {
+    display: flex;
+    align-items: baseline;
+    font-size: 14px;
+    line-height: 17px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: #ffffff;
+}
+.text-content {
+    background-color: transparent;
+    border-radius: 4px;
+    display: flex;
+    border: 1px solid #FFFFFF;
+    width: 100%;
+    margin-bottom: 7px;
+}
+.text-content input {
+    border: none;
+    background-color: transparent !important;
+    font-size: 16px;
+    line-height: 21px;
+    width: 100%;
+    color: #ffffff;
+    border-radius: 4px;
+    padding: 8.5px 8px;
+    box-shadow: none !important;
+    outline-style: none !important;
+}
+.text-content input:hover,
+.text-content input:active,
+.text-content input:hover {
+    border: none !important;
+    box-shadow: none !important;
+    outline-style: none !important;
+    color: #ffffff;
+}
+.text-icon {
+    padding: 0 2.5px;
+    display: flex;
+    align-items: center;
+}
+.text-icon.right {
+    margin-left: 8px;
+}
+.text-icon span {
+    display: flex;
+    align-items: baseline;
+    font-size: 18px;
+    line-height: 22px;
+    font-weight: 600;
+    padding-right: 10px;
+    letter-spacing: 0.5px;
+    color: #ffffff;
+}
+#loginmodal .forgot-pass {
+    font-size: 14px;
+    line-height: 16px;
+    font-weight: 600;
+    padding-right: 10px;
+    letter-spacing: 0.5px;
+    color: #ffffff;
+    text-align: right;
+    display: block;
+}
+#loginmodal .text-daftar {
+    font-size: 14px;
+    line-height: 16px;
+    font-weight: 600;
+    padding-right: 10px;
+    letter-spacing: 0.5px;
+    color: #ffffff;
+    text-align: center;
+    display: inline-block;
+}
+#loginmodal .close {
+    position: absolute;
+    right: 15px;
+    top: 5px;
+    color: #FFFFFF;
+}

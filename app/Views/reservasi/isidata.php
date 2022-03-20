@@ -88,7 +88,7 @@
 					<div class="col-12 col-sm-4">
 						<div class="form-group">
 							<label>NIK</label>
-							<input type="text" name="pemail" class="form-control input-number" autocomplete="off">
+							<input type="text" name="pnik" class="form-control input-number" autocomplete="off">
 						</div>
 					</div>
 					<div class="col-12 col-sm-4">

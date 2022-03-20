@@ -118,6 +118,66 @@ loadingmore = function(id, status) {
     }
 }
 
+
+//login
+const logineye = document.getElementById('login-password');
+if(logineye){
+    logineye.addEventListener("click", function() {
+        const x = document.getElementById('lpassword');
+        if (x.getAttribute("type") === "password") {
+            x.setAttribute("type", "text");
+            this.innerHTML = '<i class="fal fa-eye-slash"></i>';
+        } else {
+            x.setAttribute("type", "password");
+            this.innerHTML = '<i class="fal fa-eye"></i>';
+        }
+    });
+}
+
+var islogin = false;
+function sbtlogin(e) {
+    if(!issubmit) {
+        e.preventDefault();
+        var targetform = e.target.id;
+        islogin = true;
+        btnloading({
+            id : 'btnlogin',
+            status : true
+        });
+        $.ajax({
+			type	: "POST",
+			cache	: false,
+			url		: base_url+"/login",
+			data	: $('#'+targetform).serializeArray(),
+			success: function(data) {
+				if (data.indexOf("error-")<0){
+					window.location.href = base_url;
+				} else {
+					alertform('alert-login', data, 'Error');
+                    btnloading({
+                        id : 'btnlogin',
+                        status : false,
+                        btntext : 'Login',
+                    });
+				}
+                islogin = false;
+			},
+			error: function (xhr, ajaxOptions, thrownError) {
+				alertform('alert-login', thrownError, 'Error');
+                btnloading({
+                    id : 'btnlogin',
+                    status : false,
+                    btntext : 'Login',
+                });
+                islogin = false;
+			}
+		});
+    }
+}
+document.getElementById("formlogin").onsubmit = function(e) {
+    sbtlogin(e);
+};
+
 //slect2 always above
 function setSelect2Above() {
     var Defaults = $.fn.select2.amd.require('select2/defaults');
@@ -190,3 +250,4 @@ function setSelect2Above() {
     };
 
 };
+
