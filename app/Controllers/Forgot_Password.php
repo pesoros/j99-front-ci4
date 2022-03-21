@@ -2,14 +2,14 @@
 
 namespace App\Controllers;
 
-class Daftar extends BaseController
+class Forgot_Password extends BaseController
 {
     public function index()
     {
         $ldata['footer'] = view('layouts/footer'); 
-        return view('daftar/index',$ldata);
+        return view('forgot_password/index',$ldata);
     } 
-    public function addmember()
+    public function sentpass()
     {
         return 'success';
     } 

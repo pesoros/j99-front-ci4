@@ -61,7 +61,10 @@ $routes->get('profile/update', 'Profile::update');
 $routes->get('profile/updatephone', 'Profile::updatephone');
 $routes->get('profile/updatepass', 'Profile::updatepass');
 $routes->get('daftar', 'Daftar::index');
+$routes->get('daftar/add', 'Daftar::addmember');
 $routes->get('login', 'Login::index');
+$routes->get('forgot-password', 'Forgot_Password::index');
+$routes->get('forgot-password/sentpass', 'Forgot_Password::sentpass');
 
 /*
  * --------------------------------------------------------------------

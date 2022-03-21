@@ -104,7 +104,7 @@
                         </div>
                         
                         <div class="mb-0 form-group" >
-                            <a href="<?= base_url('forg0t-password')?>" class="forgot-pass">Lupa Password</a>
+                            <a href="<?= base_url('forgot-password')?>" class="forgot-pass">Lupa Password</a>
                         </div>
                         <div class="mb-0 form-group" >
                             <button type="submit" class="btn btn-submit" id="btnlogin">login</button>

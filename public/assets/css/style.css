@@ -790,6 +790,7 @@ ul.ui-autocomplete li p {
     background-color: #1a1d24;
     color: #FFFFFF;
     border-radius: 12px;
+    border: 1px solid rgb(255, 255, 255, 0.8);
 }
 .text-label {
     display: flex;
@@ -862,7 +863,7 @@ ul.ui-autocomplete li p {
     text-align: right;
     display: block;
 }
-#loginmodal .text-daftar {
+.text-daftar {
     font-size: 14px;
     line-height: 16px;
     font-weight: 600;

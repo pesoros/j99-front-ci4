@@ -26,7 +26,7 @@ function sbtdaftar(e) {
         $.ajax({
 			type	: "POST",
 			cache	: false,
-			url		: base_url+"/daftar/add",
+			url		: base_url+"/daftar/addmember",
 			data	: $('#'+targetform).serializeArray(),
 			success: function(data) {
 				if (data.indexOf("error-")<0){
