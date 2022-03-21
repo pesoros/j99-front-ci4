@@ -785,13 +785,6 @@ ul.ui-autocomplete li p {
     position: absolute;
 }
 
-/* login */
-#loginmodal .modal-content {
-    background-color: #1a1d24;
-    color: #FFFFFF;
-    border-radius: 12px;
-    border: 1px solid rgb(255, 255, 255, 0.8);
-}
 .text-label {
     display: flex;
     align-items: center;
@@ -853,29 +846,44 @@ ul.ui-autocomplete li p {
     letter-spacing: 0.5px;
     color: #ffffff;
 }
+
+/* login */
+#loginmodal .modal-content {
+    background-color: #E5E5E5;
+    color: #1A1D24;
+    border-radius: 12px;
+    border: 1px solid rgb(255, 255, 255, 0.8);
+}
+#loginmodal .text-label span {
+    color: #1A1D24;
+}
+#loginmodal .text-content {
+    border: 1px solid #1A1D24 !important;
+}
+#loginmodal .text-content input {
+    color: #1A1D24;
+}
+#loginmodal .text-content input:hover,
+#loginmodal .text-content input:active,
+#loginmodal .text-content input:focus {
+    color: #1A1D24 !important;
+}
 #loginmodal .forgot-pass {
     font-size: 14px;
     line-height: 16px;
     font-weight: 600;
     padding-right: 10px;
     letter-spacing: 0.5px;
-    color: #ffffff;
+    color: #1A1D24;
     text-align: right;
     display: block;
 }
-.text-daftar {
-    font-size: 14px;
-    line-height: 16px;
-    font-weight: 600;
-    padding-right: 10px;
-    letter-spacing: 0.5px;
-    color: #ffffff;
-    text-align: center;
-    display: inline-block;
+#loginmodal .text-daftar {
+    color: #1A1D24;
 }
 #loginmodal .close {
     position: absolute;
     right: 15px;
     top: 5px;
-    color: #FFFFFF;
+    color: #1A1D24;
 }
