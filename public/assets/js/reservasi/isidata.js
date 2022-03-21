@@ -1,6 +1,8 @@
 //get seat available
 var isshow = false, issubmit = false;  dtargetseat = "";
-const slctseatset=[];
+const slctseatpergiset=[];
+const slctseatpulangset=[];
+var conditionseat = 0;
 function showseat(id) {
     if(!isshow) {
         isshow = true;
@@ -34,15 +36,28 @@ function showseat(id) {
                                 }
                             }
                         }
-                        
-                        if(slctseatset.length > 0 ) {
-                            for (var l = 0; l < slctseatset.length; l++) {
-                                var dt = listseat[i].getAttribute("data");
-                                var txtslctseatset =  slctseatset.map(slctseatset => slctseatset.toLowerCase());
-                                if(txtslctseatset[l] == dt.toLowerCase()) {
-                                    listseat[i].classList.add('reserved');
-                                }
-                            }        
+                        if (conditionseat == 1) {
+                            console.log('conditionseatpl: '+conditionseat);
+                            if(slctseatpulangset.length > 0 ) {
+                                for (var l = 0; l < slctseatpulangset.length; l++) {
+                                    var dt = listseat[i].getAttribute("data");
+                                    var txtslctseatset =  slctseatpulangset.map(slctseatpulangset => slctseatpulangset.toLowerCase());
+                                    if(txtslctseatset[l] == dt.toLowerCase()) {
+                                        listseat[i].classList.add('reserved');
+                                    }
+                                }        
+                            }
+                        } else {
+                            if(slctseatpergiset.length > 0 ) {
+                                console.log('conditionseatpr: '+conditionseat);
+                                for (var l = 0; l < slctseatpergiset.length; l++) {
+                                    var dt = listseat[i].getAttribute("data");
+                                    var txtslctseatset =  slctseatpergiset.map(slctseatpergiset => slctseatpergiset.toLowerCase());
+                                    if(txtslctseatset[l] == dt.toLowerCase()) {
+                                        listseat[i].classList.add('reserved');
+                                    }
+                                }        
+                            }
                         }
                     }
                     slctseat();
@@ -64,6 +79,7 @@ function setbtnreserved() {
         btnreserved[i].addEventListener('click',function () {
             var did = this.getAttribute('data-id');
             dtargetseat = this.getAttribute('data-target');
+            conditionseat = this.getAttribute('data-type');
             showseat(did);
         });
     }
@@ -76,32 +92,43 @@ function slctseat() {
     const target = document.getElementsByClassName('item-list-seat');
     for (var i = 0; i < target.length; i++) {
         target[i].addEventListener('click',function (e) {
-            if (document.querySelector('#kursibusModal td.selected') !== null) {
-                document.querySelector('#kursibusModal td.selected').classList.remove('selected');
-            }
-            const noset =  e.target.getElementsByClassName('reserved');
-            if (noset.length <= 0) {
+            const noset =  e.target.classList.contains('reserved');
+            if (!noset) {
+                if (document.querySelector('#kursibusModal td.selected') !== null) {
+                    document.querySelector('#kursibusModal td.selected').classList.remove('selected');
+                }
                 e.target.classList.add('selected')
                 var setval = document.getElementById('inputtseat');
                 setval.value = e.target.getAttribute('data');
                 setseat();
+                console.log('conditionseatpilih: '+conditionseat);
             }
         });
     }
     return false;
 }
 function setseat() {
+    console.log('setseat: '+conditionseat);
     if(dtargetseat != '' || dtargetseat != null) {
         const target = document.getElementById('btnpilih');
-        var getval = document.getElementById('inputtseat').value;
-        const setval = document.getElementById(dtargetseat);
         target.addEventListener('click',function(){
+            var getval = document.getElementById('inputtseat').value;
+            const setval = document.getElementById(dtargetseat);
             if(getval != null && getval != '') {
                 setval.value = getval;
                 $('#kursibusModal').modal('toggle');
-                slctseatset.push(getval);
+                if(conditionseat == 1) {
+                    slctseatpulangset.push(getval);
+                    console.log('conditionseat2: '+conditionseat);
+                } else {
+                    slctseatpergiset.push(getval);
+                    console.log('conditionseat3: '+conditionseat);
+                }
                 if (document.querySelector('#kursibusModal td.selected') !== null) {
                     document.querySelector('#kursibusModal td.selected').classList.remove('selected');
+                }
+                if (document.querySelector('#kursibusModal td.reserved') !== null) {
+                    document.querySelector('#kursibusModal td.reserved').classList.remove('reserved');
                 }
                 
             }

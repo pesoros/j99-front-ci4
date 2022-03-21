@@ -829,11 +829,11 @@ ul.ui-autocomplete li p {
 }
 .text-content input:hover,
 .text-content input:active,
-.text-content input:hover {
+.text-content input:focus {
     border: none !important;
     box-shadow: none !important;
     outline-style: none !important;
-    color: #ffffff;
+    color: #ffffff !important;
 }
 .text-icon {
     padding: 0 2.5px;

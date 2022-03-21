@@ -39,12 +39,6 @@
 				<div id="alert-pesanan" role="alert"></div>
 				<div class="d-flex justify-content-between align-items-center">
 					<h5>Data Pemesan (Untuk Tiket / Voucher)</h5>
-					<div class="form-group">
-						<div class="form-inline check-passenger">
-							<label>Sebagai Penumpang</label>
-							<input type="checkbox" id="thispassenger">
-						</div>
-					</div>
 				</div>
 				<div class="row">
 					<div class="col-12 col-sm-4">
@@ -71,6 +65,14 @@
 			<div class="content-form-body">
 				<div class="d-flex justify-content-between align-items-center">
 					<h5>Data Penumpang</h5>
+					<?php if ($i == 0 ) { ?>
+					<div class="form-group">
+						<div class="form-inline check-passenger">
+							<label>Sebagai Penumpang</label>
+							<input type="checkbox" id="thispassenger">
+						</div>
+					</div>
+					<?php } ?>
 				</div>
 				<div class="row">
 					<div class="col-12 col-sm-4">
@@ -120,7 +122,7 @@
 								<input type="text" name="seatgo" class="form-control seatgo" id="seatgo<?= $i ?>" autocomplete="off" placeholder="-" readonly>
 							</div>
 							<div class="item-choose-seat pl-2 col-8">
-								<button type="button" class="btn btn-submit btn-choose-seat" data-target="seatgo<?= $i ?>" data-id="bus<?= $i ?>">Pilih Kursi</button>
+								<button type="button" class="btn btn-submit btn-choose-seat" data-target="seatgo<?= $i ?>" data-type="0" data-id="bus<?= $i ?>">Pilih Kursi</button>
 							</div>
 						</div>
 						<div class="form-group d-flex flex-row align-items-center">
@@ -129,7 +131,7 @@
 								<input type="text" name="seatback" class="form-control seatback" id="seatback<?= $i ?>" autocomplete="off" placeholder="-" readonly>
 							</div>
 							<div class="item-choose-seat pl-2 col-8">
-								<button type="button" class="btn btn-submit btn-choose-seat" data-target="seatback<?= $i ?>" data-id="bus<?= $i ?>">Pilih Kursi</button>
+								<button type="button" class="btn btn-submit btn-choose-seat" data-target="seatback<?= $i ?>" data-type="1" data-id="bus<?= $i ?>">Pilih Kursi</button>
 							</div>
 						</div>
 					</div>

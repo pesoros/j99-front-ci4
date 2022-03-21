@@ -102,10 +102,11 @@ section {
 }
 .input-text-content input:hover,
 .input-text-content input:active,
-.input-text-content input:hover {
+.input-text-content input:focus {
     border: none !important;
     box-shadow: none !important;
     outline-style: none !important;
+    color: #ffffff;
 }
 .input-phone-number-value {
     margin-left: 8px;
