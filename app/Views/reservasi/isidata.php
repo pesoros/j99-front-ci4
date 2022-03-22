@@ -68,7 +68,7 @@
 					<?php if ($i == 0 ) { ?>
 					<div class="form-group">
 						<div class="form-inline check-passenger">
-							<label>Sebagai Penumpang</label>
+							<label>Gunakan data pemesan</label>
 							<input type="checkbox" id="thispassenger">
 						</div>
 					</div>
