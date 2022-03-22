@@ -110,8 +110,8 @@
 							<label>Bilih Bagasi</label>
 							<select class="form-control" name="pbagasi" id="slcbagasi">
 								<option value=""></option>
-								<option value="1">Bawah</option>
-								<option value="2">Atas</option>
+								<option value="1">Bawa</option>
+								<option value="2">Tidak</option>
 							</select>
 						</div>
 					</div>
