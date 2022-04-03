@@ -13,6 +13,8 @@ class Reservasi extends BaseController
         //         return redirect()->to(base_url());
         //     }
         // }
+        echo json_encode($bodyRaw);
+        return;
         $reqData['berangkat'] = isset($bodyRaw['dari']) ? $bodyRaw['dari'] : '';
         $reqData['tujuan'] = isset($bodyRaw['tujuan']) ? $bodyRaw['tujuan'] : '';
         $reqData['tanggal'] = isset($bodyRaw['pergi']) ? $bodyRaw['pergi'] : '';
