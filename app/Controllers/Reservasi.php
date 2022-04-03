@@ -4,12 +4,6 @@ namespace App\Controllers;
 
 class Reservasi extends BaseController
 {
-    protected $request;
-
-    public function __construct()
-    {
-        $this->request = $request;
-    }
     public function index()
     {
         $bodyRaw = $this->request->getVar('dari');
