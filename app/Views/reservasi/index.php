@@ -114,7 +114,7 @@
             
             <div class="reservasi-body">
                 <div class="row align-items-center mt-5" id="listresevasi">
-                    <?php for($i=0; $i<6; $i++) { ?>
+                    <?php foreach($listbus as $key => $value) { ?>
                     <div class="col-12 col-sm-6 col-lg-4 mb-4">
                         <div class="card p-2 border-radius-12">
                             <div class="embed-responsive embed-responsive-13by9">
@@ -123,7 +123,7 @@
                             <div class="card-body px-0 py-2">
                                 <div class="d-flex flex-row justify-content-between">
                                     <div class="card-item-one-top-left">
-                                        <p>Executive</p>
+                                        <p><?= $value['class'] ?></p>
                                         <span>
                                             <span class="mr-1"><i class="fas fa-plug"></i></span>
                                             <span  class="mr-1"><i class="fas fa-smoking"></i></span>
@@ -133,15 +133,15 @@
                                     </div>
                                     <div class="card-item-one-top-right">
                                         <span>Harga</span>
-                                        <p class="harga">Rp 600.000,00 <span> / orang</span></p>
+                                        <p class="harga">Rp <?= $value['price'] ?> <span> / orang</span></p>
                                     </div>
                                 </div>
                                 <div class="d-flex flex-row justify-content-between align-items-center">
                                     <div class="card-item-one-bottom-left d-flex align-items-center">
                                         <div class="item-bottom-left">
-                                            <span>08:30 PM</span>
-                                            <p>Surabaya</p>
-                                            <span>Agen Darmo</span>
+                                            <span><?= $value['start']  ?></span>
+                                            <p><?= $berangkat?> </p>
+                                            <span><?= $value['pickup_trip_location'] ?></span>
                                         </div>
                                         <div class="item-bottom-left d-flex justify-content-center align-items-center">
                                             <span class="dots"></span>
@@ -149,15 +149,15 @@
                                             <span class="dots"></span>
                                         </div>
                                         <div class="item-bottom-left">
-                                            <span>08:30 PM</span>
-                                            <p>Surabaya</p>
-                                            <span>Agen Darmo</span>
+                                            <span><?= $value['end']  ?></span>
+                                            <p><?= $tujuan ?> </p>
+                                            <span><?= $value['drop_trip_location'] ?></span>
                                         </div>
                                     </div>
                                     <div class="card-item-one-bottom-right d-flex">
-                                        <p><span>Sisa Kursi</span> 20 Kursi</p>
-                                        <button type="button" class="btn btn-black btn-reserved" data="A<?= $i ?>"><i class="fas fa-loveseat"></i></button>
-                                        <a href="<?= base_url('reservasi/isidata')?>" class="btn btn-submit">Pessan</a>
+                                        <p><span>Sisa Kursi</span> <?= $value['seatAvail']  ?> Kursi</p>
+                                        <button type="button" class="btn btn-black btn-reserved" data="<?= $tanggal.'_'.$value['trip_id_no'].'_'.$value['trip_route_id'].'_'.$value['fleet_registration_id'].'_'.$value['type'] ?>"><i class="fas fa-loveseat"></i></button>
+                                        <a href="<?= base_url('reservasi/pick/'.$value['trip_id_no'].'/'.$value['trip_route_id'].'/'.$value['price'].'/'.$value['type'].'/'.$value['resto_id'])?>" class="btn btn-submit">Pesan</a>
                                     </div>
                                 </div>
                             </div>
@@ -184,94 +184,8 @@
     <div class="modal fade bd-example-modal-sm" id="kursibusModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-sm modal-dialog-centered">
         <div class="modal-content">
-            <div class="modal-body">
-                <div class="d-flex justify-content-between align-items-center">
-                    <div class="item-top-left">
-                        <table>
-                            <tr>
-                                <td class="item-list-seat" data="A1">A1</td>
-                                <td class="item-list-seat" data="A2">A2</td>
-                            </tr>
-                            <tr>
-                                <td class="item-list-seat" data="A3">A3</td>
-                                <td class="item-list-seat" data="A4">A4</td>
-                            </tr>
-                            <tr>
-                                <td class="item-list-seat" data="A5">A5</td>
-                                <td class="item-list-seat" data="A6">A6</td>
-                            </tr>
-                            <tr>
-                                <td class="item-list-seat" data="A7">A7</td>
-                                <td class="item-list-seat" data="A8">A8</td>
-                            </tr>
-                        </table>
-                    </div>
-                    
-                    <div class="item-top-right">
-                        <table>
-                            <tr>
-                                <td class="item-list-seat" data="B1">B1</td>
-                                <td class="item-list-seat" data="B2">B2</td>
-                            </tr>
-                            <tr>
-                                <td class="item-list-seat" data="B3">B3</td>
-                                <td class="item-list-seat" data="B4">B4</td>
-                            </tr>
-                            <tr>
-                                <td class="item-list-seat" data="B5">B5</td>
-                                <td class="item-list-seat" data="B6">B6</td>
-                            </tr>
-                            <tr>
-                                <td class="item-list-seat" data="B7">B7</td>
-                                <td class="item-list-seat" data="B8">B8</td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
+            <div class="modal-body seatlay">
                 
-                <div class="d-flex justify-content-between align-items-center mt-3">
-                    <div class="item-bottom-left">
-                        <table>
-                            <tr>
-                                <td class="item-list-seat" data="C1">C1</td>
-                                <td class="item-list-seat" data="C2">C2</td>
-                            </tr>
-                            <tr>
-                                <td class="item-list-seat" data="C3">C3</td>
-                                <td class="item-list-seat" data="C4">C4</td>
-                            </tr>
-                            <tr>
-                                <td class="item-list-seat" data="C5">C5</td>
-                                <td class="item-list-seat" data="C6">C6</td>
-                            </tr>
-                            <tr>
-                                <td class="item-list-seat" data="C7">C7</td>
-                                <td class="item-list-seat" data="C8">C8</td>
-                            </tr>
-                        </table>
-                    </div>
-                    
-                    <div class="item-bottom-right">
-                        <table>
-                            <tr>
-                                <td class="item-list-seat" data="D1">D1</td>
-                                <td class="item-list-seat" data="D2">D2</td>
-                            </tr>
-                            <tr>
-                                <td class="item-list-seat" data="D3">D3</td>
-                                <td class="item-list-seat" data="D4">D4</td>
-                            </tr>
-                            <tr>
-                                <td class="item-list-seat" data="D5">D5</td>
-                                <td class="item-list-seat" data="D6">D6</td>
-                            </tr>
-                            <tr>
-                                <td class="item-list-seat" data="D7">D7</td>
-                                <td class="item-list-seat" data="D8">D8</td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
             </div>
             
             <div class="modal-footer">

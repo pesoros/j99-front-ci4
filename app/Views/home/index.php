@@ -31,7 +31,7 @@
 						</ul>
 						<div id="content-form" >
 							<div class="item-form active" id="belitiket">
-								<form class="form-tiket mt-3 p-4" id="formcaritiket" name="form" method="POST">
+								<form class="form-tiket mt-3 p-4" id="formcaritiket" name="form" action="reservasi" method="POST">
 									<div id="alert-tiket" role="alert"></div>
 									<div class="d-flex align-items-center form-item">
 										<span class="icon"><i class="fal fa-map-marker-alt"></i></span>
@@ -39,10 +39,9 @@
 											<label>Dari</label>
 											<select class="form-control" name="dari" id="slcdari">
 												<option value=""></option>
-												<option value="jakarta">Jakarta</option>
-												<option value="surabaya">Surabaya</option>
-												<option value="madura">Madura</option>
-												<option value="jayapura">Jayapura</option>
+												<?php foreach ($dataKota as $key => $value) { ?>
+													<option value="<?= $value['namaKota'] ?>"><?= $value['namaKota'] ?></option>
+												<?php } ?>
 											</select>
 										</div>
 									</div>
@@ -52,10 +51,9 @@
 											<label>Ke</label>
 											<select class="form-control" name="tujuan" id="slctujuan">
 												<option value=""></option>
-												<option value="jakarta">Jakarta</option>
-												<option value="surabaya">Surabaya</option>
-												<option value="madura">Madura</option>
-												<option value="jayapura">Jayapura</option>
+												<?php foreach ($dataKota as $key => $value) { ?>
+													<option value="<?= $value['namaKota'] ?>"><?= $value['namaKota'] ?></option>
+												<?php } ?>
 											</select>
 										</div>
 									</div>
@@ -71,7 +69,7 @@
 													</div>
 												</div>
 											</div>
-											<input type="text" name="pergi" class="form-control datepicker" placeholder="mm/dd/yyyy" readonly>
+											<input type="text" name="pergi" class="form-control datepicker" placeholder="yyyy-mm-dd" readonly>
 										</div>
 									</div>
 									<div class="d-none form-item" id="pulang">
@@ -95,8 +93,9 @@
 											<label>Kelas</label>
 											<select class="form-control d-none" name="kelas" id="slckelas">
 												<option value=""></option>
-												<option value="1">Executive</option>
-												<option value="2">Superior</option>
+												<?php foreach ($dataKelas as $key => $value) { ?>
+													<option value="<?= $value['id'] ?>"><?= $value['kelas'] ?></option>
+												<?php } ?>
 											</select>
 										</div>
 									</div>

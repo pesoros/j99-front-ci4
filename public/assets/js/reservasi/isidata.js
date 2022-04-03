@@ -6,64 +6,52 @@ var conditionseat = 0;
 function showseat(id) {
     if(!isshow) {
         isshow = true;
+        var sendData = {
+            "data": id,
+        }; 
         $.ajax({
 			type	: "POST",
-			cache	: false,
-            dataType:'json',
-			url		: base_url+"/reservasi/getseatreserved",
-            data    : 'id = '+id,
+            cache	: false,
+            contentType: 'application/x-www-form-urlencoded',
+			url		: base_url+"/reservasi/getseatreservedpforpick",
+            data    : sendData,
 			success: function(response) {
-                var dtseat = response.reserved;
-                if (!$.isArray(dtseat) || dtseat.length > 0) {
-                    const listseat = document.getElementsByClassName('item-list-seat');
-                    const doneslct=[];
-                    for (var i = 0; i < listseat.length; i++) {
-                        for (var j = 0; j < dtseat.length; j++) {
-                            var dt = listseat[i].getAttribute("data");
-                            var dtreserved = dtseat[j].toLowerCase();
-                            if(dt.toLowerCase() == dtreserved) {
-                                if (doneslct.length > 0) {
-                                    for (var k = 0; k < doneslct.length; k++) {
-                                        var txtdoneseat =  doneslct.map(doneslct => doneslct.toLowerCase());
-                                        if(txtdoneseat[k] != dtreserved.toLowerCase()) {
-                                            listseat[i].classList.add('reserved');
-                                            doneslct.push(dtreserved);
-                                        }
-                                    }
-                                } else {
-                                    listseat[i].classList.add('reserved');
-                                    doneslct.push(dtreserved);
-                                }
-                            }
+                response = JSON.parse(response)
+                let theSeats = response.seats
+                let seatInfo = response.seatsInfo
+                let htmlModal = '';
+                $('.seatlay').empty();
+                let counter = 0;
+                theSeats.forEach(element => {
+                    if (element.isSeat == true) {
+
+                        if (counter == 0) {
+                            htmlModal += '<div class="d-flex justify-content-between align-items-center"><div class="item-top-left"><table><tr>';
                         }
-                        if (conditionseat == 1) {
-                            console.log('conditionseatpl: '+conditionseat);
-                            if(slctseatpulangset.length > 0 ) {
-                                for (var l = 0; l < slctseatpulangset.length; l++) {
-                                    var dt = listseat[i].getAttribute("data");
-                                    var txtslctseatset =  slctseatpulangset.map(slctseatpulangset => slctseatpulangset.toLowerCase());
-                                    if(txtslctseatset[l] == dt.toLowerCase()) {
-                                        listseat[i].classList.add('reserved');
-                                    }
-                                }        
-                            }
+                        
+                        counter+=1;
+                        if (element.isAvailable == true) {
+                            htmlModal += '<td class="item-list-seat" data="'+element.name+'">'+element.name+'</td>';
                         } else {
-                            if(slctseatpergiset.length > 0 ) {
-                                console.log('conditionseatpr: '+conditionseat);
-                                for (var l = 0; l < slctseatpergiset.length; l++) {
-                                    var dt = listseat[i].getAttribute("data");
-                                    var txtslctseatset =  slctseatpergiset.map(slctseatpergiset => slctseatpergiset.toLowerCase());
-                                    if(txtslctseatset[l] == dt.toLowerCase()) {
-                                        listseat[i].classList.add('reserved');
-                                    }
-                                }        
-                            }
+                            htmlModal += '<td class="item-list-seat reserved" data="'+element.name+'">'+element.name+'</td>';
+                        }
+
+                        if (counter == 2) {
+                            htmlModal += '</tr></table></div><div class="item-top-right"><table><tr>';
+                        }
+
+                        if (counter == 4) {
+                            htmlModal += '</tr></table></div></div>';
+                            counter = 0;
                         }
                     }
+                });
+                setTimeout(function() { 
+                    $('.seatlay').append(htmlModal);
                     slctseat();
                     $('#kursibusModal').modal('toggle');
-				}
-                isshow = false;
+                    isshow = false;
+                }, 900);
 			},
 			error: function (xhr, ajaxOptions, thrownError) {
 				console.log('Error'+ thrownError);
@@ -139,14 +127,14 @@ function setseat() {
 //end select seat 
 
 //set as passenger
-var stp = document.getElementById("thispassenger");
-stp.addEventListener('click',function(){
+$('#thispassenger').click(function() {
+    console.log('ss')
     if (this.checked) {
         setpassenger(true);
     } else {
         setpassenger(false);
     }
-},false);
+});
 function setpassenger(status) {
     var name = document.getElementById('txtnama').value; 
     var nohp = document.getElementById('txtnohp').value; 
@@ -202,9 +190,9 @@ function sbtpassenger(e) {
 		});
     }
 }
-document.getElementById("passengerform").onsubmit = function(e) {
-    sbtpassenger(e);
-};
+// document.getElementById("passengerform").onsubmit = function(e) {
+//     sbtpassenger(e);
+// };
 // end submit passenger
 
 $( document ).ready(function() {

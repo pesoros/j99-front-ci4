@@ -34,7 +34,7 @@
 </div>
 <section>
 	<div class="container">
-        <form class="passenger-form" id="passengerform" name="passengerform" method="POST">
+        <form class="passenger-form" id="passengerform" name="passengerform" action="/reservasi/submitdata" method="POST">
 			<div class="content-form-header">
 				<div id="alert-pesanan" role="alert"></div>
 				<div class="d-flex justify-content-between align-items-center">
@@ -44,24 +44,24 @@
 					<div class="col-12 col-sm-4">
 						<div class="form-group" >
 							<label>Nama Lengkap</label>
-							<input type="text" name="nama" id="txtnama" class="form-control" autocomplete="off"  >
+							<input type="text" id="txtnama" name="txtnama" class="form-control" autocomplete="off"  >
 						</div>
 					</div>
 					<div class="col-12 col-sm-4">
 						<div class="form-group">
 							<label>Nomor Handphone</label>
-							<input type="text" name="nohp" id="txtnohp" class="form-control input-number" autocomplete="off">
+							<input type="text" id="txtnohp" name="txtnohp"  class="form-control input-number" autocomplete="off">
 						</div>
 					</div>
 					<div class="col-12 col-sm-4">
 						<div class="form-group">
 							<label>Email</label>
-							<input type="email" name="email" id="txtemail" class="form-control" autocomplete="off">
+							<input type="email" id="txtemail" name="txtemail"  class="form-control" autocomplete="off">
 						</div>
 					</div>
 				</div>
 			</div>
-			<?php for($i = 0; $i < 3; $i++) { ?>
+			<?php for($i = 0; $i < $penumpang; $i++) { ?>
 			<div class="content-form-body">
 				<div class="d-flex justify-content-between align-items-center">
 					<h5>Data Penumpang</h5>
@@ -78,37 +78,25 @@
 					<div class="col-12 col-sm-4">
 						<div class="form-group" >
 							<label>Nama Lengkap</label>
-							<input type="text" name="pnama" class="form-control txtpnama" autocomplete="off"  >
+							<input type="text" name="pnama[]" class="form-control txtpnama" autocomplete="off"  >
 						</div>
 					</div>
 					<div class="col-12 col-sm-4">
 						<div class="form-group">
 							<label>Nomor Handphone</label>
-							<input type="text" name="pnohp" class="form-control input-number txtnohp" autocomplete="off">
+							<input type="text" name="pnohp[]" class="form-control input-number txtnohp" autocomplete="off">
 						</div>
 					</div>
-					<div class="col-12 col-sm-4">
+					<!-- <div class="col-12 col-sm-4">
 						<div class="form-group">
 							<label>NIK</label>
 							<input type="text" name="pnik" class="form-control input-number" autocomplete="off">
 						</div>
-					</div>
-					<div class="col-12 col-sm-4">
-						<div class="form-group">
-							<label>Menu Makanan</label>
-							<select class="form-control" name="pmenumakakanan" id="slcmenumakanan">
-								<option value=""></option>
-								<option value="1">Rawon</option>
-								<option value="2">Soto</option>
-								<option value="3">Nasi Uduk</option>
-								<option value="4">Nasi Goreng</option>
-							</select>
-						</div>
-					</div>
+					</div> -->
 					<div class="col-12 col-sm-4">
 						<div class="form-group">
 							<label>Bilih Bagasi</label>
-							<select class="form-control" name="pbagasi" id="slcbagasi">
+							<select class="form-control" name="pbagasi[]" id="slcbagasi">
 								<option value=""></option>
 								<option value="1">Bawa</option>
 								<option value="2">Tidak</option>
@@ -116,24 +104,52 @@
 						</div>
 					</div>
 					<div class="col-12 col-sm-4">
+						<div class="form-group">
+							<label>Menu Makanan Pergi</label>
+							<select class="form-control" name="pmenumakakanango[]" id="slcmenumakanan">
+								<option value=""></option>
+								<?php foreach ($foodMenuGo as $key => $value) { ?>
+									<option value="<?= $value['id'] ?>"><?= $value['food_name'] ?></option>
+								<?php } ?>
+							</select>
+						</div>
+					</div>
+
+					<?php if ($roundTrip == true) { ?>
+						<div class="col-12 col-sm-4">
+							<div class="form-group">
+								<label>Menu Makanan Pulang</label>
+								<select class="form-control" name="pmenumakakananback[]" id="slcmenumakanan">
+									<option value=""></option>
+									<?php foreach ($foodMenuBack as $key => $value) { ?>
+										<option value="<?= $value['id'] ?>"><?= $value['food_name'] ?></option>
+									<?php } ?>
+								</select>
+							</div>
+						</div>
+					<?php } ?>
+
+					<div class="col-12 col-sm-4">
 						<div class="form-group d-flex flex-row align-items-center">
 							<div class="item-choose-seat col-4">
 								<label>Pergi <span>No. Kursi</span></label>
-								<input type="text" name="seatgo" class="form-control seatgo" id="seatgo<?= $i ?>" autocomplete="off" placeholder="-" readonly>
+								<input type="text" name="seatgo[]" class="form-control seatgo" id="seatgo<?= $i ?>" autocomplete="off" placeholder="-" readonly>
 							</div>
 							<div class="item-choose-seat pl-2 col-8">
-								<button type="button" class="btn btn-submit btn-choose-seat" data-target="seatgo<?= $i ?>" data-type="0" data-id="bus<?= $i ?>">Pilih Kursi</button>
+								<button type="button" class="btn btn-submit btn-choose-seat" data-target="seatgo<?= $i ?>" data-type="0" data-id="pergi">Pilih Kursi</button>
 							</div>
 						</div>
-						<div class="form-group d-flex flex-row align-items-center">
-							<div class="item-choose-seat col-4">
-								<label>Pulang <span>No. Kursi</span></label>
-								<input type="text" name="seatback" class="form-control seatback" id="seatback<?= $i ?>" autocomplete="off" placeholder="-" readonly>
+						<?php if ($roundTrip == true) { ?>
+							<div class="form-group d-flex flex-row align-items-center">
+								<div class="item-choose-seat col-4">
+									<label>Pulang <span>No. Kursi</span></label>
+									<input type="text" name="seatback[]" class="form-control seatback" id="seatback<?= $i ?>" autocomplete="off" placeholder="-" readonly>
+								</div>
+								<div class="item-choose-seat pl-2 col-8">
+									<button type="button" class="btn btn-submit btn-choose-seat" data-target="seatback<?= $i ?>" data-type="1" data-id="pulang">Pilih Kursi</button>
+								</div>
 							</div>
-							<div class="item-choose-seat pl-2 col-8">
-								<button type="button" class="btn btn-submit btn-choose-seat" data-target="seatback<?= $i ?>" data-type="1" data-id="bus<?= $i ?>">Pilih Kursi</button>
-							</div>
-						</div>
+						<?php } ?>
 					</div>
 				</div>
 			</div>
@@ -170,94 +186,8 @@
     <div class="modal fade bd-example-modal-sm select-seat" id="kursibusModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-sm modal-dialog-centered">
         <div class="modal-content">
-            <div class="modal-body">
-                <div class="d-flex justify-content-between align-items-center">
-                    <div class="item-top-left">
-                        <table>
-                            <tr>
-                                <td class="item-list-seat" data="A1">A1</td>
-                                <td class="item-list-seat" data="A2">A2</td>
-                            </tr>
-                            <tr>
-                                <td class="item-list-seat" data="A3">A3</td>
-                                <td class="item-list-seat" data="A4">A4</td>
-                            </tr>
-                            <tr>
-                                <td class="item-list-seat" data="A5">A5</td>
-                                <td class="item-list-seat" data="A6">A6</td>
-                            </tr>
-                            <tr>
-                                <td class="item-list-seat" data="A7">A7</td>
-                                <td class="item-list-seat" data="A8">A8</td>
-                            </tr>
-                        </table>
-                    </div>
-                    
-                    <div class="item-top-right">
-                        <table>
-                            <tr>
-                                <td class="item-list-seat" data="B1">B1</td>
-                                <td class="item-list-seat" data="B2">B2</td>
-                            </tr>
-                            <tr>
-                                <td class="item-list-seat" data="B3">B3</td>
-                                <td class="item-list-seat" data="B4">B4</td>
-                            </tr>
-                            <tr>
-                                <td class="item-list-seat" data="B5">B5</td>
-                                <td class="item-list-seat" data="B6">B6</td>
-                            </tr>
-                            <tr>
-                                <td class="item-list-seat" data="B7">B7</td>
-                                <td class="item-list-seat" data="B8">B8</td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
-                
-                <div class="d-flex justify-content-between align-items-center mt-3">
-                    <div class="item-bottom-left">
-                        <table>
-                            <tr>
-                                <td class="item-list-seat" data="C1">C1</td>
-                                <td class="item-list-seat" data="C2">C2</td>
-                            </tr>
-                            <tr>
-                                <td class="item-list-seat" data="C3">C3</td>
-                                <td class="item-list-seat" data="C4">C4</td>
-                            </tr>
-                            <tr>
-                                <td class="item-list-seat" data="C5">C5</td>
-                                <td class="item-list-seat" data="C6">C6</td>
-                            </tr>
-                            <tr>
-                                <td class="item-list-seat" data="C7">C7</td>
-                                <td class="item-list-seat" data="C8">C8</td>
-                            </tr>
-                        </table>
-                    </div>
-                    
-                    <div class="item-bottom-right">
-                        <table>
-                            <tr>
-                                <td class="item-list-seat" data="D1">D1</td>
-                                <td class="item-list-seat" data="D2">D2</td>
-                            </tr>
-                            <tr>
-                                <td class="item-list-seat" data="D3">D3</td>
-                                <td class="item-list-seat" data="D4">D4</td>
-                            </tr>
-                            <tr>
-                                <td class="item-list-seat" data="D5">D5</td>
-                                <td class="item-list-seat" data="D6">D6</td>
-                            </tr>
-                            <tr>
-                                <td class="item-list-seat" data="D7">D7</td>
-                                <td class="item-list-seat" data="D8">D8</td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
+            <div class="modal-body seatlay">
+				
             </div>
             
             <div class="modal-footer">

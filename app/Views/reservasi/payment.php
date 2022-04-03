@@ -44,24 +44,24 @@
 					<div class="col-12 col-sm-4">
 						<div class="form-group" >
 							<label>Nama Lengkap</label>
-							<p>John Doe</p>
+							<p><?= $data['booker_name'] ?></p>
 						</div>
 					</div>
 					<div class="col-12 col-sm-4">
 						<div class="form-group">
 							<label>Nomor Handphone</label>
-							<input type="text" name="nohp" id="txtnohp" class="form-control input-number" autocomplete="off" value="081 2345 6789">
+							<input type="text" name="nohp" id="txtnohp" class="form-control input-number" autocomplete="off" value="<?= $data['booker_phone'] ?>">
 						</div>
 					</div>
 					<div class="col-12 col-sm-4">
 						<div class="form-group">
 							<label>Email</label>
-							<p>example@email.com</p>
+							<p id="email"><?= $data['booker_email'] ?></p>
 						</div>
 					</div>
 				</div>
 			</div>
-			<?php for($i = 0; $i < 1; $i++) { ?>
+			<?php foreach($data['pergi']['seatPicked'] as $key => $value){ ?>
 			<div class="content-form-body">
 				<div class="d-flex justify-content-between align-items-center">
 					<h5>Data Penumpang</h5>
@@ -70,37 +70,37 @@
 					<div class="col-12 col-sm-4  col-lg-3 ">
 						<div class="form-group" >
 							<label>Nama Lengkap</label>
-							<p>John Doe</p>
+							<p><?= $value['name'] ?></p>
 						</div>
 					</div>
 					<div class="col-12 col-sm-4 col-lg-3">
 						<div class="form-group">
 							<label>Nomor Handphone</label>
-							<p>081 2345 6789</p>
-						</div>
-					</div>
-					<div class="col-12 col-sm-4 col-lg-3">
-						<div class="form-group">
-							<label>NIK</label>
-							<p>12345678901234567890</p>
+							<p><?= $value['phone'] ?></p>
 						</div>
 					</div>
 					<div class="col-12 col-sm-4 col-lg-3">
 						<div class="form-group">
 							<label>Menu Makanan</label>
-							<p>Rawon</p>
+							<p><?= $data['pergi']['foodMenu'][0]['food_name']; ?></p>
 						</div>
 					</div>
 					<div class="col-12 col-sm-4 col-lg-3">
 						<div class="form-group">
-							<label>Bilih Bagasi</label>
-							<p>Bawa</p>
+							<label>Bagasi</label>
+							<p>
+                                <?php if ($value['baggage'] == "1") { ?>
+                                    Bawa
+                                <?php } else { ?>
+                                    Tidak
+                                <?php } ?>
+                            </p>
 						</div>
 					</div>
 					<div class="col-12 col-sm-4 col-lg-3">
 						<div class="form-group">
                             <label>No. Kursi</label>
-                            <p>2B</p>
+                            <p><?= $value['seat'] ?></p>
 						</div>
 					</div>
 				</div>
@@ -117,10 +117,10 @@
                         <label>Metode Pembayaran</label>
                         <select class="form-control" name="paymenmethod" id="slcpaymenmethod">
                             <option value=""></option>
-                            <option value="1" data-image="<?= base_url('/assets/img/icon/ic-bca.png'); ?>">BCA Virtial Account</option>
-                            <option value="2" data-image="<?= base_url('/assets/img/icon/ic-mandiri.png'); ?>">Mandiri</option>
-                            <option value="3" data-image="<?= base_url('/assets/img/icon/ic-bni.png'); ?>">BNI</option>
-                            <option value="4" data-image="<?= base_url('/assets/img/icon/ic-bri.png'); ?>">BRI</option>
+                            <!-- <option value="VIRTUAL_ACCOUNT-BCA" data-image="<?= base_url('/assets/img/icon/ic-bca.png'); ?>">BCA Virtial Account</option> -->
+                            <option value="VIRTUAL_ACCOUNT-MANDIRI" data-image="<?= base_url('/assets/img/icon/ic-mandiri.png'); ?>">Mandiri</option>
+                            <option value="VIRTUAL_ACCOUNT-BNI" data-image="<?= base_url('/assets/img/icon/ic-bni.png'); ?>">BNI</option>
+                            <option value="VIRTUAL_ACCOUNT-BRI" data-image="<?= base_url('/assets/img/icon/ic-bri.png'); ?>">BRI</option>
                         </select>
                     </div>
                 </div>
@@ -129,19 +129,21 @@
                     <div class="content-bill">
                         <div class="item-bill d-flex flex-row justify-content-between">
                             <span>Surabaya - Jakarta x 1</span>
-                            <span>Rp. 600.000,00</span>
+                            <span>Rp. <?= $priceGo ?></span>
                         </div>
-                        <div class="item-bill d-flex flex-row justify-content-between">
-                            <span>Jakarta - Surabaya x 1</span>
-                            <span>Rp. 600.000,00</span>
-                        </div>
-                        <div class="item-bill d-flex flex-row justify-content-between">
+                        <?php if ($priceBack !== 0) { ?>
+                            <div class="item-bill d-flex flex-row justify-content-between">
+                                <span>Jakarta - Surabaya x 1</span>
+                                <span>Rp. <?= $priceBack ?></span>
+                            </div>
+                        <?php } ?>
+                        <!-- <div class="item-bill d-flex flex-row justify-content-between">
                             <span>Payment Gateway Fee</span>
                             <span>Rp. 4.000,00</span>
-                        </div>
+                        </div> -->
                         <div class="item-bill d-flex flex-row justify-content-between">
                             <span>Total Harga</span>
-                            <span class="total">Rp. 604.000,00</span>
+                            <span class="total">Rp. <?= $sumPrice ?></span>
                         </div>
                     </div>
                     <div class="form-group d-flex justify-content-end mt-4">

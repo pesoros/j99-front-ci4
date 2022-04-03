@@ -22,25 +22,27 @@
                     <div class="item-body">
                         <div class="d-flex flex-row justify-content-between">
                             <span>Surabaya - Jakarta x 1</span>
-                            <span>Rp. 600.000,00</span>
+                            <span>Rp. <?= $priceGo ?></</span>
                         </div>
-                        <div class="d-flex flex-row justify-content-between">
-                            <span>Jakarta - Surabaya x 1</span>
-                            <span>Rp. 600.000,00</span>
-                        </div>
-                        <div class="d-flex flex-row justify-content-between">
+                        <?php if ($priceBack !== 0) { ?>
+                            <div class="d-flex flex-row justify-content-between">
+                                <span>Jakarta - Surabaya x 1</span>
+                                <span>Rp. <?= $priceBack ?></</span>
+                            </div>
+                        <?php } ?>
+                        <!-- <div class="d-flex flex-row justify-content-between">
                             <span>Payment Gateway Fee</span>
                             <span>Rp. 4.000,00</span>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="item-footer">
                         <div class="d-flex flex-row justify-content-between align-items-center">
                             <span>Total Harga</span>
-                            <span>Rp. 604.000,00</span>
+                            <span>Rp. <?= $sumPrice ?></span>
                         </div>
                         <div class="d-flex flex-row justify-content-between align-items-center">
-                            <span>No. Rekening</span>
-                            <span>BCA 123 456 789</span>
+                            <span>Virtual Account</span>
+                            <span>BCA <?= $payment['account_number'] ?></span>
                         </div>
                     </div>
                 </div>
@@ -55,7 +57,7 @@
                             <ol>
                                 <li class="mt-10 mb-10">Masukkan Kartu ATM BCA &amp; PIN</li>
                                 <li class="mt-10 mb-10">Pilih menu Transaksi Lainnya &gt; Transfer &gt; ke Rekening BCA Virtual Account</li>
-                                <li class="mt-10 mb-10">Masukkan 5 angka kode perusahaan untuk Tokopedia (80777) dan Nomor HP yang terdaftar di akun Tokopedia Anda (Contoh: 80777089656085425)</li>
+                                <li class="mt-10 mb-10">Masukkan 5 angka kode perusahaan untuk Tokopedia (80777) dan Nomor HP yang terdaftar di akun Tokopedia Anda (Contoh: <?= $payment['account_number'] ?></)</li>
                                 <li class="mt-10 mb-10">Di halaman konfirmasi, pastikan detil pembayaran sudah sesuai seperti No VA, Nama, Perus/Produk dan Total Tagihan</li>
                                 <li class="mt-10 mb-10">Masukkan Jumlah Transfer sesuai dengan Total Tagihan</li>
                                 <li class="mt-10 mb-10">Ikuti instruksi untuk menyelesaikan transaksi</li>
@@ -71,7 +73,7 @@
                                 <li class="mt-10 mb-10">Lakukan log in pada aplikasi BCA Mobile</li>
                                 <li class="mt-10 mb-10">Pilih menu m-BCA, kemudian masukkan kode akses m-BCA</li>
                                 <li class="mt-10 mb-10">Pilih m-Transfer &gt; BCA Virtual Account</li>
-                                <li class="mt-10 mb-10">Pilih dari Daftar Transfer, atau masukkan 5 angka kode perusahaan untuk Tokopedia (80777) dan Nomor HP yang terdaftar di akun Tokopedia Anda (Contoh: 80777089656085425)</li>
+                                <li class="mt-10 mb-10">Pilih dari Daftar Transfer, atau masukkan 5 angka kode perusahaan untuk Tokopedia (80777) dan Nomor HP yang terdaftar di akun Tokopedia Anda (Contoh: <?= $payment['account_number'] ?></)</li>
                                 <li class="mt-10 mb-10">Masukkan pin m-BCA</li>
                                 <li class="mt-10 mb-10">Pembayaran selesai. Simpan notifikasi yang muncul sebagai bukti pembayaran</li>
                             </ol>
@@ -84,7 +86,7 @@
                             <ol>
                                 <li class="mt-10 mb-10">Login pada alamat Internet Banking BCA (<a href="https://klikbca.com" target="_blank">https://klikbca.com</a>)</li>
                                 <li class="mt-10 mb-10">Pilih menu Pembayaran Tagihan &gt; Pembayaran &gt; BCA Virtual Account</li>
-                                <li class="mt-10 mb-10">Pada kolom kode bayar, masukkan 5 angka kode perusahaan untuk Tokopedia (80777) dan Nomor HP yang terdaftar di akun Tokopedia Anda (Contoh: 80777089656085425)</li>
+                                <li class="mt-10 mb-10">Pada kolom kode bayar, masukkan 5 angka kode perusahaan untuk Tokopedia (80777) dan Nomor HP yang terdaftar di akun Tokopedia Anda (Contoh: <?= $payment['account_number'] ?></)</li>
                                 <li class="mt-10 mb-10">Di halaman konfirmasi, pastikan detil pembayaran sudah sesuai seperti Nomor BCA Virtual Account, Nama Pelanggan dan Jumlah Pembayaran</li>
                                 <li class="mt-10 mb-10">Masukkan <span class="italic">password</span> dan mToken</li>
                                 <li class="mt-10 mb-10">Cetak/simpan struk pembayaran BCA Virtual Account sebagai bukti pembayaran</li>

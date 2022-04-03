@@ -3,40 +3,53 @@ var isshow = false;
 function showseat(id) {
     if(!isshow) {
         isshow = true;
+        var sendData = {
+            "data": id,
+        }; 
         $.ajax({
 			type	: "POST",
-			cache	: false,
-            dataType:'json',
+            cache	: false,
+            contentType: 'application/x-www-form-urlencoded',
 			url		: base_url+"/reservasi/getseatreserved",
-            data    : 'id = '+id,
+            data    : sendData,
 			success: function(response) {
-                var dtseat = response.reserved;
-                if (!$.isArray(dtseat) || dtseat.length > 0) {
-                    const listseat = document.getElementsByClassName('item-list-seat');
-                    const doneseat = [];
-                    for (var i = 0; i < listseat.length; i++) {
-                        for (var j = 0; j < dtseat.length; j++) {
-                            var dt = listseat[i].getAttribute("data");
-                            var dtreserved = dtseat[j].toLowerCase();
-                            if(dt.toLowerCase() == dtreserved) {
-                                if (doneseat.length > 0) {
-                                    for (var k = 0; k < doneseat.length; k++) {
-                                        var txtdoneseat =  doneseat.map(doneseat => doneseat.toLowerCase());
-                                        if(txtdoneseat[k] != dtreserved.toLowerCase()) {
-                                            listseat[i].classList.add('reserved');
-                                            doneseat.push(dtreserved);
-                                        }
-                                    }
-                                } else {
-                                    listseat[i].classList.add('reserved');
-                                    doneseat.push(dtreserved);
-                                }
-                            }
+                response = JSON.parse(response)
+                let theSeats = response.seats
+                let seatInfo = response.seatsInfo
+                let htmlModal = '';
+                $('.seatlay').empty();
+                let counter = 0;
+                theSeats.forEach(element => {
+                    if (element.isSeat == true) {
+
+                        if (counter == 0) {
+                            htmlModal += '<div class="d-flex justify-content-between align-items-center"><div class="item-top-left"><table><tr>';
+                        }
+                        
+                        counter+=1;
+                        if (element.isAvailable == true) {
+                            htmlModal += '<td class="item-list-seat" data="'+element.name+'">'+element.name+'</td>';
+                        } else {
+                            htmlModal += '<td class="item-list-seat reserved" data="'+element.name+'">'+element.name+'</td>';
+                        }
+
+                        if (counter == 2) {
+                            htmlModal += '</tr></table></div><div class="item-top-right"><table><tr>';
+                        }
+
+                        if (counter == 4) {
+                            htmlModal += '</tr></table></div></div>';
+                            counter = 0;
                         }
                     }
+                });
+                setTimeout(function() { 
+                    $('.seatlay').append(htmlModal);
                     $('#kursibusModal').modal('toggle');
-				}
-                isshow = false;
+                    isshow = false;
+                }, 900);
+            
+                
 			},
 			error: function (xhr, ajaxOptions, thrownError) {
 				console.log('Error'+ thrownError);
@@ -61,14 +74,14 @@ setbtnreserved();
 //load more data
 var page = 2, isload = false;
     
-$(window).scroll(function () {
-    if ($(window).scrollTop() >= $(document).height() - $(window).height() - 2000) {
-        if (!isload) {
-            infinteLoadMore();
-            page++;
-        }
-    }
-});
+// $(window).scroll(function () {
+//     if ($(window).scrollTop() >= $(document).height() - $(window).height() - 2000) {
+//         if (!isload) {
+//             infinteLoadMore();
+//             page++;
+//         }
+//     }
+// });
 
 function infinteLoadMore() {
     if (!isload) {

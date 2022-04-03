@@ -31,11 +31,20 @@ function submitpayment(e) {
             status : true
         });
         document.getElementById("sendemail").style.display = 'none';
+        let paymentMethod = $( "#slcpaymenmethod" ).val();
+        let txtnohp = $( "#txtnohp" ).val();
+        let email = $( "#email" ).text();
+        var sendData = {
+            "paymentMethod": paymentMethod,
+            "phone": txtnohp,
+            "email": email,
+            "sendBy": 'email',
+        }; 
         $.ajax({
 			type	: "POST",
 			cache	: false,
 			url		: base_url+"/reservasi/addpayment",
-			data	: $('#'+targetform).serializeArray(),
+			data	: sendData,
 			success: function(data) {
 				if (data.indexOf("error-")<0){
                     $('#otpModal').modal('toggle');
@@ -80,14 +89,35 @@ function formopt() {
                 id : 'btnpilih',
                 status : true
             });
+            let otpNumber = $( "#otpcode" ).val();
+            let txtnohp = $( "#txtnohp" ).val();
+            let email = $( "#email" ).text();
+            var sendData = {
+                "otpNumber": otpNumber,
+                "phone": txtnohp,
+                "email": email,
+            }; 
+
             $.ajax({
                 type	: "POST",
                 cache	: false,
+                contentType: 'application/x-www-form-urlencoded',
                 url		: base_url+"/reservasi/confirmotp",
-                data	: $('#'+targetform).serializeArray(),
+                data	: sendData,
                 success: function(data) {
                     if (data.indexOf("error-")<0){
-                        window.location.href = base_url+"/reservasi/invoice";
+                        var json = $.parseJSON(data);
+                        var status = json.status;
+                        if (status !== 200) {
+                            alertform('alert-otp', data, 'Error');
+                            btnloading({
+                                id : 'btnpilih',
+                                status : false,
+                                btntext : 'Lanjutkan',
+                            });
+                        } else {
+                            window.location.href = "/reservasi/invoice";
+                        }
                     } else {
                         alertform('alert-otp', data, 'Error');
                         btnloading({

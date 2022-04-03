@@ -17,7 +17,7 @@ function setpulang() {
     $('#pulang').append(phtml);
     pu.classList.remove("d-none");
     $('#date-pulang input').datepicker({ 
-        format: 'dd/mm/yyyy',
+        format: 'yyyy-mm-dd',
         uiLibrary: 'bootstrap4',
         iconsLibrary: 'fontawesome',
         size: 'default'
@@ -65,9 +65,9 @@ function sbttiket(e) {
 		});
     }
 }
-document.getElementById("formcaritiket").onsubmit = function(e) {
-    sbttiket(e);
-};
+// document.getElementById("formcaritiket").onsubmit = function(e) {
+//     sbttiket(e);
+// };
 // end submit cari tiket
 
 //submit kelas armada
@@ -121,7 +121,7 @@ $( document ).ready(function() {
     setSelect2Above();
     navTabs('navbar-tiket');
     $('#date-pergi input.datepicker').datepicker({ 
-        format: 'dd/mm/yyyy',
+        format: 'yyyy-mm-dd',
         uiLibrary: 'bootstrap4',
         iconsLibrary: 'fontawesome',
         size: 'default'
