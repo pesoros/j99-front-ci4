@@ -7,12 +7,12 @@ class Reservasi extends BaseController
     public function index()
     {
         $bodyRaw = $this->request->getVar();
-        if (isset($bodyRaw) <= 0) {
-            $bodyRaw = session('dataToSave');
-            if (isset($bodyRaw)) {
-                return redirect()->to(base_url());
-            }
-        }
+        // if (isset($bodyRaw) <= 0) {
+        //     $bodyRaw = session('dataToSave');
+        //     if (isset($bodyRaw)) {
+        //         return redirect()->to(base_url());
+        //     }
+        // }
         $reqData['berangkat'] = isset($bodyRaw['dari']) ? $bodyRaw['dari'] : '';
         $reqData['tujuan'] = isset($bodyRaw['tujuan']) ? $bodyRaw['tujuan'] : '';
         $reqData['tanggal'] = isset($bodyRaw['pergi']) ? $bodyRaw['pergi'] : '';
