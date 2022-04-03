@@ -6,7 +6,7 @@ class Reservasi extends BaseController
 {
     public function index()
     {
-        $bodyRaw = $this->request->getVar();
+        $bodyRaw = $this->request;
         // if (isset($bodyRaw) <= 0) {
         //     $bodyRaw = session('dataToSave');
         //     if (isset($bodyRaw)) {
