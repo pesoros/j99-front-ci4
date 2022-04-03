@@ -39,7 +39,7 @@
 											<label>Dari</label>
 											<select class="form-control" name="dari" id="slcdari">
 												<option value=""></option>
-												<?php for ($i=0; $i < count($dataKota); $i++) { $value = $dataKota[$i]?>
+												<?php for ($i=0; $i < count(json_decode($dataKota,true)); $i++) { $value = $dataKota[$i]?>
 													<option value="<?= $value['namaKota'] ?>"><?= $value['namaKota'] ?></option>
 												<?php } ?>
 											</select>
