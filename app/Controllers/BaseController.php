@@ -22,11 +22,12 @@ use Psr\Log\LoggerInterface;
 class BaseController extends Controller
 {
     /**
-     * Instance of the main Request object.
-     *
-     * @var CLIRequest|IncomingRequest
-     */
-    protected $request;
+	 * Instance of the main Request object.
+	 *
+	 * @var HTTP\IncomingRequest
+	 */
+	protected $request;
+
 
     /**
      * An array of helpers to be loaded automatically upon
