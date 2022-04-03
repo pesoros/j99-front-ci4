@@ -6,14 +6,13 @@ class Reservasi extends BaseController
 {
     public function index()
     {
-        $bodyRaw = $this->request->getPost('dari');
-        // if (isset($bodyRaw) <= 0) {
-        //     $bodyRaw = session('dataToSave');
-        //     if (isset($bodyRaw)) {
-        //         return redirect()->to(base_url());
-        //     }
-        // }
-        echo json_encode($this->request->getPost('dari'));
+        $bodyRaw = $this->request->getVar('dari');
+        if (isset($bodyRaw) <= 0) {
+            $bodyRaw = session('dataToSave');
+            if (isset($bodyRaw)) {
+                return redirect()->to(base_url());
+            }
+        }
         return;
         $reqData['berangkat'] = isset($bodyRaw['dari']) ? $bodyRaw['dari'] : '';
         $reqData['tujuan'] = isset($bodyRaw['tujuan']) ? $bodyRaw['tujuan'] : '';
