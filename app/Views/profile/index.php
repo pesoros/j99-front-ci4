@@ -17,6 +17,7 @@
                     <li class="nav-item-scroolto active" data-target="yourprofile">Profile</li>
                     <li class="nav-item-scroolto" data-target="mobilephone">Mobile Phone</li>
                     <li class="nav-item-scroolto" data-target="changepass">Change Password</li>
+                    <li><a href="logout">Log Out</a></li>
                 </ul>
             </div>
             <div class="card-body" id="cardbody">

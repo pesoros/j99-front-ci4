@@ -6,14 +6,13 @@ class Reservasi extends BaseController
 {
     public function index()
     {
-        $bodyRaw = $this->request->getVar('dari');
+        $bodyRaw = $this->request->getVar();
         if (isset($bodyRaw) <= 0) {
-            $bodyRaw = session('dataToSave');
+            $bodyRaw = session('reqData');
             if (isset($bodyRaw)) {
                 return redirect()->to(base_url());
             }
         }
-        return;
         $reqData['berangkat'] = isset($bodyRaw['dari']) ? $bodyRaw['dari'] : '';
         $reqData['tujuan'] = isset($bodyRaw['tujuan']) ? $bodyRaw['tujuan'] : '';
         $reqData['tanggal'] = isset($bodyRaw['pergi']) ? $bodyRaw['pergi'] : '';
@@ -29,20 +28,68 @@ class Reservasi extends BaseController
 
         $listbus = $this->httpPostXform(getenv('API_ENDPOINT')."listbus", $reqData);
 
+        if (isset($listbus['status'])) {
+            return redirect()->to(base_url());
+        }
+
             // echo json_encode($reqData);
             // return;
         
         session()->set('reqData', $reqData);
         session()->set('nowat', 'pergi');
         session()->set('roundTrip', $roundTrip);
-        $ldata['berangkat'] = $reqData['berangkat'];
-        $ldata['tujuan'] = $reqData['tujuan'];
-        $ldata['tanggal'] = $reqData['tanggal'];
-        $ldata['listbus'] = $listbus;
+        $datav['berangkat'] = $reqData['berangkat'];
+        $datav['tujuan'] = $reqData['tujuan'];
+        $datav['tanggal'] = $reqData['tanggal'];
+        $datav['listBus'] = $listbus;
+        $ldata['listBus'] = view('reservasi/listmore',$datav);
         $ldata['roundTrip'] = $roundTrip;
         $ldata['footer'] = view('layouts/footer');
         return view('reservasi/index', $ldata);
     }
+
+    public function getFilterData()
+    {
+        $sessionData = session('reqData');
+        // $bodyRaw = $this->request->getVar();
+        if (!isset($bodyRaw)) {
+            $bodyRaw = $sessionData;
+            if (!isset($bodyRaw)) {
+                return redirect()->to(base_url());
+            }
+        }
+        $reqData['berangkat'] = isset($bodyRaw['berangkat']) ? $bodyRaw['berangkat'] : '';
+        $reqData['tujuan'] = isset($bodyRaw['tujuan']) ? $bodyRaw['tujuan'] : '';
+        $reqData['tanggal'] = isset($bodyRaw['pergi']) ? $bodyRaw['pergi'] : '';
+        $reqData['penumpang'] = isset($bodyRaw['penumpang']) ? $bodyRaw['penumpang'] : '';
+        $reqData['kelas'] = isset($bodyRaw['kelas']) ? $bodyRaw['kelas'] : '';
+        $reqData['pergi'] = isset($sessionData['pergi']) ? $sessionData['pergi'] : '';
+        $reqData['pulang'] = isset($sessionData['pulang']) ? $sessionData['pulang'] : '';
+        if ($reqData['pulang'] == "") {
+            $roundTrip = false;
+        } else {
+            $roundTrip = true;
+        }
+
+        $listbus = $this->httpPostXform(getenv('API_ENDPOINT')."listbus", $reqData);
+
+        if (isset($listbus['status'])) {
+            return 'empty';
+        }
+
+            // echo json_encode($reqData);
+            // return;
+        
+        session()->set('reqData', $reqData);
+        $datav['berangkat'] = $reqData['berangkat'];
+        $datav['tujuan'] = $reqData['tujuan'];
+        $datav['tanggal'] = $reqData['tanggal'];
+        $datav['listBus'] = $listbus;
+        $ldata['listBus'] = view('reservasi/listmore',$datav);
+
+        return view('reservasi/listmore',$datav);
+    }
+
     public function pulang()
     {
         session()->set('nowat', 'pulang');
@@ -237,10 +284,7 @@ class Reservasi extends BaseController
         
     }
 
-    public function getFilterData()
-    {
-        return view('reservasi/listmore');
-    }
+    
     public function getmoredata()
     {
         $page = isset($_GET['page']) ? $_GET['page'] : '';

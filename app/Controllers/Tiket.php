@@ -14,7 +14,7 @@ class Tiket extends BaseController
         $reqData['code'] = $code;
         $dataTicket = $this->httpPostXform(getenv('API_ENDPOINT')."ticket/cek",$reqData);
 
-        if ($dataTicket['status'] == 404) {
+        if (isset($dataTicket['status'])) {
             return redirect()->to(base_url('')); 
         }
 
@@ -27,7 +27,7 @@ class Tiket extends BaseController
         $reqData['code'] = $ticketNumber;
         $dataTicket = $this->httpPostXform(getenv('API_ENDPOINT')."ticket/cek",$reqData);
 
-        if ($dataTicket['status'] == 404) {
+        if (isset($dataTicket['status'])) {
             return redirect()->to(base_url('')); 
         }
         

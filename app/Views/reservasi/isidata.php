@@ -44,19 +44,19 @@
 					<div class="col-12 col-sm-4">
 						<div class="form-group" >
 							<label>Nama Lengkap</label>
-							<input type="text" id="txtnama" name="txtnama" class="form-control" autocomplete="off"  >
+							<input type="text" id="txtnama" name="txtnama" class="form-control" autocomplete="off" value="<?= session('firstName').' '.session('lastName') ?>"  >
 						</div>
 					</div>
 					<div class="col-12 col-sm-4">
 						<div class="form-group">
 							<label>Nomor Handphone</label>
-							<input type="text" id="txtnohp" name="txtnohp"  class="form-control input-number" autocomplete="off">
+							<input type="text" id="txtnohp" name="txtnohp"  class="form-control input-number" autocomplete="off" value="<?= session('phone') ?>">
 						</div>
 					</div>
 					<div class="col-12 col-sm-4">
 						<div class="form-group">
 							<label>Email</label>
-							<input type="email" id="txtemail" name="txtemail"  class="form-control" autocomplete="off">
+							<input type="email" id="txtemail" name="txtemail"  class="form-control" autocomplete="off" value="<?= session('email') ?>">
 						</div>
 					</div>
 				</div>

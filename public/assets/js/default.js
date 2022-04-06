@@ -151,7 +151,9 @@ function sbtlogin(e) {
 			data	: $('#'+targetform).serializeArray(),
 			success: function(data) {
 				if (data.indexOf("error-")<0){
-					window.location.href = base_url;
+                    if (data == 200) {
+                        window.location.href = base_url;
+                    }
 				} else {
 					alertform('alert-login', data, 'Error');
                     btnloading({

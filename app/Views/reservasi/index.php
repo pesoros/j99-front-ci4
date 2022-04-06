@@ -54,7 +54,7 @@
                         <div class="col-6 col-sm-3 col-lg-2">
                             <div class="form-group" >
                                 <label>Tanggal Keberangkatan</label>
-                                <input type="text" name="dateto" id="dateto" class="form-control datepicker" placeholder="mm-dd-yyyy" readonly>
+                                <input type="text" name="pergi" id="dateto" class="form-control datepicker" placeholder="yyyy-mm-dd" readonly>
                             </div>
                         </div>
                         <div class="col-6 col-sm-3 col-lg-1">
@@ -71,7 +71,7 @@
                         <div class="col-6 col-sm-3 col-lg-2">
                             <div class="form-group" >
                                 <label>Kota Keberangkatan</label>
-                                <select class="form-control" name="incity" id="slcincity">
+                                <select class="form-control" name="berangkat" id="slcincity">
                                     <option value=""></option>
                                     <option value="jakarta">Jakarta</option>
                                     <option value="surabaya">Surabaya</option>
@@ -83,7 +83,7 @@
                         <div class="col-6 col-sm-3 col-lg-2">
                             <div class="form-group" >
                                 <label>Kota Tujuan</label>
-                                <select class="form-control" name="offcity" id="slcoffcity">
+                                <select class="form-control" name="tujuan" id="slcoffcity">
                                     <option value=""></option>
                                     <option value="jakarta">Jakarta</option>
                                     <option value="surabaya">Surabaya</option>
@@ -114,56 +114,7 @@
             
             <div class="reservasi-body">
                 <div class="row align-items-center mt-5" id="listresevasi">
-                    <?php foreach($listbus as $key => $value) { ?>
-                    <div class="col-12 col-sm-6 col-lg-4 mb-4">
-                        <div class="card p-2 border-radius-12">
-                            <div class="embed-responsive embed-responsive-13by9">
-                                <img class="embed-responsive-item border-radius-12" src="<?= base_url(); ?>/assets/img/img-bus-1.jpg" alt="Card image cap">
-                            </div>
-                            <div class="card-body px-0 py-2">
-                                <div class="d-flex flex-row justify-content-between">
-                                    <div class="card-item-one-top-left">
-                                        <p><?= $value['class'] ?></p>
-                                        <span>
-                                            <span class="mr-1"><i class="fas fa-plug"></i></span>
-                                            <span  class="mr-1"><i class="fas fa-smoking"></i></span>
-                                            <span  class="mr-1"><i class="fas fa-restroom"></i></span>
-                                            <span  class="mr-1"><i class="fas fa-coffee"></i></span>
-                                        </span>
-                                    </div>
-                                    <div class="card-item-one-top-right">
-                                        <span>Harga</span>
-                                        <p class="harga">Rp <?= $value['price'] ?> <span> / orang</span></p>
-                                    </div>
-                                </div>
-                                <div class="d-flex flex-row justify-content-between align-items-center">
-                                    <div class="card-item-one-bottom-left d-flex align-items-center">
-                                        <div class="item-bottom-left">
-                                            <span><?= $value['start']  ?></span>
-                                            <p><?= $berangkat?> </p>
-                                            <span><?= $value['pickup_trip_location'] ?></span>
-                                        </div>
-                                        <div class="item-bottom-left d-flex justify-content-center align-items-center">
-                                            <span class="dots"></span>
-                                            <span class="dot-dashed"><span>12 j 10 m</span></span>
-                                            <span class="dots"></span>
-                                        </div>
-                                        <div class="item-bottom-left">
-                                            <span><?= $value['end']  ?></span>
-                                            <p><?= $tujuan ?> </p>
-                                            <span><?= $value['drop_trip_location'] ?></span>
-                                        </div>
-                                    </div>
-                                    <div class="card-item-one-bottom-right d-flex">
-                                        <p><span>Sisa Kursi</span> <?= $value['seatAvail']  ?> Kursi</p>
-                                        <button type="button" class="btn btn-black btn-reserved" data="<?= $tanggal.'_'.$value['trip_id_no'].'_'.$value['trip_route_id'].'_'.$value['fleet_registration_id'].'_'.$value['type'] ?>"><i class="fas fa-loveseat"></i></button>
-                                        <a href="<?= base_url('reservasi/pick/'.$value['trip_id_no'].'/'.$value['trip_route_id'].'/'.$value['price'].'/'.$value['type'].'/'.$value['resto_id'])?>" class="btn btn-submit">Pesan</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <?php } ?>
+                    <?= $listBus ?>
                 </div>
             </div>
         </div>

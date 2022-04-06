@@ -47,7 +47,11 @@
                         </li>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="javascript:void(0);" data-toggle="modal" data-target="#loginmodal">Login</a>
+                            <?php if (session('logged_in')) { ?>
+                                <a class="nav-link" href="<?= base_url('profile') ?>"><?= ucwords(session('firstName')) ?></a>
+                            <?php } else { ?>
+                                <a class="nav-link" href="javascript:void(0);" data-toggle="modal" data-target="#loginmodal">Login</a>
+                            <?php } ?>
                         </li>
                     </ul>
                 </div>

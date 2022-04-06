@@ -30,10 +30,19 @@
                         <div class="mb-0 form-group" >
                             <div class="input-text">
                                 <div class="text-label">
-                                    <span>Full Name</span>
+                                    <span>Nama Depan</span>
                                 </div>
                                 <div class="text-content">
-                                    <input type="text" class="form-control" placeholder="Enter your full name" name="fullname" required/>
+                                    <input type="text" class="form-control" placeholder="" name="firstName" required/>
+                                </div>
+                            </div>
+
+                            <div class="input-text">
+                                <div class="text-label">
+                                    <span>Nama Belakang</span>
+                                </div>
+                                <div class="text-content">
+                                    <input type="text" class="form-control" placeholder="" name="lastName" required/>
                                 </div>
                             </div>
 
@@ -42,25 +51,37 @@
                                     <span>Email</span>
                                 </div>
                                 <div class="text-content">
-                                    <input type="email" class="form-control" placeholder="Enter your email" name="email" required/>
+                                    <input type="email" class="form-control" placeholder="" name="email" required/>
                                 </div>
                             </div>
 
                             <div class="input-text">
                                 <div class="text-label">
-                                    <span>NIK</span>
+                                    <span>Telephone</span>
                                 </div>
                                 <div class="text-content">
-                                    <input type="text" placeholder="Enter your NIK" name="nik" class="form-control input-number" autocomplete="off" required/>
+                                    <input type="text" class="form-control" placeholder="" name="nohp" required/>
                                 </div>
                             </div>
 
                             <div class="input-text">
                                 <div class="text-label">
-                                    <span>Phone number </span>
+                                    <span>Identitas</span>
                                 </div>
                                 <div class="text-content">
-                                    <input type="text" placeholder="Enter your phone number"  name="nohp" class="form-control input-number" autocomplete="off" required/>
+                                    <select class="form-control" name="identity" id="slcdari">
+                                        <option value="KTP">KTP</option>
+                                        <option value="PASSPORT">PASSPORT</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="input-text">
+                                <div class="text-label">
+                                    <span>Nomor Identitas</span>
+                                </div>
+                                <div class="text-content">
+                                    <input type="text" placeholder="" name="identityNumber" class="form-control" autocomplete="off" required/>
                                 </div>
                             </div>
 
@@ -69,7 +90,7 @@
                                     <span>Password</span>
                                 </div>
                                 <div class="text-content with-icon">
-                                    <input type="password" class="form-control" placeholder="Enter your password" name="password" id="daftarpassword" required/>
+                                    <input type="password" class="form-control" placeholder="" name="password" id="daftarpassword" required/>
                                     <div class="text-icon right cursor">
                                         <span class="daftar-password" id="daftar-password">
                                             <i class="fal fa-eye"></i>

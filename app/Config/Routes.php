@@ -34,6 +34,7 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'Home::index');
 $routes->get('/', 'Home::searchtiket');
 $routes->get('/', 'Home::requestarmada');
+$routes->get('reservasi', 'Reservasi::index');
 $routes->post('reservasi', 'Reservasi::index');
 $routes->get('reservasi/pick/(:any)/(:any)/(:any)/(:any)/(:any)', 'Reservasi::pick/$1/$2/$3/$4/$5');
 $routes->get('reservasi/pulang', 'Reservasi::pulang');
@@ -66,6 +67,7 @@ $routes->get('profile/updatepass', 'Profile::updatepass');
 $routes->get('daftar', 'Daftar::index');
 $routes->get('daftar/add', 'Daftar::addmember');
 $routes->get('login', 'Login::index');
+$routes->get('logout', 'Login::logout');
 $routes->get('forgot-password', 'Forgot_Password::index');
 $routes->get('forgot-password/sentpass', 'Forgot_Password::sentpass');
 

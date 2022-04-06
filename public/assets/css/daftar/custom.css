@@ -19,3 +19,8 @@ section {
     color: #ffffff;
     margin-bottom: 20px;
 }
+.form-control {
+    background-color: transparent; 
+    color:#ffffff;
+    border: 0px solid;
+}
