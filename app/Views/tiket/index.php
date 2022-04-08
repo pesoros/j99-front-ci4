@@ -5,7 +5,11 @@
 <?= $this->endSection() ?>
 
 <?= $this->section('styles') ?>
-
+    <style>
+        h2 {
+            color: #FFFFFF;
+        }
+    </style>
 <?= $this->endSection() ?>
 
 <?= $this->section('content') ?>
@@ -17,7 +21,18 @@
 </div>
 <section>
 	<div class="container">
+    <h2>Kode Booking : <?= $book['booking_code'] ?></h2>
+    <h2>Status Pembayaran : 
+        <?php if ($book['payment_status'] == "0") { ?>
+            Menunggu Pembayaran
+        <?php } elseif($book['payment_status'] == '1') {?>
+            Sudah Dibayar
+        <?php } ?>
+    </h2>
+
         <div class="row align-items-center mt-5">
+        <?php if($book['payment_status'] == '1') {?>
+
             <?php foreach ($ticket as $key => $value) { ?>
             <div class="col-12 col-sm-6 col-xl-4 mb-4">
                 <a href="<?= base_url('tiket/detail/'.$value['ticket_number']) ?>" class="d-block">
@@ -77,6 +92,7 @@
                 </a>
             </div>
             <?php } ?>
+        <?php } ?>
         </div>
 	</div>
 </section>

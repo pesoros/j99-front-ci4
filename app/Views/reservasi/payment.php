@@ -108,19 +108,26 @@
 			<?php } ?>
             <div class="row justify-content-between">
                 <div class="col-12 col-sm-6  col-md-4 mb-4">
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <label>Kode Promo</label>
                         <input type="text" name="promo" id="promo" class="form-control" autocomplete="off" placeholder="Masukan Kode Promo" >
-                    </div>
+                    </div> -->
                     
                     <div class="form-group">
                         <label>Metode Pembayaran</label>
                         <select class="form-control" name="paymenmethod" id="slcpaymenmethod">
                             <option value=""></option>
+                            <?php foreach ($dataPayment as $key => $value) { ?>
+                                <?php if ($value['is_enabled']) { ?>
+                                <?php if ($value['channel_code'] !== 'QRIS') { ?>
+                                    <option value="<?= $value['channel_category'].'-'.$value['channel_code'] ?>"><?= $value['name'] ?></option>
+                                <?php } ?>
+                                <?php } ?>
+                            <?php } ?>
                             <!-- <option value="VIRTUAL_ACCOUNT-BCA" data-image="<?= base_url('/assets/img/icon/ic-bca.png'); ?>">BCA Virtial Account</option> -->
-                            <option value="VIRTUAL_ACCOUNT-MANDIRI" data-image="<?= base_url('/assets/img/icon/ic-mandiri.png'); ?>">Mandiri</option>
+                            <!-- <option value="VIRTUAL_ACCOUNT-MANDIRI" data-image="<?= base_url('/assets/img/icon/ic-mandiri.png'); ?>">Mandiri</option>
                             <option value="VIRTUAL_ACCOUNT-BNI" data-image="<?= base_url('/assets/img/icon/ic-bni.png'); ?>">BNI</option>
-                            <option value="VIRTUAL_ACCOUNT-BRI" data-image="<?= base_url('/assets/img/icon/ic-bri.png'); ?>">BRI</option>
+                            <option value="VIRTUAL_ACCOUNT-BRI" data-image="<?= base_url('/assets/img/icon/ic-bri.png'); ?>">BRI</option> -->
                         </select>
                     </div>
                 </div>

@@ -11,6 +11,10 @@ class Tiket extends BaseController
         if ($code == '') {
             return redirect()->to(base_url('')); 
         }
+        if (substr($code, 0, 2) == 'T-') {
+            return redirect()->to(base_url('tiket/detail/'.$code)); 
+        }
+
         $reqData['code'] = $code;
         $dataTicket = $this->httpPostXform(getenv('API_ENDPOINT')."ticket/cek",$reqData);
 
@@ -18,6 +22,7 @@ class Tiket extends BaseController
             return redirect()->to(base_url('')); 
         }
 
+        $ldata['book'] = $dataTicket; 
         $ldata['ticket'] = $dataTicket['ticket']; 
         $ldata['footer'] = view('layouts/footer'); 
         return view('tiket/index',$ldata);

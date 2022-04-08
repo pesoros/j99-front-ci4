@@ -7,12 +7,6 @@ class Reservasi extends BaseController
     public function index()
     {
         $bodyRaw = $this->request->getVar();
-        if (isset($bodyRaw) <= 0) {
-            $bodyRaw = session('reqData');
-            if (isset($bodyRaw)) {
-                return redirect()->to(base_url());
-            }
-        }
         $reqData['berangkat'] = isset($bodyRaw['dari']) ? $bodyRaw['dari'] : '';
         $reqData['tujuan'] = isset($bodyRaw['tujuan']) ? $bodyRaw['tujuan'] : '';
         $reqData['tanggal'] = isset($bodyRaw['pergi']) ? $bodyRaw['pergi'] : '';
@@ -38,6 +32,10 @@ class Reservasi extends BaseController
         session()->set('reqData', $reqData);
         session()->set('nowat', 'pergi');
         session()->set('roundTrip', $roundTrip);
+        $reqData['keyword'] = '';
+        $dataKelas = $this->httpPostXform(getenv('API_ENDPOINT')."datakelas",$reqData);
+
+        $ldata['dataKelas'] = $dataKelas; 
         $datav['berangkat'] = $reqData['berangkat'];
         $datav['tujuan'] = $reqData['tujuan'];
         $datav['tanggal'] = $reqData['tanggal'];
@@ -51,18 +49,19 @@ class Reservasi extends BaseController
     public function getFilterData()
     {
         $sessionData = session('reqData');
-        // $bodyRaw = $this->request->getVar();
-        if (!isset($bodyRaw)) {
+        $getVar = $this->request->getVar();
+        // if (!isset($bodyRaw)) {
             $bodyRaw = $sessionData;
-            if (!isset($bodyRaw)) {
-                return redirect()->to(base_url());
-            }
-        }
+        //     if (!isset($bodyRaw)) {
+        //         return redirect()->to(base_url());
+        //     }
+        // }
+
         $reqData['berangkat'] = isset($bodyRaw['berangkat']) ? $bodyRaw['berangkat'] : '';
         $reqData['tujuan'] = isset($bodyRaw['tujuan']) ? $bodyRaw['tujuan'] : '';
         $reqData['tanggal'] = isset($bodyRaw['pergi']) ? $bodyRaw['pergi'] : '';
         $reqData['penumpang'] = isset($bodyRaw['penumpang']) ? $bodyRaw['penumpang'] : '';
-        $reqData['kelas'] = isset($bodyRaw['kelas']) ? $bodyRaw['kelas'] : '';
+        $reqData['kelas'] = isset($getVar['kelas']) ? $getVar['kelas'] : '';
         $reqData['pergi'] = isset($sessionData['pergi']) ? $sessionData['pergi'] : '';
         $reqData['pulang'] = isset($sessionData['pulang']) ? $sessionData['pulang'] : '';
         if ($reqData['pulang'] == "") {
@@ -72,13 +71,9 @@ class Reservasi extends BaseController
         }
 
         $listbus = $this->httpPostXform(getenv('API_ENDPOINT')."listbus", $reqData);
-
         if (isset($listbus['status'])) {
             return 'empty';
         }
-
-            // echo json_encode($reqData);
-            // return;
         
         session()->set('reqData', $reqData);
         $datav['berangkat'] = $reqData['berangkat'];
@@ -98,13 +93,30 @@ class Reservasi extends BaseController
         $reqData['wadah'] = $reqData['berangkat'];
         $reqData['berangkat'] = $reqData['tujuan'];
         $reqData['tujuan'] = $reqData['wadah'];
+        $reqData['kelas'] = isset($bodyRaw['kelas']) ? $bodyRaw['kelas'] : '';
+        $reqData['pergi'] = isset($reqData['pergi']) ? $reqData['pergi'] : '';
+        $reqData['pulang'] = isset($reqData['pulang']) ? $reqData['pulang'] : '';
+        if ($reqData['pulang'] == "") {
+            $roundTrip = false;
+        } else {
+            $roundTrip = true;
+        }
 
         $listbus = $this->httpPostXform(getenv('API_ENDPOINT')."listbus", $reqData);
 
-        $ldata['berangkat'] = $reqData['berangkat'];
-        $ldata['tujuan'] = $reqData['tujuan'];
-        $ldata['tanggal'] = $reqData['tanggal'];
-        $ldata['listbus'] = $listbus;
+        if (isset($listbus['status'])) {
+            return 'empty';
+        }
+
+        session()->set('reqData', $reqData);
+        $dataKelas = $this->httpPostXform(getenv('API_ENDPOINT')."datakelas",$reqData);
+
+        $ldata['dataKelas'] = $dataKelas; 
+        $datav['berangkat'] = $reqData['berangkat'];
+        $datav['tujuan'] = $reqData['tujuan'];
+        $datav['tanggal'] = $reqData['tanggal'];
+        $datav['listBus'] = $listbus;
+        $ldata['listBus'] = view('reservasi/listmore',$datav);
         $ldata['footer'] = view('layouts/footer');
         return view('reservasi/index', $ldata);
     }
@@ -211,8 +223,12 @@ class Reservasi extends BaseController
 
         $dataToSave = session('dataToSave');
 
+        $left = '';
+        if ($pieces[0] == 'EWALLET') {
+            $left = 'ID_';
+        }
         $dataToSave['payment_method'] = $pieces[0];
-        $dataToSave['payment_channel_code'] = $pieces[1];
+        $dataToSave['payment_channel_code'] = $left.$pieces[1];
 
         session()->set('dataToSave', $dataToSave);
 
@@ -254,7 +270,7 @@ class Reservasi extends BaseController
     {
         $readyToSave = session('readyToSave');
         if ($readyToSave == true) {
-            session()->set('readyToSave', false);
+            // session()->set('readyToSave', false);
             $setBookingData = session('dataToSave');
             $setBooking = $this->httpPostXform(getenv('API_ENDPOINT')."booking/add", $setBookingData);
 
@@ -270,12 +286,13 @@ class Reservasi extends BaseController
             $ldata['priceBack'] = $priceBack;
             $ldata['sumPrice'] = $sumPrice;
             $ldata['payment'] = $setBooking['payment'];
+            $ldata['bookingData'] = $setBookingData;
             $ldata['footer'] = view('layouts/footer');
 
             // echo json_encode($ldata['payment']['account_number']);
             // return;
 
-            session()->set('dataToSave', '');
+            // session()->set('dataToSave', '');
 
             return view('reservasi/invoice', $ldata);
         } else {
@@ -356,10 +373,13 @@ class Reservasi extends BaseController
         }
         $sumPrice = $priceGo + $priceBack;
 
+        $dataPayment = $this->httpGetXform(getenv('API_ENDPOINT')."datapaymentmethod");
+
         $ldata['data'] = $dataToSave;
         $ldata['priceGo'] = $priceGo;
         $ldata['priceBack'] = $priceBack;
         $ldata['sumPrice'] = $sumPrice;
+        $ldata['dataPayment'] = $dataPayment;
         $ldata['footer'] = view('layouts/footer');
         return view('reservasi/payment', $ldata);
     }
@@ -393,6 +413,17 @@ class Reservasi extends BaseController
         curl_setopt($curl, CURLOPT_POSTFIELDS, http_build_query($data));
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type: application/x-www-form-urlencoded'));
+        $result = curl_exec($curl);
+        curl_close($curl);
+        $result = json_decode($result, true);
+        return $result;
+    }
+
+    public function httpGetXform($url)
+    {
+        $curl = curl_init($url);
+        curl_setopt($curl, CURLOPT_POST, false);
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
         $result = curl_exec($curl);
         curl_close($curl);
         $result = json_decode($result, true);

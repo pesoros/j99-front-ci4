@@ -35,11 +35,11 @@
 <section>
 	<div class="container">
         <div class="content-reservasi">
-            <h2>Tiket Pergi</h2>
+            <h2>Tiket <?= ucwords(session('nowat')) ?> <?= session('reqData')['berangkat'] ?> - <?= session('reqData')['tujuan'] ?></h2>
             <div class="reservasi-header">
                 <form class="search-form" id="searchform" name="formsearch" method="POST">
                     <div class="row align-items-center">
-                        <div class="col-6 col-sm-3 col-lg-2">
+                        <!-- <div class="col-6 col-sm-3 col-lg-2">
                             <div class="form-group" >
                                 <label>Bus / shuttel</label>
                                 <select class="form-control" name="bus" id="slcbus">
@@ -50,14 +50,14 @@
                                     <option value="4">Bus 4</option>
                                 </select>
                             </div>
-                        </div>
-                        <div class="col-6 col-sm-3 col-lg-2">
+                        </div> -->
+                        <!-- <div class="col-6 col-sm-3 col-lg-2">
                             <div class="form-group" >
                                 <label>Tanggal Keberangkatan</label>
                                 <input type="text" name="pergi" id="dateto" class="form-control datepicker" placeholder="yyyy-mm-dd" readonly>
                             </div>
-                        </div>
-                        <div class="col-6 col-sm-3 col-lg-1">
+                        </div> -->
+                        <!-- <div class="col-6 col-sm-3 col-lg-1">
                             <div class="form-group" >
                                 <label>Penumpang</label>
                                 <select class="form-control" name="penumpang" id="slcpenumpang">
@@ -67,8 +67,8 @@
                                     <option value="4">4</option>
                                 </select>
                             </div>
-                        </div>
-                        <div class="col-6 col-sm-3 col-lg-2">
+                        </div> -->
+                        <!-- <div class="col-6 col-sm-3 col-lg-2">
                             <div class="form-group" >
                                 <label>Kota Keberangkatan</label>
                                 <select class="form-control" name="berangkat" id="slcincity">
@@ -79,8 +79,8 @@
                                     <option value="jayapura">Jayapura</option>
                                 </select>
                             </div>
-                        </div>
-                        <div class="col-6 col-sm-3 col-lg-2">
+                        </div> -->
+                        <!-- <div class="col-6 col-sm-3 col-lg-2">
                             <div class="form-group" >
                                 <label>Kota Tujuan</label>
                                 <select class="form-control" name="tujuan" id="slcoffcity">
@@ -91,14 +91,15 @@
                                     <option value="jayapura">Jayapura</option>
                                 </select>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="col-6 col-sm-3 col-lg-2">
                             <div class="form-group" >
                                 <label>Kelas Armada</label>
                                 <select class="form-control" name="kelas" id="slckelas">
                                     <option value=""></option>
-                                    <option value="executive">Executive</option>
-                                    <option value="superior">Superior</option>
+                                    <?php foreach ($dataKelas as $key => $value) { ?>
+                                        <option value="<?= $value['id'] ?>"><?= $value['kelas'] ?></option>
+                                    <?php } ?>
                                 </select>
                             </div>
                         </div>
