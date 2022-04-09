@@ -45,6 +45,10 @@
                                 <span>Virtual Account</span>
                                 <span><?= $payment['bank_code'].' '.$payment['account_number'] ?></span>
                             </div>
+                            <div class="d-flex flex-row justify-content-between align-items-center">
+                                <span></span>
+                                <button class="btn btn-submit btn-md btn-block w-auto mt-4" onclick="copyToClipboard(<?= $payment['account_number'] ?>)">Copy Virtual Account</button>
+                            </div>
                         <?php } elseif($bookingData['payment_method'] == 'EWALLET') {?>
                             <div class="d-flex flex-row justify-content-between align-items-center">
                                 <span>E Wallet </span>

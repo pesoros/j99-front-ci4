@@ -15,6 +15,7 @@
             <div class="card-header" id="cardheader">
                 <ul class="d-flex flex-row flex-md-column">
                     <li class="nav-item-scroolto active" data-target="yourprofile">Profile</li>
+                    <li class="nav-item-scroolto" data-target="emailform">Email</li>
                     <li class="nav-item-scroolto" data-target="mobilephone">Mobile Phone</li>
                     <li class="nav-item-scroolto" data-target="changepass">Change Password</li>
                     <li class="nav-item-scroolto" data-target="history">Booking History</li>
@@ -36,25 +37,57 @@
                             <div class="mb-0 form-group">
                                 <div class="input-text">
                                     <div class="input-text-label">
-                                        <span>Full name</span>
+                                        <span>Nama Depan</span>
                                     </div>
                                     <div class="input-text-content">
-                                        <input type="text" name="fullName" id="profilefullname" value=""
-                                            placeholder="Enter your full name">
+                                        <input type="text" name="firstName" id="profilefirstname" value="<?= session('firstName') ?>"
+                                            placeholder="Enter your first name">
                                     </div>
                                 </div>
                                 <div class="input-text">
                                     <div class="input-text-label">
-                                        <span>Email</span>
+                                        <span>Nama Belakang</span>
                                     </div>
                                     <div class="input-text-content">
-                                        <input type="text" name="email" id='profileemail' value=""
-                                            placeholder="Enter your email">
+                                        <input type="text" name="lastName" id="profilelastname" value="<?= session('lastName') ?>""
+                                            placeholder="Enter your last name">
+                                    </div>
+                                </div>
+                                <div class="input-text">
+                                    <div class="input-text-label">
+                                        <span>Alamat</span>
+                                    </div>
+                                    <div class="input-text-content">
+                                        <input type="text" name="address" id="profileaddress" value="<?= session('address') ?>""
+                                            placeholder="Enter your address">
                                     </div>
                                 </div>
                                 <button class="btn btn-submit btn-md btn-block w-auto mt-4" disabled="" type="submit"
                                     id="btnprofile">Save</button>
                             </div>
+                        </form>
+                    </div>
+
+                    <div class="divider-settings my-4"></div>
+
+                    <? //email ?>
+                    <div class="card-header has-anchor" id="emailform">
+                        <p class="profile-title">Email settings</p>
+                    </div>
+                    <div class="card-body">
+                        <form class="form-mobile-phone" id="formemail" name="formemail" method="POST">
+                            <div id="alert-phone" role="alert"></div>
+                            <div class="input-text">
+                                <div class="input-text-label">
+                                    <span>Email</span>
+                                </div>
+                                <div class="input-text-content">
+                                    <input type="text" name="email" id='profileemail' value="<?= session('email') ?>""
+                                        placeholder="Enter your email">
+                                </div>
+                            </div>
+                            <button class="btn btn-submit btn-md btn-block w-auto mt-4" type="submit" disabled=""
+                                id="btnemail">Save</button>
                         </form>
                     </div>
 
@@ -82,7 +115,7 @@
                                     </div>
                                     <div class="input-text input-phone-number-value block">
                                         <div class="input-text-content">
-                                            <input type="tel" autocomplete="off" value=""
+                                            <input type="tel" autocomplete="off" value="<?= session('phone') ?>""
                                                 placeholder="Enter your phoen number" class="input-number"
                                                 id="phonenumber" />
                                         </div>

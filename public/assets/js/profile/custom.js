@@ -16,10 +16,20 @@ for (var i = 0; i < eye.length; i++) {
 
 //submit profile
 var issubmitprofile=false, isprofile = false;
-const fullname = document.getElementById('profilefullname');
+const firstname = document.getElementById('profilefirstname');
+const lastname = document.getElementById('profilelastname');
 const email = document.getElementById('profileemail');
 const btnprofile = document.getElementById('btnprofile');
-fullname.addEventListener('keyup',function (evt) {
+firstname.addEventListener('keyup',function (evt) {
+    if (email.value != '' && this.value != '') {
+        isprofile = true;
+        btnprofile.disabled = false;
+    } else {
+        isprofile = false;
+        btnprofile.disabled = true;
+    }
+});
+lastname.addEventListener('keyup',function (evt) {
     if (email.value != '' && this.value != '') {
         isprofile = true;
         btnprofile.disabled = false;

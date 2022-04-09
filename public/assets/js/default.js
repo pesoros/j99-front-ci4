@@ -253,3 +253,18 @@ function setSelect2Above() {
 
 };
 
+function redirectBut(targetLink) {
+    console.log('s')
+    window.open(targetLink);
+    return false;
+}
+
+function copyToClipboard(textToCopy) {
+    var $temp = $("<input>");
+    $("body").append($temp);
+    $temp.val(textToCopy).select();
+    document.execCommand("copy");
+    $temp.remove();
+    $("#copyText").text("Copied");
+}
+

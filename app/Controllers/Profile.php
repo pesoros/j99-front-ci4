@@ -8,6 +8,9 @@ class Profile extends BaseController
     {
         $email = session('email');
         $reqData['email'] = $email;
+        if (!isset($email)) {
+            return redirect()->to(base_url('')); 
+        }
         $dataTicket = $this->httpPostXform(getenv('API_ENDPOINT')."account/profile/historyticket",$reqData);
         if ($dataTicket['status'] == 200) {
             $book = $dataTicket['data'];
