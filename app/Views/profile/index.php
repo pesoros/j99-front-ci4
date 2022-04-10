@@ -15,8 +15,6 @@
             <div class="card-header" id="cardheader">
                 <ul class="d-flex flex-row flex-md-column">
                     <li class="nav-item-scroolto active" data-target="yourprofile">Profile</li>
-                    <li class="nav-item-scroolto" data-target="emailform">Email</li>
-                    <li class="nav-item-scroolto" data-target="mobilephone">Mobile Phone</li>
                     <li class="nav-item-scroolto" data-target="changepass">Change Password</li>
                     <li class="nav-item-scroolto" data-target="history">Booking History</li>
                     <li><a href="logout">Log Out</a></li>
@@ -32,7 +30,7 @@
                             you easily.</p>
                     </div>
                     <div class="card-body">
-                        <form class="form-your-profile" id="formyourprofile" name="formyourprofile" method="POST">
+                        <form class="form-your-profile" id="formyourprofile" name="formyourprofile" method="POST" action="<?= base_url('profile/update') ?>">
                             <div id="alert-profile" role="alert"></div>
                             <div class="mb-0 form-group">
                                 <div class="input-text">
@@ -49,7 +47,7 @@
                                         <span>Nama Belakang</span>
                                     </div>
                                     <div class="input-text-content">
-                                        <input type="text" name="lastName" id="profilelastname" value="<?= session('lastName') ?>""
+                                        <input type="text" name="lastName" id="profilelastname" value="<?= session('lastName') ?>"
                                             placeholder="Enter your last name">
                                     </div>
                                 </div>
@@ -58,72 +56,66 @@
                                         <span>Alamat</span>
                                     </div>
                                     <div class="input-text-content">
-                                        <input type="text" name="address" id="profileaddress" value="<?= session('address') ?>""
+                                        <input type="text" name="address" id="profileaddress" value="<?= session('address') ?>"
                                             placeholder="Enter your address">
                                     </div>
                                 </div>
-                                <button class="btn btn-submit btn-md btn-block w-auto mt-4" disabled="" type="submit"
-                                    id="btnprofile">Save</button>
-                            </div>
-                        </form>
-                    </div>
-
-                    <div class="divider-settings my-4"></div>
-
-                    <? //email ?>
-                    <div class="card-header has-anchor" id="emailform">
-                        <p class="profile-title">Email settings</p>
-                    </div>
-                    <div class="card-body">
-                        <form class="form-mobile-phone" id="formemail" name="formemail" method="POST">
-                            <div id="alert-phone" role="alert"></div>
-                            <div class="input-text">
-                                <div class="input-text-label">
-                                    <span>Email</span>
+                                <div class="input-text">
+                                    <div class="input-text-label">
+                                        <span>Identitas</span>
+                                    </div>
+                                    <div class="input-text-content">
+                                        <input type="text" name="identity" id="profileaddress" value="<?= session('identity') ?>"
+                                            placeholder="Enter your address">
+                                    </div>
                                 </div>
-                                <div class="input-text-content">
-                                    <input type="text" name="email" id='profileemail' value="<?= session('email') ?>""
-                                        placeholder="Enter your email">
+                                <div class="input-text">
+                                    <div class="input-text-label">
+                                        <span>Nomor Identitas</span>
+                                    </div>
+                                    <div class="input-text-content">
+                                        <input type="text" name="identityNumber" id="profileaddress" value="<?= session('identityNumber') ?>"
+                                            placeholder="Enter your Identity">
+                                    </div>
                                 </div>
-                            </div>
-                            <button class="btn btn-submit btn-md btn-block w-auto mt-4" type="submit" disabled=""
-                                id="btnemail">Save</button>
-                        </form>
-                    </div>
-
-                    <div class="divider-settings my-4"></div>
-
-                    <? //Mobile ?>
-                    <div class="card-header has-anchor" id="mobilephone">
-                        <p class="profile-title">Mobile settings</p>
-                        <p>Register your phone number to add greater security to your account.</p>
-                    </div>
-                    <div class="card-body">
-                        <form class="form-mobile-phone" id="formmobilephone" name="formmobilephone" method="POST">
-                            <div id="alert-phone" role="alert"></div>
-                            <div class="input-phone-number-container">
-                                <div class="d-flex">
-                                    <div class="selector selector-country-code">
-                                        <div class="selector-selected">
-                                            <div class="d-flex">
-                                                <img class="country-flag-img m-auto"
-                                                    src="https://country-flags-images.s3.amazonaws.com/flags/id.svg"
-                                                    alt="country-flag" />
-                                                <span class="country-label-selected">+62</span>
+                                <div class="input-text">
+                                    <div class="input-text-label">
+                                        <span>Email</span>
+                                    </div>
+                                    <div class="input-text-content">
+                                        <input type="text" name="email" id='profileemail' value="<?= session('email') ?>"
+                                            placeholder="Enter your email">
+                                    </div>
+                                </div>
+                                <div class="input-text">
+                                    <div class="input-text-label">
+                                        <span>Phone</span>
+                                    </div>
+                                    <div class="input-phone-number-container">
+                                        <div class="d-flex">
+                                            <div class="selector selector-country-code">
+                                                <div class="selector-selected">
+                                                    <div class="d-flex">
+                                                        <img class="country-flag-img m-auto"
+                                                            src="https://country-flags-images.s3.amazonaws.com/flags/id.svg"
+                                                            alt="country-flag" />
+                                                        <span class="country-label-selected">+62</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="input-text input-phone-number-value block">
+                                                <div class="input-text-content">
+                                                    <input type="tel" autocomplete="off" value="<?= session('phone') ?>"
+                                                        placeholder="Enter your phoen number" class="input-number"
+                                                        id="phonenumber" name="phone" />
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="input-text input-phone-number-value block">
-                                        <div class="input-text-content">
-                                            <input type="tel" autocomplete="off" value="<?= session('phone') ?>""
-                                                placeholder="Enter your phoen number" class="input-number"
-                                                id="phonenumber" />
-                                        </div>
-                                    </div>
                                 </div>
+                                <button class="btn btn-submit btn-md btn-block w-auto mt-4" type="submit"
+                                    id="btnprofile">Save</button>
                             </div>
-                            <button class="btn btn-submit btn-md btn-block w-auto mt-4" type="submit" disabled=""
-                                id="btnphone">Save</button>
                         </form>
                     </div>
 
@@ -135,23 +127,15 @@
                     </div>
                     <div class="card-body">
                         <form class="form--change-password" id="formchangepassword" name="formchangepassword"
-                            method="POST">
+                            method="POST" action="<?= base_url('profile/updatepass') ?>">
                             <div id="alert-change-password" role="alert"></div>
                             <div class="mb-0 form-group">
-                                <div class="input-text">
-                                    <div class="input-text-label">
-                                        <span> Current password</span>
-                                    </div>
-                                    <div class="input-text-content">
-                                        <input type="password" placeholder="Enter your current password"
-                                            name="currentPassword" id="currentpassword" value="" />
-                                    </div>
-                                </div>
                                 <div class="input-text">
                                     <div class="input-text-label">
                                         <span>New password</span>
                                     </div>
                                     <div class="input-text-content with-icon">
+                                        <input type="hidden" name="emailpass" id="" value="<?= session('email') ?>">
                                         <input type="password" placeholder="Enter your new password" name="newPassword"
                                             id="newpassword" value="" />
                                         <div class="input-text-icon right cursor">
@@ -161,7 +145,23 @@
                                         </div>
                                     </div>
                                 </div>
-                                <button class="btn btn-submit btn-md btn-block w-auto mt-4" disabled="" type="submit"
+                                <div class="input-text">
+                                    <div class="input-text-label">
+                                        <span>Konfirmasi password</span>
+                                    </div>
+                                    <div class="input-text-content with-icon">
+                                        <!-- <input type="password" placeholder="Enter your new password" name="confNewPassword"
+                                            id="confNewPassword" value="" /> -->
+                                        <input type="password" placeholder="Enter your current password"
+                                            name="confNewPassword" id="confnewpassword" value="" />
+                                        <div class="input-text-icon right cursor">
+                                            <span class="toggle-passwordconf" id="toggle-passwordconf">
+                                                <i class="fal fa-eye"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="btn btn-submit btn-md btn-block w-auto mt-4" type="submit"
                                     id="btnchangepass">Save</button>
                             </div>
                         </form>

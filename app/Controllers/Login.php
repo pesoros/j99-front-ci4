@@ -14,14 +14,17 @@ class Login extends BaseController
         if ($submitLogin['status'] == 400) {
             $result = 400;
         } else {
+            $getProfile = $this->httpPostXform(getenv('API_ENDPOINT')."account/profile",$reqData);
             session()->set([
                 'uid' => $submitLogin['uid'],
                 'token' => $submitLogin['token'],
-                'email' => $submitLogin['email'],
-                'firstName' => $submitLogin['firstName'],
-                'lastName' => $submitLogin['lastName'],
-                'address' => $submitLogin['address'],
-                'phone' => $submitLogin['phone'],
+                'email' => $getProfile['email'],
+                'firstName' => $getProfile['first_name'],
+                'lastName' => $getProfile['last_name'],
+                'address' => $getProfile['address'],
+                'phone' => $getProfile['phone'],
+                'identity' => $getProfile['identity'],
+                'identityNumber' => $getProfile['identity_number'],
                 'logged_in' => TRUE
             ]);
             $result = 200;

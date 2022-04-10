@@ -61,7 +61,7 @@ $routes->get('promosi/getmoredata', 'Promosi::getmoredata');
 $routes->get('agen', 'Agen::index');
 $routes->get('agen/getdata', 'Agen::getData');
 $routes->get('profile', 'Profile::index');
-$routes->get('profile/update', 'Profile::update');
+$routes->post('profile/update', 'Profile::update');
 $routes->get('profile/updatephone', 'Profile::updatephone');
 $routes->get('profile/updatepass', 'Profile::updatepass');
 $routes->get('daftar', 'Daftar::index');
