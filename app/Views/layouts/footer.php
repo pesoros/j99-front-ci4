@@ -18,9 +18,9 @@
                     <div class="col-6  col-lg-5 contact">
                         <h6 class="text-uppercase fw-bold mb-2">Contact</h6>
                         <a href="tel:628122220799" target="_blank">
-                        <i class="fas fa-phone"></i>&nbsp; 081 222 207 99</a>
-                        <a href="mailto:info@juragan99trans.id?Subject=Info%20%Juragan%20%99" target="_blank"><i class="fas fa-envelope"></i>&nbsp; info@juragan99trans.id </a>
-                        <a href="" target="_blank"><i class="fas fa-location-arrow"></i>&nbsp; Jl. Komud ABD. Saleh No.</a>
+                        <i class="fas fa-phone"></i>&nbsp; 0812 5353 6799</a>
+                        <a href="mailto:admin@juragan99trans.id?Subject=Info%20%Juragan%20%99" target="_blank"><i class="fas fa-envelope"></i>&nbsp; admin@juragan99trans.id </a>
+                        <a href="" target="_blank">Jl. Komud Abdurrahman Saleh RT 05 RW 06, Kel. Asrikaton, <br> Kec. Pakis, Kab. Malang, <br> Provinsi Jawa Timur</a>
                     </div>
                 </div>
                 <div class="d-flex justify-content-center align-items-center payment">
@@ -58,7 +58,7 @@
 </section> 
 
 <div class="text-center p-4 copyright d-flex flex-column flex-sm-row justify-content-center justify-content-sm-between align-items-center">
-    <span>©Copyright Juragan99Trans 2022</span>
+    <span>© 2022 Juragan99 Trans by PT Gilang Sembilan Sembilan</span>
     <div class="d-flex flex-row align-items-center mt-3 mt-sm-0">
         <a href="" target="_blank" class="share"><i class="fab fa-instagram"></i></a>
         <a href="" target="_blank" class="share"><i class="fab fa-facebook"></i></a>

@@ -34,9 +34,10 @@
                     </div>
                 </div>
                 <div class="item-rigth col-12 col-lg-6 px-4 position-1">
-                    <h3><span class="bg-black text-white">Sejar</span><span>ah</span></h3>
-                    <p class="text-wrap text-break">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                    <p class="text-wrap text-break">Why do we use it?<br> It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
+                    <h3><span class="bg-black text-white">Tentang</span><span>Juragan 99</span></h3>
+                    <p class="text-wrap text-break">
+                    Juragan99 Trans adalah perusahaan jasa yang bergerak dibidang transportasi darat yang dinaungi oleh PT Gilang Sembilan Sembilan , dengan memiliki 14 armada bus pariwisata yang terbagi menjadi 1 armada Luxury, 2 armada Premium, dan 11 armada Executive. Juragan99 Trans berani memberikan anda jaminan kepuasan pelayanan yang menyeluruh dari mulai tingkat kenyamanan armada yang digunakan hingga pelayanan terbaik dari kru Juragan99Trans.
+                    </p>
                 </div>
             </div>
         </div>
@@ -66,9 +67,9 @@
                     <div class="item-footer col-12 col-sm-5 col-xl-4">
                         <div class="item-contact d-flex flex-column">
                             <a href="tel:628122220799" target="_blank">
-                            <i class="fas fa-phone"></i>&nbsp; 081 222 207 99</a>
-                            <a href="mailto:info@juragan99trans.id?Subject=Info%20%Juragan%20%99" target="_blank"><i class="fas fa-envelope"></i>&nbsp; info@juragan99trans.id </a>
-                            <a href="" target="_blank"><i class="fas fa-location-arrow"></i>&nbsp; Jl. Komud ABD. Saleh No.</a>
+                            <i class="fas fa-phone"></i>&nbsp; 0812 5353 6799</a>
+                            <a href="mailto:admin@juragan99trans.id?Subject=Info%20%Juragan%20%99" target="_blank"><i class="fas fa-envelope"></i>&nbsp; admin@juragan99trans.id </a>
+                            <a href="" target="_blank">Jl. Komud Abdurrahman Saleh RT 05 RW 06, <br> Kel. Asrikaton, Kec. Pakis, Kab. Malang, <br> Provinsi Jawa Timur</a>
                         </div>
                         
                         <div class="item-share">

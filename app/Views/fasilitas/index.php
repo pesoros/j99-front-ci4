@@ -67,7 +67,7 @@
                         <div class="item-contact d-flex flex-column">
                             <a href="tel:628122220799" target="_blank">
                             <i class="fas fa-phone"></i>&nbsp; 081 222 207 99</a>
-                            <a href="mailto:info@juragan99trans.id?Subject=Info%20%Juragan%20%99" target="_blank"><i class="fas fa-envelope"></i>&nbsp; info@juragan99trans.id </a>
+                            <a href="mailto:admin@juragan99trans.id?Subject=Info%20%Juragan%20%99" target="_blank"><i class="fas fa-envelope"></i>&nbsp; admin@juragan99trans.id </a>
                             <a href="" target="_blank"><i class="fas fa-location-arrow"></i>&nbsp; Jl. Komud ABD. Saleh No.</a>
                         </div>
                         
