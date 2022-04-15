@@ -43,7 +43,7 @@ $routes->post('reservasi/submitdata', 'Reservasi::submitData');
 $routes->get('reservasi/getmoredata', 'Reservasi::getmoredata');
 $routes->get('reservasi/getFilterData', 'Reservasi::getFilterData');
 $routes->get('reservasi/addbooking', 'Reservasi::addbooking');
-$routes->get('reservasi/payment', 'Reservasi::payment');
+$routes->get('reservasi/payment', 'Reservasi::payment'); 
 $routes->get('reservasi/addpayment', 'Reservasi::addpayment');
 $routes->get('reservasi/sentotp', 'Reservasi::sentotp');
 $routes->get('reservasi/sentotpmail', 'Reservasi::sentotpmail');
