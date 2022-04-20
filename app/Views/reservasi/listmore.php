@@ -41,7 +41,7 @@
                                     <div class="card-item-one-bottom-right d-flex">
                                         <p><span>Sisa Kursi</span> <?= $value['seatAvail']  ?> Kursi</p>
                                         <button type="button" class="btn btn-black btn-reserved" data="<?= $tanggal.'_'.$value['trip_id_no'].'_'.$value['trip_route_id'].'_'.$value['fleet_registration_id'].'_'.$value['type'] ?>"><i class="fas fa-loveseat"></i></button>
-                                        <a href="<?= base_url('reservasi/pick/'.$value['trip_id_no'].'/'.$value['trip_route_id'].'/'.$value['price'].'/'.$value['type'].'/'.$value['resto_id'])?>" class="btn btn-submit">Pesan</a>
+                                        <a href="<?= base_url('reservasi/pick/'.$value['trip_id_no'].'/'.$value['trip_route_id'].'/'.$value['price'].'/'.$value['type'].'/'.$value['resto_id'].'/'.$value['pickup_trip_location'].'/'.$value['drop_trip_location'])?>" class="btn btn-submit">Pesan</a>
                                     </div>
                                 </div>
                             </div>

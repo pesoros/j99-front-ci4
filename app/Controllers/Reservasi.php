@@ -121,7 +121,7 @@ class Reservasi extends BaseController
         return view('reservasi/index', $ldata);
     }
 
-    public function pick($trip_id_no, $trip_route_id, $pricePerSeat, $fleetTypeId, $restoId)
+    public function pick($trip_id_no, $trip_route_id, $pricePerSeat, $fleetTypeId, $restoId, $from, $to)
     {
         if (!empty(session('dataToSave'))) {
             $dataToSave = session('dataToSave');
@@ -135,8 +135,8 @@ class Reservasi extends BaseController
 
         $dataToSave[$varName]['trip_id_no'] = $trip_id_no;
         $dataToSave[$varName]['trip_route_id'] = $trip_route_id;
-        $dataToSave[$varName]['pickup_location'] = $reqData['berangkat'];
-        $dataToSave[$varName]['drop_location'] = $reqData['tujuan'];
+        $dataToSave[$varName]['pickup_location'] = $from;
+        $dataToSave[$varName]['drop_location'] = $to;
         $dataToSave[$varName]['pricePerSeat'] = $pricePerSeat;
         $dataToSave[$varName]['booking_date'] = $reqData['pergi'];
         $dataToSave[$varName]['fleet_type_id'] = $fleetTypeId;
