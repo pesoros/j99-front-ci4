@@ -23,8 +23,7 @@ class App extends BaseConfig
      *
      * @var string
      */
-    // public $baseURL = BASE;
-    public $baseURL = 'https://tiketjuragan99.id';
+    public $baseURL = BASE;
 
     /**
      * --------------------------------------------------------------------------
