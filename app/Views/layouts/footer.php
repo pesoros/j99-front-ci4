@@ -37,7 +37,7 @@
                 </a>
                 <h4 class="mt-4 mb-3">Download Our App!</h4>
                 <div class="d-flex flex-lg-row flex-sm-column justify-content-center">
-                    <a href="<?= base_url() ?>/assets/j99trans-app.apk" class="btn btn-gp mb-2 mr-2 mr-sm-0 mr-lg-2 d-flex align-items-center justify-content-center" download>
+                    <a href="<?= base_url() ?>/assets/app/j99trans-app.apk" class="btn btn-gp mb-2 mr-2 mr-sm-0 mr-lg-2 d-flex align-items-center justify-content-center" download>
                         <i class="fab fa-google-play fa-2x"></i>&nbsp;
                         <div class="d-flex flex-column">
                             <span>GET IT ON</span>

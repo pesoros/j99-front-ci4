@@ -223,22 +223,22 @@
 						<div class="d-flex flex-row profile">
 							<img src="assets/img/default-avatar.png" alt="avatar">
 							<div class="d-flex flex-column">
-								<p>Philip Martin</p>
+								<p>Andi Wijaya</p>
 								<div class="Stars" style="--rating: 4.6;" aria-label="Rating of this product is 2.3 out of 5."></div>
 							</div>
 						</div>
-						<p>Lorem Ipsum is simply dummy text of the printing and type setting industry. Lorem Ipsum has been the industry's standard</p>
+						<p>Bis super nyaman, pelayanan mantap jaya</p>
 					</div>
 					
 					<div class="item-list">
 						<div class="d-flex flex-row profile">
 							<img src="assets/img/default-avatar.png" alt="avatar">
 							<div class="d-flex flex-column">
-								<p>Juragan ku</p>
+								<p>Cahyo Suryana</p>
 								<div class="Stars" style="--rating: 4.3;" aria-label="Rating of this product is 2.3 out of 5."></div>
 							</div>
 						</div>
-						<p>Lorem Ipsum is simply dummy text of the printing and type setting industry. Lorem Ipsum has been the industry's standard</p>
+						<p>Tim Juragan99 sangat ramah dan cekatan. Armada bus sangat bersih, nyaman dan fasilitas lengkap.</p>
 					</div>
 				</div>
 			</div>
