@@ -32,7 +32,7 @@
                 </div>
             </div>
             <div class="mb-md-0 mb-4 download">
-                <a href="" class="btn btn-cs mx-lg-auto">
+                <a href="https://wa.me/628122220799" class="btn btn-cs mx-lg-auto">
                     <i class="fas fa-headphones"></i>&nbsp; Customer Service
                 </a>
                 <h4 class="mt-4 mb-3">Download Our App!</h4>

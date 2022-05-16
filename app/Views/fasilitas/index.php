@@ -35,8 +35,7 @@
                 </div>
                 <div class="item-rigth col-12 col-lg-6 px-4 position-1">
                     <h3><span class="bg-black text-white">Pemilihan Se</span><span>at</span></h3>
-                    <p class="text-wrap text-break">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                    <p class="text-wrap text-break">Why do we use it?<br> It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
+                    <p class="text-wrap text-break">Kami berikan keleluasaan terhadap calon pengguna jasa kami untuk dapat memilih seat sesuai dengan keinginan, jaminan kecocokan data yang anda pilih dengan kondisi sebenarnya adalah satu komitmen kami terhadap pengguna jasa.</p>
                 </div>
             </div>
         </div>
@@ -45,8 +44,7 @@
             <div class="row mx-0 justify-content-center align-items-center">
                 <div class="item-left col-12 col-lg-6 px-4">
                     <h3><span class="bg-black text-white">Online Book</span><span>ing</span></h3>
-                    <p class="text-wrap text-break">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                    <p class="text-wrap text-break">Why do we use it?<br> It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
+                    <p class="text-wrap text-break">Pemesanan tiket lebih mudah dengan online booking yang tersedia di Google Playstore untuk android dan App Strore untuk Iphone yang bisa anda instal di gadget anda, pesan layanan terbaik kami dengan gerakan jari anda dan dapatkan pengalaman terbaik bepergian dengan armada juragan99.</p>
                 </div>
                 <div class="item-rigth col-12 col-lg-6 px-0">
                     <div class="row mx-0">
