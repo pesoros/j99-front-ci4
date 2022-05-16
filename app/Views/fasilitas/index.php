@@ -80,14 +80,14 @@
                                 <h4>Download Our App!</h4>
                                 <span>Book tickets & track your coach anytime, anywhere.</span>
                                 <div class="d-flex flex-lg-row flex-sm-column">
-                                    <a href="" class="btn btn-gp d-flex align-items-center justify-content-center">
+                                    <a href="<?= base_url() ?>/assets/j99trans-app.apk" class="btn btn-gp d-flex align-items-center justify-content-center" download>
                                         <i class="fab fa-google-play fa-2x"></i>&nbsp;
                                         <div class="d-flex flex-column">
                                             <span>GET IT ON</span>
                                             <p>Google Play</p>
                                         </div>
                                     </a>
-                                    <a href="" class="btn btn-apple d-flex align-items-center justify-content-center">
+                                    <a href="https://apps.apple.com/id/app/juragan99trans-beta/id1617514573" class="btn btn-apple d-flex align-items-center justify-content-center" target="_blank">
                                         <i class="fab fa-apple fa-2x"></i>&nbsp;
                                         <div class="d-flex flex-column">
                                             <span>Download on the</span>
