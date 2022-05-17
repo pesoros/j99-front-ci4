@@ -158,10 +158,11 @@
 				<div class="d-flex flex-column justify-content-center">
 					<h5>Disclaimer</h5>
 					<ul class="d-flex flex-column justify-content-center">
-						<li>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</li>
-						<li>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</li>
-						<li>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</li>
-						<li>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</li>
+						<li>Anak anak dengan tinggi lebih 90cm dikenakan biaya tiket penuh.</li>
+						<li>Juragan 99 tidak bertanggung jawab atas barang bawaan yang tertinggal, hilang, dan rusak saat sebelum naik di kendaraan.</li>
+						<li>Tiket dapat di reschedule di kelas yang sama maksimal h-3 dengan potongan 30% dan ditambah biaya perubahan yang telah disepakati dan tidak berlaku pada tiket promo.</li>
+						<li>Jika terjadi kendala operasional, pemindahan bus dan enyesuai seat adalah kebijakan Juragan 99.</li>
+						<li>Tidak melakukan manipulasi data, pemalsuan identitas, dan segala bentuk ketidakjujuran dalam transaksi dengan Juragan 99 agar membantu para pihak dalam melaksanakan kewajiban menurut Nota Kesepahaman ini serta apabila dikehendaki oleh hukum</li>
 					</ul>
 				</div>
 			</div>

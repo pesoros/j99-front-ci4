@@ -46,8 +46,10 @@
             <div class="row mx-0 justify-content-center align-items-center">
                 <div class="item-left col-12 col-lg-6 px-4">
                     <h3><span class="bg-black text-white">Visi & Mi</span><span>si</span></h3>
-                    <p class="text-wrap text-break">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                    <p class="text-wrap text-break">Why do we use it?<br> It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
+                    <p class="text-wrap text-break">Visi Juragan 99 adalah menjadi partner terbaik, terpercaya, dan profesional, serta mengutamakan keselamatan dan kenyamanan pengguna jasa.
+                        <br>
+                    Misi Kami adalah memberikan <b>Layanan Prima</b> dengan mengutamakan <b>Kenyamanan dan Keamanan</b> terhadap pengguna jasa transportasi Juragan 99 sehingga terwujud <b>Kepuasan Pelanggan</b>.
+                    </p>
                 </div>
                 <div class="item-rigth col-12 col-lg-6 px-0">
                     <div class="row mx-0">
