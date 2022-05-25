@@ -80,7 +80,7 @@
                                 <h4>Download Our App!</h4>
                                 <span>Book tickets & track your coach anytime, anywhere.</span>
                                 <div class="d-flex flex-lg-row flex-sm-column">
-                                    <a href="<?= base_url() ?>/assets/app/j99trans-app.apk" class="btn btn-gp d-flex align-items-center justify-content-center" download>
+                                    <a href="https://play.google.com/store/apps/details?id=com.juragan99trans.id" class="btn btn-gp d-flex align-items-center justify-content-center" download>
                                         <i class="fab fa-google-play fa-2x"></i>&nbsp;
                                         <div class="d-flex flex-column">
                                             <span>GET IT ON</span>
