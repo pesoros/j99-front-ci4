@@ -36,11 +36,11 @@ function showseat(id) {
                             htmlModal += '<td class="item-list-seat reserved" data="'+element.name+'">'+element.name+'</td>';
                         }
 
-                        if (counter == 2) {
+                        if (counter == 1) {
                             htmlModal += '</tr></table></div><div class="item-top-right"><table><tr>';
                         }
 
-                        if (counter == 4) {
+                        if (counter == 2) {
                             htmlModal += '</tr></table></div></div>';
                             counter = 0;
                         }
