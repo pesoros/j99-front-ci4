@@ -19,29 +19,27 @@ function showseats(id) {
                 let htmlModal = '';
                 $('.seatlay').empty();
                 let counter = 0;
+                console.log(theSeats)
                 theSeats.forEach(element => {
-                    if (element.isSeat == true) {
-
                         if (counter == 0) {
-                            htmlModal += '<div class="d-flex justify-content-between align-items-center"><div class="item-top-left"><table><tr>';
+                            htmlModal += '<div class="d-flex justify-content-between align-items-center"><table><tr>';
                         }
                         
                         counter+=1;
-                        if (element.isAvailable == true) {
-                            htmlModal += '<td class="item-list-seat" data="'+element.name+'">'+element.name+'</td>';
+                        if (element.name == '-') { 
+                            htmlModal += '<td class="item-list-seat reserved" data=""></td>';
                         } else {
-                            htmlModal += '<td class="item-list-seat reserved" data="'+element.name+'">'+element.name+'</td>';
+                            if (element.isAvailable == true) {
+                                htmlModal += '<td class="item-list-seat" data="'+element.name+'">'+element.name+'</td>';
+                            } else {
+                                htmlModal += '<td class="item-list-seat reserved" data="'+element.name+'">'+element.name+'</td>';
+                            }
                         }
 
-                        if (counter == 1) {
-                            htmlModal += '</tr></table></div><div class="item-top-right"><table><tr>';
-                        }
-
-                        if (counter == 2) {
-                            htmlModal += '</tr></table></div></div>';
+                        if (counter == 5) {
+                            htmlModal += '</tr></table></div>';
                             counter = 0;
                         }
-                    }
                 });
                 setTimeout(function() { 
                     $('.seatlay').append(htmlModal);
