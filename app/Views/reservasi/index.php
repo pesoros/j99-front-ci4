@@ -132,7 +132,7 @@
 	<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script><script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-    <script src="<?= base_url(); ?>/assets/js/reservasi/pergi.js"></script>
+    <script src="<?= base_url(); ?>/assets/js/reservasi/pergis.js"></script>
     <div class="modal fade bd-example-modal-sm" id="kursibusModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-sm modal-dialog-centered">
         <div class="modal-content">
