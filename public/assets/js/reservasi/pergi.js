@@ -1,6 +1,6 @@
 //get seat available
 var isshow = false;
-function showseat(id) {
+function showseats(id) {
     if(!isshow) {
         isshow = true;
         var sendData = {
@@ -64,7 +64,7 @@ function setbtnreserved() {
     for (var i = 0; i < btnreserved.length; i++) {
         btnreserved[i].addEventListener('click',function () {
             var dt = this.getAttribute('data');
-            showseat(dt);
+            showseats(dt);
         });
     }
 }

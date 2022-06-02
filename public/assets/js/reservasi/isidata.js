@@ -3,7 +3,7 @@ var isshow = false, issubmit = false;  dtargetseat = "";
 const slctseatpergiset=[];
 const slctseatpulangset=[];
 var conditionseat = 0;
-function showseat(id) {
+function showseats(id) {
     if(!isshow) {
         isshow = true;
         var sendData = {
@@ -68,7 +68,7 @@ function setbtnreserved() {
             var did = this.getAttribute('data-id');
             dtargetseat = this.getAttribute('data-target');
             conditionseat = this.getAttribute('data-type');
-            showseat(did);
+            showseats(did);
         });
     }
 }
