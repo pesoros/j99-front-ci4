@@ -65,8 +65,10 @@
                                         <span>Identitas</span>
                                     </div>
                                     <div class="input-text-content">
-                                        <input type="text" name="identity" id="profileaddress" value="<?= session('identity') ?>"
-                                            placeholder="Enter your address">
+                                        <select class="form-control" name="identity" id="slcdari" style="background-color: transparent; color: #ffffff">
+                                            <option value="KTP">KTP</option>
+                                            <option value="PASSPORT">PASSPORT</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="input-text">
@@ -84,7 +86,7 @@
                                     </div>
                                     <div class="input-text-content">
                                         <input type="text" name="email" id='profileemail' value="<?= session('email') ?>"
-                                            placeholder="Enter your email">
+                                            placeholder="Enter your email" disabled>
                                     </div>
                                 </div>
                                 <div class="input-text">

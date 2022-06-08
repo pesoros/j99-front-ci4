@@ -14,7 +14,6 @@ class Daftar extends BaseController
         $bodyRaw = $this->request->getVar();
         $reqData['email'] = isset($bodyRaw['email']) ? $bodyRaw['email'] : '';
         $reqData['password'] = isset($bodyRaw['password']) ? $bodyRaw['password'] : '';
-        $reqData['confpassword'] = isset($bodyRaw['password']) ? $bodyRaw['password'] : '';
         $reqData['firstName'] = isset($bodyRaw['firstName']) ? $bodyRaw['firstName'] : '';
         $reqData['lastName'] = isset($bodyRaw['lastName']) ? $bodyRaw['lastName'] : '';
         $reqData['phone'] = isset($bodyRaw['nohp']) ? $bodyRaw['nohp'] : '';
