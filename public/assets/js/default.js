@@ -152,6 +152,12 @@ function sbtlogin(e) {
 			success: function(data) {
 				if (data.indexOf("error-")<0){
                     if (data == 200) {
+                        alert('Login Sukses')
+                        window.location.href = base_url;
+                    }
+
+                    if (data == 400) {
+                        alert('Logi gagal, Email / Password salah')
                         window.location.href = base_url;
                     }
 				} else {
