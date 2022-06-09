@@ -35,15 +35,18 @@ class Profile extends BaseController
         $updateProfile = $this->httpPostXform(getenv('API_ENDPOINT')."account/profile/update",$isian);
 
         $getProfile = $this->httpPostXform(getenv('API_ENDPOINT')."account/profile",$isian);
-        session()->set([
-            'email' => $getProfile['email'],
-            'firstName' => $getProfile['first_name'],
-            'lastName' => $getProfile['last_name'],
-            'address' => $getProfile['address'],
-            'phone' => $getProfile['phone'],
-            'identity' => $getProfile['identity'],
-            'identityNumber' => $getProfile['identity_number']
-        ]);
+        if ($getProfile) {
+            session()->set([
+                'email' => $getProfile['email'],
+                'firstName' => $getProfile['first_name'],
+                'lastName' => $getProfile['last_name'],
+                'address' => $getProfile['address'],
+                'phone' => $getProfile['phone'],
+                'identity' => $getProfile['identity'],
+                'identityNumber' => $getProfile['identity_number']
+            ]);
+        }
+        
 
         return redirect()->to(base_url('profile'));
     }  
