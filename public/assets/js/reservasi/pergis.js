@@ -42,7 +42,7 @@ function showseats(id) {
                         }
                 });
                 setTimeout(function() { 
-                    $('.seatlay').append(htmlModal);
+                    $('.seatlay').append(htmlModal); 
                     $('#kursibusModal').modal('toggle');
                     isshow = false;
                 }, 900);
