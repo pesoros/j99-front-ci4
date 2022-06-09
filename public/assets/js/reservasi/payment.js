@@ -38,7 +38,7 @@ function submitpayment(e) {
             "paymentMethod": paymentMethod,
             "phone": txtnohp,
             "email": email,
-            "sendBy": 'email',
+            "sendBy": 'wa',
         }; 
         $.ajax({
 			type	: "POST",
