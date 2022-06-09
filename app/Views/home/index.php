@@ -31,7 +31,7 @@
 						</ul>
 						<div id="content-form" >
 							<div class="item-form active" id="belitiket">
-								<form class="form-tiket mt-3 p-4" id="formcaritiket" name="form" action="reservasi" method="POST">
+								<form class="form-tiket mt-3 p-4" id="formcaritiket" name="form" action="reservasired" method="POST">
 									<div id="alert-tiket" role="alert"></div>
 									<div class="d-flex align-items-center form-item">
 										<span class="icon"><i class="fal fa-map-marker-alt"></i></span>

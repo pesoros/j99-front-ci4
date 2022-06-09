@@ -30,7 +30,29 @@ function sbtdaftar(e) {
 			data	: $('#'+targetform).serializeArray(),
 			success: function(data) {
 				if (data.indexOf("error-")<0){
-					window.location.href = base_url;
+                    res = JSON.parse(data)
+                    if (res.error) {
+                        alert(res.error)
+                        btnloading({
+                            id : 'btndaftar',
+                            status : false,
+                            btntext : 'Submit',
+                        });
+                    } else if(res.email) {
+                        alert('email sudah terdaftar')
+                        btnloading({
+                            id : 'btndaftar',
+                            status : false,
+                            btntext : 'Submit',
+                        });
+                    } else {
+                        alert('Registrasi Sukses')
+                        btnloading({
+                            id : 'btndaftar',
+                            status : false,
+                            btntext : 'Submit',
+                        });
+                    }
 				} else {
 					alertform('alert-daftar', data, 'Error');
                     btnloading({

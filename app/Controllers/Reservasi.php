@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 class Reservasi extends BaseController
 {
-    public function index()
+    public function reservasired(Type $var = null)
     {
         $bodyRaw = $this->request->getVar();
         $reqData['berangkat'] = isset($bodyRaw['dari']) ? $bodyRaw['dari'] : '';
@@ -14,6 +14,31 @@ class Reservasi extends BaseController
         $reqData['kelas'] = isset($bodyRaw['kelas']) ? $bodyRaw['kelas'] : '';
         $reqData['pergi'] = isset($bodyRaw['pergi']) ? $bodyRaw['pergi'] : '';
         $reqData['pulang'] = isset($bodyRaw['pulang']) ? $bodyRaw['pulang'] : '';
+
+        return redirect()->to(base_url()."/reservasi?berangkat=".$reqData['berangkat']
+            ."&tujuan=".$reqData['tujuan']
+            ."&pergi=".$reqData['pergi']
+            ."&pulang=".$reqData['pulang']
+            ."&tanggal=".$reqData['tanggal']
+            ."&penumpang=".$reqData['penumpang']
+            ."&kelas=".$reqData['kelas']
+        );
+    }
+
+    public function index()
+    {
+        $bodyRaw = $this->request->getVar();
+        $reqData['berangkat'] = isset($bodyRaw['berangkat']) ? $bodyRaw['berangkat'] : '';
+        $reqData['tujuan'] = isset($bodyRaw['tujuan']) ? $bodyRaw['tujuan'] : '';
+        $reqData['tanggal'] = isset($bodyRaw['pergi']) ? $bodyRaw['pergi'] : '';
+        $reqData['penumpang'] = isset($bodyRaw['penumpang']) ? $bodyRaw['penumpang'] : '';
+        $reqData['kelas'] = isset($bodyRaw['kelas']) ? $bodyRaw['kelas'] : '';
+        $reqData['pergi'] = isset($bodyRaw['pergi']) ? $bodyRaw['pergi'] : '';
+        $reqData['pulang'] = isset($bodyRaw['pulang']) ? $bodyRaw['pulang'] : '';
+        
+        // echo json_encode($reqData);
+        // return;
+
         if ($reqData['pulang'] == "") {
             $roundTrip = false;
         } else {
@@ -159,6 +184,7 @@ class Reservasi extends BaseController
         }
 
         $reqData = session('reqData');
+        $ldata['data'] = $saveData;
         $ldata['penumpang'] = intval($reqData['penumpang']);
         $ldata['roundTrip'] = session('roundTrip');
         $ldata['foodMenuGo'] = $saveData['pergi']['foodMenu'];
@@ -171,6 +197,38 @@ class Reservasi extends BaseController
 
     public function submitData()
     {
+        helper(['form', 'url']);
+
+        if (! $this->validate([
+            'txtnama' => 'required',
+            'txtnohp' => 'required',
+            'txtemail' => 'required|valid_email',
+            'pnama' => 'required',
+            'pnohp' => 'required',
+            'pmenumakakanango' => 'required',
+            'pmenumakakananback' => 'required',
+            'pbagasi' => 'required',
+            'seatgo' => 'required',
+            ])) {
+                $saveData = session('dataToSave');
+
+                if (!isset($saveData)) {
+                    return redirect()->to(base_url());
+                }
+
+                $reqData = session('reqData');
+                $ldata['data'] = $saveData;
+                $ldata['penumpang'] = intval($reqData['penumpang']);
+                $ldata['roundTrip'] = session('roundTrip');
+                $ldata['foodMenuGo'] = $saveData['pergi']['foodMenu'];
+                $ldata['validation'] = $this->validator;
+                if ($ldata['roundTrip'] == true) {
+                    $ldata['foodMenuBack'] = $saveData['pulang']['foodMenu'];
+                }
+                $ldata['footer'] = view('layouts/footer');
+                return view('reservasi/isidata', $ldata);
+        }
+
         $bodyRaw = $this->request->getVar();
         $isian['nama_pemesan'] = isset($bodyRaw['txtnama']) ? $bodyRaw['txtnama'] : '';
         $isian['hp_pemesan'] = isset($bodyRaw['txtnohp']) ? $bodyRaw['txtnohp'] : '';
@@ -210,6 +268,33 @@ class Reservasi extends BaseController
         session()->set('dataToSave', $dataToSave);
 
         return redirect()->to(base_url('reservasi/payment')); 
+    }
+
+    public function payment()
+    {
+        $dataToSave = session('dataToSave');
+
+        if (!isset($dataToSave)) {
+            return redirect()->to(base_url());
+        }
+
+        $priceGo = $dataToSave['pergi']['pricePerSeat'] * count($dataToSave['pergi']['seatPicked']) ;
+        if (isset($dataToSave['pulang'])) {
+            $priceBack = $dataToSave['pulang']['pricePerSeat'] * count($dataToSave['pulang']['seatPicked']) ;
+        } else {
+            $priceBack = 0;
+        }
+        $sumPrice = $priceGo + $priceBack;
+
+        $dataPayment = $this->httpGetXform(getenv('API_ENDPOINT')."datapaymentmethod");
+
+        $ldata['data'] = $dataToSave;
+        $ldata['priceGo'] = $priceGo;
+        $ldata['priceBack'] = $priceBack;
+        $ldata['sumPrice'] = $sumPrice;
+        $ldata['dataPayment'] = $dataPayment;
+        $ldata['footer'] = view('layouts/footer');
+        return view('reservasi/payment', $ldata);
     }
 
     public function addpayment()
@@ -355,33 +440,6 @@ class Reservasi extends BaseController
 
         header('Content-Type: application/json');
         echo json_encode($ldata);
-    }
-
-    public function payment()
-    {
-        $dataToSave = session('dataToSave');
-
-        if (!isset($dataToSave)) {
-            return redirect()->to(base_url());
-        }
-
-        $priceGo = $dataToSave['pergi']['pricePerSeat'] * count($dataToSave['pergi']['seatPicked']) ;
-        if (isset($dataToSave['pulang'])) {
-            $priceBack = $dataToSave['pulang']['pricePerSeat'] * count($dataToSave['pulang']['seatPicked']) ;
-        } else {
-            $priceBack = 0;
-        }
-        $sumPrice = $priceGo + $priceBack;
-
-        $dataPayment = $this->httpGetXform(getenv('API_ENDPOINT')."datapaymentmethod");
-
-        $ldata['data'] = $dataToSave;
-        $ldata['priceGo'] = $priceGo;
-        $ldata['priceBack'] = $priceBack;
-        $ldata['sumPrice'] = $sumPrice;
-        $ldata['dataPayment'] = $dataPayment;
-        $ldata['footer'] = view('layouts/footer');
-        return view('reservasi/payment', $ldata);
     }
     
     public function addbooking()

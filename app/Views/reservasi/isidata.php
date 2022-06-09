@@ -33,8 +33,12 @@
 	</div>
 </div>
 <section>
+	
 	<div class="container">
-        <form class="passenger-form" id="passengerform" name="passengerform" action="/reservasi/submitdata" method="POST">
+		<div class="content-form-header">
+			<?php if (isset($validation)) { echo 'Formulir data tidak boleh ada yg kosong';} ?>
+		</div>
+        <form class="passenger-form" id="passengerform" name="passengerform" action="/reservasi/isidata" method="POST">
 			<div class="content-form-header">
 				<div id="alert-pesanan" role="alert"></div>
 				<div class="d-flex justify-content-between align-items-center">
@@ -44,19 +48,19 @@
 					<div class="col-12 col-sm-4">
 						<div class="form-group" >
 							<label>Nama Lengkap</label>
-							<input type="text" id="txtnama" name="txtnama" class="form-control" autocomplete="off" value="<?= session('firstName').' '.session('lastName') ?>"  >
+							<input type="text" id="txtnama" name="txtnama" class="form-control" autocomplete="off" value="<?php isset($data['booker_name']) ? $data['booker_name'] : '' ?> ">
 						</div>
 					</div>
 					<div class="col-12 col-sm-4">
 						<div class="form-group">
 							<label>Nomor Handphone</label>
-							<input type="text" id="txtnohp" name="txtnohp"  class="form-control input-number" autocomplete="off" value="<?= session('phone') ?>">
+							<input type="text" id="txtnohp" name="txtnohp"  class="form-control input-number" autocomplete="off" value="<?php isset($data['booker_phone']) ? $data['booker_phone'] : '' ?> ">
 						</div>
 					</div>
 					<div class="col-12 col-sm-4">
 						<div class="form-group">
 							<label>Email</label>
-							<input type="email" id="txtemail" name="txtemail"  class="form-control" autocomplete="off" value="<?= session('email') ?>">
+							<input type="email" id="txtemail" name="txtemail"  class="form-control" autocomplete="off" value="<?php isset($data['booker_email']) ? $data['booker_email'] : '' ?> ">
 						</div>
 					</div>
 				</div>
@@ -78,13 +82,13 @@
 					<div class="col-12 col-sm-4">
 						<div class="form-group" >
 							<label>Nama Lengkap</label>
-							<input type="text" name="pnama[]" class="form-control txtpnama" autocomplete="off"  >
+							<input type="text" name="pnama[]" class="form-control txtpnama" autocomplete="off" value="<?php isset($data['pergi']['seatPicked'][$i]['name']) ? $data['pergi']['seatPicked'][$i]['name'] : '' ?>"  >
 						</div>
 					</div>
 					<div class="col-12 col-sm-4">
 						<div class="form-group">
 							<label>Nomor Handphone</label>
-							<input type="text" name="pnohp[]" class="form-control input-number txtnohp" autocomplete="off">
+							<input type="text" name="pnohp[]" class="form-control input-number txtnohp" autocomplete="off" value="<?php isset($data['pergi']['seatPicked'][$i]['phone']) ? $data['pergi']['seatPicked'][$i]['phone'] : '' ?>"  >
 						</div>
 					</div>
 					<!-- <div class="col-12 col-sm-4">
@@ -98,8 +102,13 @@
 							<label>Bilih Bagasi</label>
 							<select class="form-control" name="pbagasi[]" id="slcbagasi">
 								<option value=""></option>
-								<option value="1">Bawa</option>
-								<option value="2">Tidak</option>
+								<?php if (!isset($data['pergi']['seatPicked'][$i]['baggage'])) { ?>
+									<option value="1" >Bawa</option>
+									<option value="2" >Tidak</option>
+								<?php } else { ?>
+									<option value="1" <?php if ($data['pergi']['seatPicked'][$i]['baggage'] == '1') {echo 'selected';}  ?> >Bawa</option>
+									<option value="2" <?php if ($data['pergi']['seatPicked'][$i]['baggage'] == '2') {echo 'selected';}  ?>>Tidak</option>
+								<?php } ?>
 							</select>
 						</div>
 					</div>
@@ -109,7 +118,11 @@
 							<select class="form-control" name="pmenumakakanango[]" id="slcmenumakanan">
 								<option value=""></option>
 								<?php foreach ($foodMenuGo as $key => $value) { ?>
-									<option value="<?= $value['id'] ?>"><?= $value['food_name'] ?></option>
+									<?php if (!isset($data['pergi']['foodMenu'][0]['food_name'])) { ?>
+										<option value="<?= $value['id'] ?>"><?= $value['food_name'] ?></option>
+									<?php } else { ?>
+										<option value="<?= $value['id'] ?>"  <?php if ($data['pergi']['foodMenu'][0]['food_name'] == $value['food_name'] ) {echo 'selected';} ?> ><?= $value['food_name'] ?></option>
+									<?php } ?>
 								<?php } ?>
 							</select>
 						</div>
@@ -122,7 +135,11 @@
 								<select class="form-control" name="pmenumakakananback[]" id="slcmenumakanan">
 									<option value=""></option>
 									<?php foreach ($foodMenuBack as $key => $value) { ?>
-										<option value="<?= $value['id'] ?>"><?= $value['food_name'] ?></option>
+										<?php if (!isset($data['pulang']['foodMenu'][0]['food_name'])) { ?>
+											<option value="<?= $value['id'] ?>"><?= $value['food_name'] ?></option>
+										<?php } else { ?>
+											<option value="<?= $value['id'] ?>"  <?php if ($data['pulang']['foodMenu'][0]['food_name'] == $value['food_name'] ) {echo 'selected';} ?> ><?= $value['food_name'] ?></option>
+										<?php } ?>
 									<?php } ?>
 								</select>
 							</div>
@@ -133,7 +150,7 @@
 						<div class="form-group d-flex flex-row align-items-center">
 							<div class="item-choose-seat col-4">
 								<label>Pergi <span>No. Kursi</span></label>
-								<input type="text" name="seatgo[]" class="form-control seatgo" id="seatgo<?= $i ?>" autocomplete="off" placeholder="-" readonly>
+								<input type="text" name="seatgo[]" class="form-control seatgo" id="seatgo<?= $i ?>" autocomplete="off" placeholder="-" value="<?php isset($data['pergi']['seatPicked'][$i]['seat']) ? $data['pergi']['seatPicked'][$i]['seat'] : '' ?>" readonly>
 							</div>
 							<div class="item-choose-seat pl-2 col-8">
 								<button type="button" class="btn btn-submit btn-choose-seat" data-target="seatgo<?= $i ?>" data-type="0" data-id="pergi">Pilih Kursi</button>
@@ -143,7 +160,7 @@
 							<div class="form-group d-flex flex-row align-items-center">
 								<div class="item-choose-seat col-4">
 									<label>Pulang <span>No. Kursi</span></label>
-									<input type="text" name="seatback[]" class="form-control seatback" id="seatback<?= $i ?>" autocomplete="off" placeholder="-" readonly>
+									<input type="text" name="seatback[]" class="form-control seatback" id="seatback<?= $i ?>" autocomplete="off" placeholder="-" value="<?php isset($data['pulang']['seatPicked'][$i]['seat']) ? $data['pulang']['seatPicked'][$i]['seat'] : '' ?>"" readonly>
 								</div>
 								<div class="item-choose-seat pl-2 col-8">
 									<button type="button" class="btn btn-submit btn-choose-seat" data-target="seatback<?= $i ?>" data-type="1" data-id="pulang">Pilih Kursi</button>
@@ -161,7 +178,7 @@
 						<li>Anak anak dengan tinggi lebih 90cm dikenakan biaya tiket penuh.</li>
 						<li>Juragan 99 tidak bertanggung jawab atas barang bawaan yang tertinggal, hilang, dan rusak saat sebelum naik di kendaraan.</li>
 						<li>Tiket dapat di reschedule di kelas yang sama maksimal h-3 dengan potongan 30% dan ditambah biaya perubahan yang telah disepakati dan tidak berlaku pada tiket promo.</li>
-						<li>Jika terjadi kendala operasional, pemindahan bus dan enyesuai seat adalah kebijakan Juragan 99.</li>
+						<li>Jika terjadi kendala operasional, pemindahan bus dan penyesuaian seat adalah kebijakan Juragan 99.</li>
 						<li>Tidak melakukan manipulasi data, pemalsuan identitas, dan segala bentuk ketidakjujuran dalam transaksi dengan Juragan 99 agar membantu para pihak dalam melaksanakan kewajiban menurut Nota Kesepahaman ini serta apabila dikehendaki oleh hukum</li>
 					</ul>
 				</div>

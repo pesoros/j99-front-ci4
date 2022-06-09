@@ -23,11 +23,13 @@ class Daftar extends BaseController
 
         $submitRegister = $this->httpPostXform(getenv('API_ENDPOINT')."register",$reqData);
         if ($submitRegister['status'] == 400) {
-            $result = 'failed';
+            $result = $submitRegister['messages'];
         } else {
             $result = 'success';
         }
-        return;
+
+        echo json_encode($result);
+        return $result;
     } 
 
     function httpPostXform($url, $data) {                                                                 
