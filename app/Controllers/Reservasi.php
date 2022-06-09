@@ -206,7 +206,6 @@ class Reservasi extends BaseController
             'pnama' => 'required',
             'pnohp' => 'required',
             'pmenumakakanango' => 'required',
-            'pmenumakakananback' => 'required',
             'pbagasi' => 'required',
             'seatgo' => 'required',
             ])) {
