@@ -35,7 +35,6 @@ $routes->get('/', 'Home::index');
 $routes->get('/', 'Home::searchtiket');
 $routes->get('/', 'Home::requestarmada');
 $routes->get('reservasi', 'Reservasi::index');
-$routes->post('reservasired', 'Reservasi::reservasired');
 $routes->get('reservasi/pick/(:any)/(:any)/(:any)/(:any)/(:any)', 'Reservasi::pick/$1/$2/$3/$4/$5');
 $routes->get('reservasi/pulang', 'Reservasi::pulang');
 $routes->get('reservasi/isidata', 'Reservasi::isidata');
@@ -70,7 +69,7 @@ $routes->get('login', 'Login::index');
 $routes->get('logout', 'Login::logout');
 $routes->get('forgot-password', 'Forgot_Password::index');
 $routes->get('forgot-password/sentpass', 'Forgot_Password::sentpass');
-
+$routes->post('reservasired', 'Reservasi::reservasired');
 /*
  * --------------------------------------------------------------------
  * Additional Routing
