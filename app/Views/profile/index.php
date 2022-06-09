@@ -86,7 +86,7 @@
                                     </div>
                                     <div class="input-text-content">
                                         <input type="text" name="email" id='profileemail' value="<?= session('email') ?>"
-                                            placeholder="Enter your email" disabled>
+                                            placeholder="Enter your email" readonly>
                                     </div>
                                 </div>
                                 <div class="input-text">
