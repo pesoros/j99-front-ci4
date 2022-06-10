@@ -192,6 +192,13 @@ function sbtpassenger(e) {
 // };
 // end submit passenger
 
+function validateDisclaimer() {
+    if (!document.getElementById('disc').checked) {
+        alert("Checklist disclaimer harus di centang / setujui");
+        return false;
+    }
+  }
+
 $( document ).ready(function() {
     setSelect2Above();
     $("#slcmenumakanan").select2({

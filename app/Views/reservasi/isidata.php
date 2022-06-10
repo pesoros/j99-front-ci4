@@ -35,10 +35,8 @@
 <section>
 	
 	<div class="container">
-		<div class="content-form-header">
-			<?php if (isset($validation)) { echo 'Formulir data tidak boleh ada yg kosong';} ?>
-		</div>
-        <form class="passenger-form" id="passengerform" name="passengerform" action="/reservasi/isidata" method="POST">
+		<?php if (isset($validation)) { echo '<div class="content-form-header">Formulir data tidak boleh ada yg kosong</div>';} ?>
+        <form class="passenger-form" id="passengerform" name="passengerform" action="/reservasi/isidata" onsubmit="return validateDisclaimer()" method="POST">
 			<div class="content-form-header">
 				<div id="alert-pesanan" role="alert"></div>
 				<div class="d-flex justify-content-between align-items-center">
@@ -181,6 +179,10 @@
 						<li>Jika terjadi kendala operasional, pemindahan bus dan penyesuaian seat adalah kebijakan Juragan 99.</li>
 						<li>Tidak melakukan manipulasi data, pemalsuan identitas, dan segala bentuk ketidakjujuran dalam transaksi dengan Juragan 99 agar membantu para pihak dalam melaksanakan kewajiban menurut Nota Kesepahaman ini serta apabila dikehendaki oleh hukum</li>
 					</ul>
+				</div>
+				<div>
+					<input class="form-check-input" type="checkbox" value="" id="disc" id="flexCheckDefault">
+						Saya mengerti
 				</div>
 			</div>
 			<div class="form-group d-flex justify-content-end">
