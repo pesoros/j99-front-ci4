@@ -181,7 +181,7 @@
 					</ul>
 				</div>
 				<div>
-					<input class="form-check-input" type="checkbox" value="" id="disc" id="flexCheckDefault">
+					<input class="form-check-input" type="checkbox" value="" id="disc" name="disc" id="flexCheckDefault">
 						Saya mengerti
 				</div>
 			</div>
@@ -203,6 +203,14 @@
     <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script src="<?= base_url(); ?>/assets/js/reservasi/isidatas.js"></script>
+	<script>
+		function validateDisclaimer() {
+			if (!document.getElementById('disc').checked) {
+				alert("Checklist disclaimer harus di centang / setujui");
+				return false;
+			}
+		}
+	</script>
     <div class="modal fade bd-example-modal-sm select-seat" id="kursibusModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-sm modal-dialog-centered">
         <div class="modal-content">
