@@ -208,7 +208,6 @@ class Reservasi extends BaseController
             'pmenumakakanango' => 'required',
             'pbagasi' => 'required',
             'seatgo' => 'required',
-            'disc' => 'required',
             ])) {
                 $saveData = session('dataToSave');
 
