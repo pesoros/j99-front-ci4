@@ -156,6 +156,7 @@ class Reservasi extends BaseController
         $varName = session('nowat');
 
         $dataFood['idResto'] = $restoId;
+        $dataFood['class'] = $fleetTypeId;
         $foodMenu = $this->httpPostXform(getenv('API_ENDPOINT')."datarestomenu", $dataFood);
 
         $dataToSave[$varName]['trip_id_no'] = $trip_id_no;
@@ -182,9 +183,11 @@ class Reservasi extends BaseController
         if (!isset($saveData)) {
             return redirect()->to(base_url());
         }
+        $disclaimer = $this->httpGetXform(getenv('API_ENDPOINT')."content/disclaimer");
 
         $reqData = session('reqData');
         $ldata['data'] = $saveData;
+        $ldata['disclaimer'] = $disclaimer;
         $ldata['penumpang'] = intval($reqData['penumpang']);
         $ldata['roundTrip'] = session('roundTrip');
         $ldata['foodMenuGo'] = $saveData['pergi']['foodMenu'];

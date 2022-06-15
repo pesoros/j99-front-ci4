@@ -7,6 +7,11 @@
 
 <?= $this->section('styles') ?>
     <link rel="stylesheet" href="<?= base_url(); ?>/assets/css/reservasi/custom.css">
+	<style>
+		#disc-wrp {
+			margin-left: 40px;
+		}
+	</style>
 <?= $this->endSection() ?>
 
 <?= $this->section('content') ?>
@@ -171,18 +176,11 @@
 			<?php } ?>
 			<div class="content-form-footer">
 				<div class="d-flex flex-column justify-content-center">
-					<h5>Disclaimer</h5>
-					<ul class="d-flex flex-column justify-content-center">
-						<li>Anak anak dengan tinggi lebih 90cm dikenakan biaya tiket penuh.</li>
-						<li>Juragan 99 tidak bertanggung jawab atas barang bawaan yang tertinggal, hilang, dan rusak saat sebelum naik di kendaraan.</li>
-						<li>Tiket dapat di reschedule di kelas yang sama maksimal h-3 dengan potongan 30% dan ditambah biaya perubahan yang telah disepakati dan tidak berlaku pada tiket promo.</li>
-						<li>Jika terjadi kendala operasional, pemindahan bus dan penyesuaian seat adalah kebijakan Juragan 99.</li>
-						<li>Tidak melakukan manipulasi data, pemalsuan identitas, dan segala bentuk ketidakjujuran dalam transaksi dengan Juragan 99 agar membantu para pihak dalam melaksanakan kewajiban menurut Nota Kesepahaman ini serta apabila dikehendaki oleh hukum</li>
-					</ul>
+					<?= $disclaimer['content'] ?>
 				</div>
-				<div>
+				<div id="disc-wrp">
 					<input class="form-check-input" type="checkbox" value="" id="disc" name="disc" id="flexCheckDefault">
-						Saya mengerti
+						Ya, Saya mengerti
 				</div>
 			</div>
 			<div class="form-group d-flex justify-content-end">
