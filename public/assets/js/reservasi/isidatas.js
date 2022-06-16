@@ -24,7 +24,11 @@ function showseats(id) {
                 let counter = 0;
                 theSeats.forEach(element => {
                     if (counter == 0) {
-                        htmlModal += '<div class="d-flex justify-content-between align-items-center"><table><tr>';
+                        if (seatInfo.layout == '1-1') {
+                            htmlModal += '<div class="d-flex justify-content-center align-items-center" style="margin-left: 30px;"><table><tr>';
+                        } else if (seatInfo.layout == '1-1-1') {
+                            htmlModal += '<div class="d-flex justify-content-center align-items-center"><table><tr>';
+                        }
                     }
                     
                     counter+=1;
