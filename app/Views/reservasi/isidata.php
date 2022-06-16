@@ -126,9 +126,9 @@
 								<option value=""></option>
 								<?php foreach ($foodMenuGo as $key => $value) { ?>
 									<?php if (!isset($data['pergi']['foodMenu'][0]['food_name'])) { ?>
-										<option value="<?= $value['id'] ?>"><?= $value['food_name'] ?></option>
+										<option value="<?= $value['id'] ?>" data-image="<?= $value['image'] ?>"><?= $value['food_name'] ?></option>
 									<?php } else { ?>
-										<option value="<?= $value['id'] ?>"  <?php if ($data['pergi']['foodMenu'][0]['food_name'] == $value['food_name'] ) {echo 'selected';} ?> ><?= $value['food_name'] ?></option>
+										<option value="<?= $value['id'] ?>" data-image="<?= $value['image'] ?>" <?php if ($data['pergi']['foodMenu'][0]['food_name'] == $value['food_name'] ) {echo 'selected';} ?> ><img src="https://lh4.ggpht.com/wKrDLLmmxjfRG2-E-k5L5BUuHWpCOe4lWRF7oVs1Gzdn5e5yvr8fj-ORTlBF43U47yI=w64" /><?= $value['food_name'] ?></option>
 									<?php } ?>
 								<?php } ?>
 							</select>
@@ -143,9 +143,9 @@
 									<option value=""></option>
 									<?php foreach ($foodMenuBack as $key => $value) { ?>
 										<?php if (!isset($data['pulang']['foodMenu'][0]['food_name'])) { ?>
-											<option value="<?= $value['id'] ?>"><?= $value['food_name'] ?></option>
+											<option value="<?= $value['id'] ?>" data-image="<?= $value['image'] ?>"><?= $value['food_name'] ?></option>
 										<?php } else { ?>
-											<option value="<?= $value['id'] ?>"  <?php if ($data['pulang']['foodMenu'][0]['food_name'] == $value['food_name'] ) {echo 'selected';} ?> ><?= $value['food_name'] ?></option>
+											<option value="<?= $value['id'] ?>" data-image="<?= $value['image'] ?>" <?php if ($data['pulang']['foodMenu'][0]['food_name'] == $value['food_name'] ) {echo 'selected';} ?> ><?= $value['food_name'] ?></option>
 										<?php } ?>
 									<?php } ?>
 								</select>

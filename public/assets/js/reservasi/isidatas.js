@@ -197,11 +197,30 @@ $( document ).ready(function() {
     $("#slcmenumakanan").select2({
         minimumResultsForSearch: -1,
         dropdownPosition: 'below',
-        placeholder: ""
+        placeholder: "",
+        templateResult: formatState
     });
     $("#slcbagasi").select2({
         minimumResultsForSearch: -1,
         dropdownPosition: 'below',
         placeholder: ""
     });
+
+    function formatState (opt) {
+        if (!opt.id) {
+            return opt.text.toUpperCase();
+        } 
+    
+        var optimage = $(opt.element).attr('data-image'); 
+        console.log(optimage)
+        if(!optimage){
+           return opt.text.toUpperCase();
+        } else {                    
+            var $opt = $(
+               '<span><img src="' + optimage + '" width="100px" /> &nbsp;&nbsp;&nbsp;&nbsp;' + opt.text.toUpperCase() + '</span>'
+            );
+            return $opt;
+        }
+    };
+    
 });
