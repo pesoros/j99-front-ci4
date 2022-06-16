@@ -7,6 +7,12 @@
 
 <?= $this->section('styles') ?>
     <link rel="stylesheet" href="<?= base_url(); ?>/assets/css/reservasi/custom.css">
+    <style>
+        .road-space {
+			background-color: #f0f8ff00 !important;
+    		border-color: #f0f8ff00 !important;
+		}
+    </style>
 <?= $this->endSection() ?>
 
 <?= $this->section('content') ?>
@@ -162,7 +168,7 @@
                                 
                                 counter+=1;
                                 if (element.name == '-') { 
-                                    htmlModal += '<td class="item-list-seat reserved" data=""></td>';
+                                    htmlModal += '<td class="item-list-seat road-space" data=""></td>';
                                 } else {
                                     if (element.isAvailable == true) {
                                         htmlModal += '<td class="item-list-seat" data="'+element.name+'">'+element.name+'</td>';
