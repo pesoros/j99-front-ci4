@@ -11,6 +11,10 @@
 		#disc-wrp {
 			margin-left: 40px;
 		}
+		.road-space {
+			background-color: #f0f8ff00 !important;
+    		border-color: #f0f8ff00 !important;
+		}
 	</style>
 <?= $this->endSection() ?>
 

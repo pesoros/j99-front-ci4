@@ -29,7 +29,7 @@ function showseats(id) {
                     
                     counter+=1;
                     if (element.name == '-') { 
-                        htmlModal += '<td class="item-list-seat reserved" data=""></td>';
+                        htmlModal += '<td class="item-list-seat road-space" data=""></td>';
                     } else {
                         if (element.isAvailable == true) {
                             htmlModal += '<td class="item-list-seat" data="'+element.name+'">'+element.name+'</td>';
