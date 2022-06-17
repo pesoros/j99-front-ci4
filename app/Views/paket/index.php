@@ -22,14 +22,10 @@
                 <div class="content-tiket">
                     <div class="header-tiket d-flex flex-row justify-content-between align-items-center">
                         <div class="item">
-                            <h3>JKT</h3>
                             <p><?= $paket['pool_sender_id'] ?></p>
-                            <span>Agen Sunter</span>
                         </div>
                         <div class="item">
-                            <h3>SUB</h3>
-                            <p><?= $paket['pool_receiver_id'] ?></</p>
-                            <span>Agen Darmo</span>
+                            <p><?= $paket['pool_receiver_id'] ?></p>
                         </div>
                     </div>
                     <div class="body-tiket">
@@ -37,29 +33,29 @@
                             <div class="dtl">
                                 <div class="form-group">
                                     <label>Nomor Resi</label>
-                                    <span><?= $paket['packet_code'] ?></</span>
+                                    <span><?= $paket['packet_code'] ?></span>
                                 </div>
                                 <div class="form-group">
                                     <label>Tanggal</label>
-                                    <span><?= $paket['created_at'] ?></</span>
+                                    <span><?= $paket['created_at'] ?></span>
                                 </div>
                                 <div class="form-group">
-                                    <label>Jenis Paket</label>
-                                    <span>Dokumen</span>
+                                    <label>Pengirim</label>
+                                    <span><?= $paket['sender_name'] ?></span>
                                 </div>
                             </div>
                             <div class="dtl">
                                 <div class="form-group">
                                     <label>Berat</label>
-                                    <span>10 Kg</span>
+                                    <span><?= $paket['weight'] ?></span>
                                 </div>
                                 <div class="form-group">
-                                    <label>Waktu</label>
-                                    <span>08:30 PM</span>
+                                    <label>Tinggi</label>
+                                    <span><?= $paket['height'] ?></span>
                                 </div>
                                 <div class="form-group">
-                                    <label>Status</label>
-                                    <span>Perjalanan</span>
+                                    <label>Lebar</label>
+                                    <span><?= $paket['width'] ?></span>
                                 </div>
                             </div>
                         </div>
