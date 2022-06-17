@@ -67,7 +67,7 @@
                     <div class="footer-tiket">
                         <span class="dots dot-left"></span>
                         <span class="dots dot-right"></span>
-                        <?php foreach ($variable as $key => $value) { ?>
+                        <?php foreach ($paket['trace'] as $key => $value) { ?>
                             <p><?php echo $value; ?></p>
                         <?php } ?>
                         <!-- <svg id="bcd-1234567890" class="bcd-item"></svg> -->
