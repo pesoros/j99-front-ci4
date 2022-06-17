@@ -210,16 +210,19 @@ class Reservasi extends BaseController
             'pnohp' => 'required',
             'pmenumakakanango' => 'required',
             'pbagasi' => 'required',
-            'seatgo' => 'required',
+            'seatgo.*' => 'required',
             ])) {
                 $saveData = session('dataToSave');
 
                 if (!isset($saveData)) {
                     return redirect()->to(base_url());
                 }
+                
+                $disclaimer = $this->httpGetXform(getenv('API_ENDPOINT')."content/disclaimer");
 
                 $reqData = session('reqData');
                 $ldata['data'] = $saveData;
+                $ldata['disclaimer'] = $disclaimer;
                 $ldata['penumpang'] = intval($reqData['penumpang']);
                 $ldata['roundTrip'] = session('roundTrip');
                 $ldata['foodMenuGo'] = $saveData['pergi']['foodMenu'];
