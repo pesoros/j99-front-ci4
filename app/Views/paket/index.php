@@ -43,6 +43,10 @@
                                     <label>Pengirim</label>
                                     <span><?= $paket['sender_name'] ?></span>
                                 </div>
+                                <div class="form-group">
+                                    <label>Penerima</label>
+                                    <span><?= $paket['receiver_name'] ?></span>
+                                </div>
                             </div>
                             <div class="dtl">
                                 <div class="form-group">
@@ -63,6 +67,9 @@
                     <div class="footer-tiket">
                         <span class="dots dot-left"></span>
                         <span class="dots dot-right"></span>
+                        <?php foreach ($variable as $key => $value) { ?>
+                            <p><?php echo $value; ?></p>
+                        <?php } ?>
                         <!-- <svg id="bcd-1234567890" class="bcd-item"></svg> -->
                     </div>
                     <!-- <div class="content-form mt-2">
