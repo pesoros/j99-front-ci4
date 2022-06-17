@@ -35,10 +35,10 @@
                                     <label>Nomor Resi</label>
                                     <span><?= $paket['packet_code'] ?></span>
                                 </div>
-                                <div class="form-group">
+                                <!-- <div class="form-group">
                                     <label>Tanggal</label>
                                     <span><?= $paket['created_at'] ?></span>
-                                </div>
+                                </div> -->
                                 <div class="form-group">
                                     <label>Pengirim</label>
                                     <span><?= $paket['sender_name'] ?></span>
