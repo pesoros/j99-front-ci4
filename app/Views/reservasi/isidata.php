@@ -122,7 +122,7 @@
 					<div class="col-12 col-sm-4">
 						<div class="form-group">
 							<label>Menu Makanan Pergi</label>
-							<select class="form-control" name="pmenumakakanango[]" id="slcmenumakanan">
+							<select class="form-control slcmenumakanan" name="pmenumakakanango[]" id="slcmenumakanan<?= $i; ?>">
 								<option value=""></option>
 								<?php foreach ($foodMenuGo as $key => $value) { ?>
 									<?php if (!isset($data['pergi']['foodMenu'][0]['food_name'])) { ?>

@@ -36,7 +36,12 @@ function showseats(id) {
                         htmlModal += '<td class="item-list-seat road-space" data=""></td>';
                     } else {
                         if (element.isAvailable == true) {
-                            htmlModal += '<td class="item-list-seat" data="'+element.name+'">'+element.name+'</td>';
+                            console.log('ssss'+element.name , jQuery.inArray(element.name.trim(), slctseatpergiset))
+                            if (jQuery.inArray(element.name, slctseatpergiset) >= 0 ) {
+                                htmlModal += '<td class="item-list-seat reserved" data="'+element.name+'">'+element.name+'</td>';
+                            } else {
+                                htmlModal += '<td class="item-list-seat" data="'+element.name+'">'+element.name+'</td>';
+                            }
                         } else {
                             htmlModal += '<td class="item-list-seat reserved" data="'+element.name+'">'+element.name+'</td>';
                         }
@@ -119,7 +124,7 @@ function setseat() {
                 if (document.querySelector('#kursibusModal td.reserved') !== null) {
                     document.querySelector('#kursibusModal td.reserved').classList.remove('reserved');
                 }
-                
+                console.log(document.getElementsByClassName("seatgo")[0].value)
             }
         },false);
     }
@@ -197,9 +202,7 @@ function sbtpassenger(e) {
 // end submit passenger
 
 $( document ).ready(function() {
-    setSelect2Above();
-    $("#slcmenumakanan").select2({
-        minimumResultsForSearch: -1,
+    $(".slcmenumakanan").select2({
         dropdownPosition: 'below',
         placeholder: "",
         templateResult: formatState
