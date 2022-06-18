@@ -46,15 +46,17 @@ function sbtdaftar(e) {
                             btntext : 'Submit',
                         });
                     } else {
-                        alert('Registrasi Sukses')
+                        alert('Registrasi Sukses silahkan login')
                         btnloading({
                             id : 'btndaftar',
                             status : false,
                             btntext : 'Submit',
                         });
+                        window.location.href = "/";
                     }
 				} else {
-					alertform('alert-daftar', data, 'Error');
+                        alert('Registrasi Sukses')
+                        alertform('alert-daftar', data, 'Error');
                     btnloading({
                         id : 'btndaftar',
                         status : false,
