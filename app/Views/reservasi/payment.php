@@ -135,12 +135,12 @@
                 <div class="col-12 col-sm-6 col-md-5 ">
                     <div class="content-bill">
                         <div class="item-bill d-flex flex-row justify-content-between">
-                            <span>Surabaya - Jakarta x 1</span>
+                            <span><?= $data['pergi']['pickup_location'] ?> - <?= $data['pergi']['drop_location'] ?> </span>
                             <span>Rp. <?= $priceGo ?></span>
                         </div>
                         <?php if ($priceBack !== 0) { ?>
                             <div class="item-bill d-flex flex-row justify-content-between">
-                                <span>Jakarta - Surabaya x 1</span>
+                                <span><?= $data['pulang']['pickup_location'] ?> - <?= $data['pulang']['drop_location'] ?> </span>
                                 <span>Rp. <?= $priceBack ?></span>
                             </div>
                         <?php } ?>

@@ -21,12 +21,12 @@
                     <h2>Invoice Pembayaran</h2>
                     <div class="item-body">
                         <div class="d-flex flex-row justify-content-between">
-                            <span>Surabaya - Jakarta x 1</span>
+                            <span><?= $bookingData['pergi']['pickup_location'] ?> - <?= $bookingData['pergi']['drop_location'] ?></span>
                             <span>Rp. <?= $priceGo ?></</span>
                         </div>
                         <?php if ($priceBack !== 0) { ?>
                             <div class="d-flex flex-row justify-content-between">
-                                <span>Jakarta - Surabaya x 1</span>
+                                <span><?= $bookingData['pulang']['pickup_location'] ?> - <?= $bookingData['pulang']['drop_location'] ?></span>
                                 <span>Rp. <?= $priceBack ?></</span>
                             </div>
                         <?php } ?>
