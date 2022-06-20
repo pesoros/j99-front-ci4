@@ -7,6 +7,7 @@ class Home extends BaseController
 {
     public function index()
     {
+        $this->httpGetXform(getenv('API_ENDPOINT')."clearticket");
         session()->set('bookData', '');
         session()->set('dataToSave', '');
         session()->set('nowat', '');
@@ -53,5 +54,16 @@ class Home extends BaseController
         curl_close($curl);                            ;                                                   
         $result = json_decode($result,TRUE);                                                                       
         return $result;                                                                      
-    }                                                                                                       
+    }                
+
+    public function httpGetXform($url)
+    {
+        $curl = curl_init($url);
+        curl_setopt($curl, CURLOPT_POST, false);
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        $result = curl_exec($curl);
+        curl_close($curl);
+        $result = json_decode($result, FALSE);
+        return $result;
+    }
 }

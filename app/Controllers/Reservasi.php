@@ -27,6 +27,7 @@ class Reservasi extends BaseController
 
     public function index()
     {
+        $this->httpGetXform(getenv('API_ENDPOINT')."clearticket");
         $bodyRaw = $this->request->getVar();
         $reqData['berangkat'] = isset($bodyRaw['berangkat']) ? $bodyRaw['berangkat'] : '';
         $reqData['tujuan'] = isset($bodyRaw['tujuan']) ? $bodyRaw['tujuan'] : '';
@@ -405,6 +406,7 @@ class Reservasi extends BaseController
     }
     public function getseatreserved()
     {
+        $this->httpGetXform(getenv('API_ENDPOINT')."clearticket");
         $bodyRaw = $this->request->getVar();
         $data= isset($bodyRaw['data']) ? $bodyRaw['data'] : '';
         $data = explode("_",$data);
@@ -424,6 +426,7 @@ class Reservasi extends BaseController
 
     public function getseatreservedpforpick()
     {
+        $this->httpGetXform(getenv('API_ENDPOINT')."clearticket");
         $bodyRaw = $this->request->getVar();
         $data= isset($bodyRaw['data']) ? $bodyRaw['data'] : '';
         $dataToSave = session('dataToSave');
