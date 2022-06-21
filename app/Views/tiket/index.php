@@ -22,6 +22,9 @@
 <section>
 	<div class="container">
     <h2>Kode Booking : <?= $book['booking_code'] ?></h2>
+    <h2><?= $book['from'].' - '.$book['to'].' - x'.$book['total_seat'] ?></h2>
+    <h2>Tanggal Pembelian : <?= $book['created_at'] ?></h2>
+    <h2>Bayar Sebelum : <?= $book['expired'] ?></h2>
     <h2>Status Pembayaran : 
         <?php if ($book['payment_status'] == "0") { ?>
             Menunggu Pembayaran
@@ -29,11 +32,13 @@
             Sudah Dibayar
         <?php } ?>
     </h2>
+    <h2>Total Pembayaran : Rp. <?= $book['total_price'] ?></h2>
+    <h2>Bank : <?= $book['payment_registration']['payment_channel_code'] ?></h2>
 
         <?php if($book['payment_status'] == '0') {?>
             <h2>
                 <?php if ($book['payment_registration']['payment_method'] == 'VIRTUAL_ACCOUNT') { ?>
-                    Virtual Account : <?= $book['payment_registration']['payment_channel_code'] .' '.$book['payment_registration']['va_number'] ?> 
+                    Virtual Account : <?= $book['payment_registration']['va_number'] ?> 
                     <button class="btn btn-submit btn-md btn-block w-auto mt-4" onclick="copyToClipboard(<?= $book['payment_registration']['va_number'] ?>)">Copy Virtual Account</button>
                 <?php } elseif ($book['payment_registration']['payment_method'] == 'EWALLET') { ?>
                     E-Wallet <?= substr($book['payment_registration']['payment_channel_code'] , 3)?> <br> <a href="<?= $book['payment_registration']['dekstop_link'] ?>" class="btn btn-submit btn-md w-auto mt-4" target="_blank">Klik untuk bayar</a>
@@ -102,6 +107,7 @@
                 <?php } ?>
             </div>
         <?php } ?>
+
 	</div>
 </section>
 
