@@ -22,7 +22,7 @@
 <section>
 	<div class="container">
     <h2>Kode Booking : <?= $book['booking_code'] ?></h2>
-    <h2><?= $book['from'].' - '.$book['to'].' - x'.$book['total_seat'] ?></h2>
+    <h2><?= $book['from'].' - '.$book['to'].' - '.$book['ticket'][0]['booking_date'] ?></h2>
     <h2>Tanggal Pembelian : <?= $book['created_at'] ?></h2>
     <h2>Bayar Sebelum : <?= $book['expired'] ?></h2>
     <h2>Status Pembayaran : 
