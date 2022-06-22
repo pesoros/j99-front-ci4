@@ -30,12 +30,12 @@
                         <div class="item">
                             <!-- <h3>JKT</h3> -->
                             <p><?= $ticket['pickup_trip_location'] ?></p>
-                            <span>Agen Sunter</span>
+                            <!-- <span>Agen Sunter</span> -->
                         </div>
                         <div class="item">
                             <!-- <h3>SUB</h3> -->
                             <p><?= $ticket['drop_trip_location'] ?></p>
-                            <span>Agen Darmo</span>
+                            <!-- <span>Agen Darmo</span> -->
                         </div>
                     </div>
                     <div class="body-tiket">
