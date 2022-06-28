@@ -3,29 +3,28 @@ var issubmit = false;
 function sbtforgot(e) {
     if(!issubmit) {
         e.preventDefault();
-        var targetform = e.target.id;
+        var targetform = e.target.forgot.value;
+        var apiurl = document.getElementById('apiendpoint').value; 
         issubmit = true;
         btnloading({
             id : 'btnforgot',
             status : true
         });
+        var data = {
+            "email": targetform
+        }
         $.ajax({
 			type	: "POST",
 			cache	: false,
-			url		: base_url+"/forgot-password/sentpass",
-			data	: $('#'+targetform).serializeArray(),
+			url		: apiurl +"forgotpassword",
+			data	: data,
 			success: function(data) {
-				if (data.indexOf("error-")<0){
-					alertform('alert-forgot', data, 'Succes');
-				} else {
-					alertform('alert-forgot', data, 'Error');
-                    btnloading({
-                        id : 'btnforgot',
-                        status : false,
-                        btntext : 'Submit',
-                    });
-				}
-                issubmit = false;
+				if (data.status == 200) {
+                    alert('Cek email anda untuk mengganti password')
+                } else {
+                    alert('Email tidak ditemukan')
+                }
+                location.reload();
 			},
 			error: function (xhr, ajaxOptions, thrownError) {
 				alertform('alert-forgot', thrownError, 'Error');

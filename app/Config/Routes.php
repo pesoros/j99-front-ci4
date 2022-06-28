@@ -67,7 +67,9 @@ $routes->get('daftar', 'Daftar::index');
 $routes->get('daftar/add', 'Daftar::addmember');
 $routes->get('login', 'Login::index');
 $routes->get('logout', 'Login::logout');
+$routes->get('passwordreset/(:any)', 'Forgot_Password::reset/$1');
 $routes->get('forgot-password', 'Forgot_Password::index');
+$routes->post('forgot-password', 'Forgot_Password::send');
 $routes->get('forgot-password/sentpass', 'Forgot_Password::sentpass');
 $routes->post('reservasired', 'Reservasi::reservasired');
 /*

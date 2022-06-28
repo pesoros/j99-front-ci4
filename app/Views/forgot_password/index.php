@@ -24,6 +24,7 @@
                             <div class="input-text">
                                 <div class="text-content">
                                     <input type="text" class="form-control" placeholder="Enter your Member ID or Email or Phone number" name="forgot" required/>
+                                    <input type="hidden" class="form-control" id="apiendpoint" value="<?= getenv('API_ENDPOINT') ?>"/>
                                 </div>
                             </div>
                         </div>
