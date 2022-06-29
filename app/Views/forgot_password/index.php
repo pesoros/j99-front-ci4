@@ -17,7 +17,7 @@
                     <form class="form-forgot" id="formforgot" name="formforgot" method="POST">
                         <div class="form-header">
                             <h2>Forgot Password</h2>
-                            <p>Masukan Member ID / Email / No. Telepon terdaftar Anda, Anda akan dikirimkan pesan password Anda.</p>
+                            <p>Masukan Email terdaftar Anda, Anda akan dikirimkan pesan password Anda.</p>
                         </div>
                         <div id="alert-forgot" role="alert"></div>
                         <div class="mb-0 form-group" >
