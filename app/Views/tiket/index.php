@@ -9,6 +9,9 @@
         h2 {
             color: #FFFFFF;
         }
+        .content-tiket-landscape .header-tiket .item p {
+            text-align: -webkit-center;
+        }
     </style>
 <?= $this->endSection() ?>
 
@@ -52,8 +55,8 @@
                         <div class="content-tiket-landscape d-flex flex-row">
                             <div class="header-tiket">
                                 <div class="item">
-                                    <p><?= $value['pickup_trip_location'] ?></p>
-                                    <span>Agen Sunter</span>
+                                    <p style="margin-top: 15px;"><?= $value['pickup_trip_location'] ?></p>
+                                    <!-- <span>Agen Sunter</span> -->
                                 </div>
                                 <div class="item">
                                     <span class="dots-vertical">
@@ -64,7 +67,7 @@
                                 </div>
                                 <div class="item">
                                     <p><?= $value['drop_trip_location'] ?></p>
-                                    <span>Agen Darmo</span>
+                                    <!-- <span>Agen Darmo</span> -->
                                 </div>
                             </div>
                             
@@ -82,7 +85,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Harga</label>
-                                        <span class="harga"><p><?= $value['price'] ?></p></span>
+                                        <span class="harga"><p><?= (intval($value['price']) / intval($book['total_seat'])) ?></p></span>
                                     </div>
                                 </div>
                                 
@@ -97,7 +100,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Tanggal</label>
-                                        <span>20 Feb 2022</span>
+                                        <span><?= date("d M Y", strtotime($value['booking_date'])); ?></span>
                                     </div>
                                 </div>
                             </div>
