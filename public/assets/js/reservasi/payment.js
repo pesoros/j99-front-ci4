@@ -109,7 +109,7 @@ function formopt() {
                         var json = $.parseJSON(data);
                         var status = json.status;
                         if (status !== 200) {
-                            alertform('alert-otp', data, 'Error');
+                            alertform('alert-otp', 'OTP Salah', 'Error');
                             btnloading({
                                 id : 'btnpilih',
                                 status : false,
@@ -119,7 +119,7 @@ function formopt() {
                             window.location.href = "/reservasi/invoice";
                         }
                     } else {
-                        alertform('alert-otp', data, 'Error');
+                        alertform('alert-otp', 'OTP Salah', 'Error');
                         btnloading({
                             id : 'btnpilih',
                             status : false,
@@ -129,7 +129,7 @@ function formopt() {
                     issubmit = false;
                 },
                 error: function (xhr, ajaxOptions, thrownError) {
-                    alertform('alert-otp', thrownError, 'Error');
+                    alertform('alert-otp', 'OTP Salah', 'Error');
                     btnloading({
                         id : 'btnpilih',
                         status : false,
