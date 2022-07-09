@@ -67,7 +67,7 @@
 					<h5>Data Penumpang</h5>
 				</div>
 				<div class="row">
-					<div class="col-12 col-sm-4  col-lg-3 ">
+					<div class="col-12 col-sm-4  col-lg-2 ">
 						<div class="form-group" >
 							<label>Nama Lengkap</label>
 							<p><?= $value['name'] ?></p>
@@ -79,13 +79,25 @@
 							<p><?= $value['phone'] ?></p>
 						</div>
 					</div>
-					<div class="col-12 col-sm-4 col-lg-3">
+                    <div class="col-12 col-sm-4 col-lg-1">
 						<div class="form-group">
-							<label>Menu Makanan</label>
-							<p><?= $data['pergi']['foodMenu'][0]['food_name']; ?></p>
+							<label></label>
+							<p>Pergi</p>
+					        <?php if ($roundTrip == true) { ?>
+                                <p>Pulang</p>
+                            <?php } ?>
 						</div>
 					</div>
 					<div class="col-12 col-sm-4 col-lg-3">
+						<div class="form-group">
+							<label>Menu Makanan</label>
+							<p><?= $data['pergi']['foodMenu'][$key]['food_name']; ?></p>
+					        <?php if ($roundTrip == true) { ?>
+                                <p><?= $data['pulang']['foodMenu'][$key]['food_name'];  ?></p>
+                            <?php } ?>
+						</div>
+					</div>
+					<div class="col-12 col-sm-4 col-lg-2">
 						<div class="form-group">
 							<label>Bagasi</label>
 							<p>
@@ -95,12 +107,24 @@
                                     Tidak
                                 <?php } ?>
                             </p>
+                            <?php if ($roundTrip == true) { ?>
+                                <p>
+                                    <?php if ($data['pergi']['seatPicked'][$key] == "1") { ?>
+                                        Bawa
+                                    <?php } else { ?>
+                                        Tidak
+                                    <?php } ?>
+                                </p>
+                            <?php } ?>
 						</div>
 					</div>
-					<div class="col-12 col-sm-4 col-lg-3">
+					<div class="col-12 col-sm-4 col-lg-1">
 						<div class="form-group">
-                            <label>No. Kursi</label>
+                            <label>Kursi</label>
                             <p><?= $value['seat'] ?></p>
+                            <?php if ($roundTrip == true) { ?>
+                                <p><?= $data['pulang']['seatPicked'][$key]['seat'];  ?></p>
+                            <?php } ?>
 						</div>
 					</div>
 				</div>
