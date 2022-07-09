@@ -16,12 +16,6 @@ function setpulang() {
     var phtml = '<div class="d-flex align-items-center"><span class="icon"><i class="fal fa-calendar"></i></span><div id="date-pulang" class="form-group ml-3 mb-0 w-100"><label>Pulang</label><input name="pulang" class="form-control" placeholder="mm/dd/yyyy" readonly></div></div>';
     $('#pulang').append(phtml);
     pu.classList.remove("d-none");
-    $('#date-pulang input').datepicker({ 
-        format: 'yyyy-mm-dd',
-        uiLibrary: 'bootstrap4',
-        iconsLibrary: 'fontawesome',
-        size: 'default'
-    });
 }
 //end sho hide input pulang
 
@@ -120,12 +114,28 @@ document.getElementById("pesanarmada").onsubmit = function(e) {
 $( document ).ready(function() {
     setSelect2Above();
     navTabs('navbar-tiket');
+    var today;
+    today = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate());
+
     $('#date-pergi input.datepicker').datepicker({ 
+        minDate: today,
         format: 'yyyy-mm-dd',
         uiLibrary: 'bootstrap4',
         iconsLibrary: 'fontawesome',
-        size: 'default'
+        size: 'default',
+    }).on("change", function () {
+        var selected = $(this).val();
+        var endDate = new Date(selected);
+        $('#date-pulang input').datepicker({ 
+            minDate: endDate,
+            format: 'yyyy-mm-dd',
+            uiLibrary: 'bootstrap4',
+            iconsLibrary: 'fontawesome',
+            size: 'default'
+        });
     });
+    
+
     $('.list-main').slick({
         dots: mdots,
         infinite: false,
