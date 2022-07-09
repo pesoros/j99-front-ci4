@@ -165,7 +165,11 @@ class Reservasi extends BaseController
         $dataToSave[$varName]['pickup_location'] = $from;
         $dataToSave[$varName]['drop_location'] = $to;
         $dataToSave[$varName]['pricePerSeat'] = $pricePerSeat;
-        $dataToSave[$varName]['booking_date'] = $reqData['pergi'];
+        if ($varName == 'pergi') {
+            $dataToSave[$varName]['booking_date'] = $reqData['pergi'];
+        } else {
+            $dataToSave[$varName]['booking_date'] = $reqData['pulang'];
+        }
         $dataToSave[$varName]['fleet_type_id'] = $fleetTypeId;
         $dataToSave[$varName]['foodMenu'] = $foodMenu;
 

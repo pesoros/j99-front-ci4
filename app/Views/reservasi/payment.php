@@ -73,7 +73,7 @@
 							<p><?= $value['name'] ?></p>
 						</div>
 					</div>
-					<div class="col-12 col-sm-4 col-lg-3">
+					<div class="col-12 col-sm-4 col-lg-2">
 						<div class="form-group">
 							<label>Nomor Handphone</label>
 							<p><?= $value['phone'] ?></p>
@@ -88,7 +88,16 @@
                             <?php } ?>
 						</div>
 					</div>
-					<div class="col-12 col-sm-4 col-lg-3">
+                    <div class="col-12 col-sm-4 col-lg-2">
+						<div class="form-group">
+							<label>Tanggal</label>
+							<p><?= $data['pergi']['booking_date']; ?></p>
+					        <?php if ($roundTrip == true) { ?>
+                                <p><?= $data['pulang']['booking_date']; ?></p>
+                            <?php } ?>
+						</div>
+					</div>
+					<div class="col-12 col-sm-4 col-lg-2">
 						<div class="form-group">
 							<label>Menu Makanan</label>
 							<p><?= $data['pergi']['foodMenu'][$key]['food_name']; ?></p>

@@ -3,7 +3,7 @@ var isshow = false, issubmit = false;  dtargetseat = "";
 const slctseatpergiset=[];
 const slctseatpulangset=[];
 var conditionseat = 0;
-function showseats(id) {
+function showseats(id,dtargetseat) {
     if(!isshow) {
         isshow = true;
         var sendData = {
@@ -36,12 +36,22 @@ function showseats(id) {
                         htmlModal += '<td class="item-list-seat road-space" data=""></td>';
                     } else {
                         if (element.isAvailable == true) {
-                            console.log('ssss'+element.name , jQuery.inArray(element.name.trim(), slctseatpergiset))
-                            if (jQuery.inArray(element.name, slctseatpergiset) >= 0 ) {
-                                htmlModal += '<td class="item-list-seat reserved" data="'+element.name+'">'+element.name+'</td>';
+                            if (dtargetseat == "seatgo") {
+                                console.log('ssss'+element.name , jQuery.inArray(element.name.trim(), slctseatpergiset))
+                                if (jQuery.inArray(element.name, slctseatpergiset) >= 0 ) {
+                                    htmlModal += '<td class="item-list-seat reserved" data="'+element.name+'">'+element.name+'</td>';
+                                } else {
+                                    htmlModal += '<td class="item-list-seat" data="'+element.name+'">'+element.name+'</td>';
+                                }
                             } else {
-                                htmlModal += '<td class="item-list-seat" data="'+element.name+'">'+element.name+'</td>';
+                                console.log('ssss'+element.name , jQuery.inArray(element.name.trim(), slctseatpulangset))
+                                if (jQuery.inArray(element.name, slctseatpulangset) >= 0 ) {
+                                    htmlModal += '<td class="item-list-seat reserved" data="'+element.name+'">'+element.name+'</td>';
+                                } else {
+                                    htmlModal += '<td class="item-list-seat" data="'+element.name+'">'+element.name+'</td>';
+                                }
                             }
+                            
                         } else {
                             htmlModal += '<td class="item-list-seat reserved" data="'+element.name+'">'+element.name+'</td>';
                         }
@@ -74,7 +84,7 @@ function setbtnreserved() {
             var did = this.getAttribute('data-id');
             dtargetseat = this.getAttribute('data-target');
             conditionseat = this.getAttribute('data-type');
-            showseats(did);
+            showseats(did,dtargetseat);
         });
     }
 }
