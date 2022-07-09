@@ -117,6 +117,10 @@ $( document ).ready(function() {
     var today;
     today = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate());
 
+    if($('#pulangpergi').prop("checked") == true){
+        setpulang();
+    }
+
     $('#date-pergi input.datepicker').datepicker({ 
         minDate: today,
         format: 'yyyy-mm-dd',
