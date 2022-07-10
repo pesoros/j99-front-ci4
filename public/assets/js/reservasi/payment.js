@@ -78,6 +78,46 @@ document.getElementById("paymenform").onsubmit = function(e) {
 };
 // end submit payment
 
+// sen opt from email
+function fcnotpemail() {
+    function sntotpemail(e) {
+        if(!issubmit) {
+            e.preventDefault();
+            issubmit = true;
+            document.getElementById("sendemail").style.display = 'none';
+            let paymentMethod = $( "#slcpaymenmethod" ).val();
+            let txtnohp = $( "#txtnohp" ).val();
+            let email = $( "#email" ).text();
+            var sendData = {
+                "paymentMethod": paymentMethod,
+                "phone": txtnohp,
+                "email": email,
+                "sendBy": 'email',
+            }; 
+            $.ajax({
+                type	: "POST",
+                cache	: false,
+                url		: base_url+"/reservasi/addpayment",
+                data	: sendData,
+                success: function(data) {
+                    if (data.indexOf("error-")<0){
+                        setcountdown();
+                    }
+                    issubmit = false;
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    issubmit = false;
+                }
+            });
+            return false;
+        }
+    }
+    
+    document.getElementById("sendemail").addEventListener('click',function(e) {
+        sntotpemail(e);
+    });
+}
+
 // submit opt
 function formopt() {
     function sbtotp(e) {
@@ -177,35 +217,6 @@ function fcnotp() {
 }
 // end sent opt
 
-// sen opt from email
-function fcnotpemail() {
-    function sntotpemail(e) {
-        if(!issubmit) {
-            e.preventDefault();
-            issubmit = true;
-            document.getElementById("sendemail").style.display = 'none';
-            $.ajax({
-                type	: "POST",
-                cache	: false,
-                url		: base_url+"/reservasi/sentotpmail",
-                success: function(data) {
-                    if (data.indexOf("error-")<0){
-                        setcountdown();
-                    }
-                    issubmit = false;
-                },
-                error: function (xhr, ajaxOptions, thrownError) {
-                    issubmit = false;
-                }
-            });
-            return false;
-        }
-    }
-    
-    document.getElementById("sendemail").addEventListener('click',function(e) {
-        sntotpemail(e);
-    });
-}
 // end sent opt
 
 function formatState (opt) {
