@@ -94,6 +94,7 @@
 											<select class="form-control d-none" name="kelas" id="slckelas">
 												<option value=""></option>
 												<?php foreach ($dataKelas as $key => $value) { ?>
+													<option value="-">Semua Kelas</option>
 													<option value="<?= $value['id'] ?>"><?= $value['kelas'] ?></option>
 												<?php } ?>
 											</select>

@@ -15,6 +15,8 @@ class Reservasi extends BaseController
         $reqData['pergi'] = isset($bodyRaw['pergi']) ? $bodyRaw['pergi'] : '';
         $reqData['pulang'] = isset($bodyRaw['pulang']) ? $bodyRaw['pulang'] : '';
 
+        $reqData['kelas'] = $reqData['kelas'] == "-" ? '' : $reqData['kelas'];
+
         return redirect()->to(base_url()."/reservasi?berangkat=".$reqData['berangkat']
             ."&tujuan=".$reqData['tujuan']
             ."&pergi=".$reqData['pergi']
