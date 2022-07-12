@@ -36,7 +36,7 @@ function showseats(id,dtargetseat) {
                         htmlModal += '<td class="item-list-seat road-space" data=""></td>';
                     } else {
                         if (element.isAvailable == true) {
-                            if (dtargetseat == "seatgo") {
+                            if (did == "pergi") {
                                 console.log('ssss'+element.name , jQuery.inArray(element.name.trim(), slctseatpergiset))
                                 if (jQuery.inArray(element.name, slctseatpergiset) >= 0 ) {
                                     htmlModal += '<td class="item-list-seat reserved" data="'+element.name+'">'+element.name+'</td>';
