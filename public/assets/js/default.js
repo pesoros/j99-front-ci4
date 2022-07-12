@@ -272,5 +272,6 @@ function copyToClipboard(textToCopy) {
     document.execCommand("copy");
     $temp.remove();
     $("#copyText").text("Copied");
+    console.log(textToCopy)
 }
 
