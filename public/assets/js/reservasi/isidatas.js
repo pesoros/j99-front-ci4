@@ -36,7 +36,7 @@ function showseats(id,dtargetseat) {
                         htmlModal += '<td class="item-list-seat road-space" data=""></td>';
                     } else {
                         if (element.isAvailable == true) {
-                            if (did == "pergi") {
+                            if (dtargetseat == "seatgo") {
                                 console.log('ssss'+element.name , jQuery.inArray(element.name.trim(), slctseatpergiset))
                                 if (jQuery.inArray(element.name, slctseatpergiset) >= 0 ) {
                                     htmlModal += '<td class="item-list-seat reserved" data="'+element.name+'">'+element.name+'</td>';
@@ -84,7 +84,7 @@ function setbtnreserved() {
             var did = this.getAttribute('data-id');
             dtargetseat = this.getAttribute('data-target');
             conditionseat = this.getAttribute('data-type');
-            showseats(did,dtargetseat);
+            showseats(did,did);
         });
     }
 }
