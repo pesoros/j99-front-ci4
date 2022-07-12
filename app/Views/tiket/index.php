@@ -85,7 +85,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Harga</label>
-                                        <span class="harga"><p><?= (intval($value['price']) / intval($book['total_seat'])) ?></p></span>
+                                        <span class="harga"><p><?= (intval($value['price']) / intval($value['adult'])) ?></p></span>
                                     </div>
                                 </div>
                                 
