@@ -1,7 +1,7 @@
 //get seat available
 var isshow = false, issubmit = false;  dtargetseat = "";
-const slctseatpergiset=[];
-const slctseatpulangset=[];
+let slctseatpergiset=[];
+let slctseatpulangset=[];
 var conditionseat = 0;
 function showseats(id,dtargetseat) {
     if(!isshow) {
@@ -117,14 +117,21 @@ function setseat() {
         const target = document.getElementById('btnpilih');
         target.addEventListener('click',function(){
             var getval = document.getElementById('inputtseat').value;
-            const setval = document.getElementById(dtargetseat);
+            let setval = document.getElementById(dtargetseat);
             if(getval != null && getval != '') {
-                setval.value = getval;
                 $('#kursibusModal').modal('toggle');
                 if(conditionseat == 1) {
+                    slctseatpulangset = jQuery.grep(slctseatpulangset, function(value) {
+                        return value != setval.value;
+                    });
+                    setval.value = getval;
                     slctseatpulangset.push(getval);
                     console.log('conditionseat2: '+conditionseat);
                 } else {
+                    slctseatpergiset = jQuery.grep(slctseatpergiset, function(value) {
+                        return value != setval.value;
+                    });
+                    setval.value = getval;
                     slctseatpergiset.push(getval);
                     console.log('conditionseat3: '+conditionseat);
                 }
