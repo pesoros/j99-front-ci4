@@ -384,6 +384,7 @@ class Reservasi extends BaseController
             $ldata['priceBack'] = $priceBack;
             $ldata['sumPrice'] = $sumPrice;
             $ldata['payment'] = $setBooking['payment'];
+            $ldata['payment_tutorial'] = $setBooking['payment_tutorial'];
             $ldata['bookingData'] = $setBookingData;
             $ldata['footer'] = view('layouts/footer');
 

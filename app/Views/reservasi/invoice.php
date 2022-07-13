@@ -61,63 +61,17 @@
                 <?php if ($bookingData['payment_method'] == 'VIRTUAL_ACCOUNT') { ?>
                 <div class="col-12 col-md-6 pl-0 pl-md-5 pt-5 pt-md-0 items">
                     <h2>Tata Cara Pembayaran</h2>
-                    <div class="w-accordion" style="margin: 0;">
-                        <div class="w-accordion-menu">
-                            ATM <?= $payment['bank_code'] ?>
-                            <div class="float-right"><i class="far fa-chevron-up"></i></div>
+                    <?php foreach ($payment_tutorial as $key_t => $value_t) { ?>
+                        <div class="w-accordion" style="margin: 0;">
+                            <div class="w-accordion-menu">
+                                <?= $value_t['title'] ?>
+                                <div class="float-right"><i class="far fa-chevron-up"></i></div>
+                            </div>
+                            <div class="w-accordion-content">
+                                <?= $value_t['context'] ?>
+                            </div>
                         </div>
-                        <div class="w-accordion-content">
-                            <ol>
-                                <li class="mt-10 mb-10">Masukkan Kartu ATM <?= $payment['bank_code'] ?> &amp; PIN</li>
-                                <li class="mt-10 mb-10">Pilih menu Transaksi Lainnya &gt; Transfer &gt; ke Rekening <?= $payment['bank_code'] ?> Virtual Account</li>
-                                <li class="mt-10 mb-10">Masukkan 5 angka kode perusahaan untuk J99 (80777) dan Nomor HP yang terdaftar di akun J99 Anda (Contoh: <?= $payment['account_number'] ?></)</li>
-                                <li class="mt-10 mb-10">Di halaman konfirmasi, pastikan detil pembayaran sudah sesuai seperti No VA, Nama, Perus/Produk dan Total Tagihan</li>
-                                <li class="mt-10 mb-10">Masukkan Jumlah Transfer sesuai dengan Total Tagihan</li>
-                                <li class="mt-10 mb-10">Ikuti instruksi untuk menyelesaikan transaksi</li>
-                                <li class="mt-10 mb-10">Simpan struk transaksi sebagai bukti pembayaran</li>
-                            </ol>
-                        </div>
-                        <div class="w-accordion-menu">
-                            m-<?= $payment['bank_code'] ?> (<?= $payment['bank_code'] ?> mobile)
-                            <div class="float-right"><i class="far fa-chevron-down"></i></div>
-                        </div>
-                        <div class="w-accordion-content">
-                            <ol>
-                                <li class="mt-10 mb-10">Lakukan log in pada aplikasi <?= $payment['bank_code'] ?> Mobile</li>
-                                <li class="mt-10 mb-10">Pilih menu m-<?= $payment['bank_code'] ?>, kemudian masukkan kode akses m-<?= $payment['bank_code'] ?></li>
-                                <li class="mt-10 mb-10">Pilih m-Transfer &gt; <?= $payment['bank_code'] ?> Virtual Account</li>
-                                <li class="mt-10 mb-10">Pilih dari Daftar Transfer, atau masukkan 5 angka kode perusahaan untuk J99 (80777) dan Nomor HP yang terdaftar di akun J99 Anda (Contoh: <?= $payment['account_number'] ?></)</li>
-                                <li class="mt-10 mb-10">Masukkan pin m-<?= $payment['bank_code'] ?></li>
-                                <li class="mt-10 mb-10">Pembayaran selesai. Simpan notifikasi yang muncul sebagai bukti pembayaran</li>
-                            </ol>
-                        </div>
-                        <div class="w-accordion-menu">
-                            Internet Banking <?= $payment['bank_code'] ?>
-                            <div class="float-right"><i class="far fa-chevron-down"></i></div>
-                        </div>
-                        <div class="w-accordion-content">
-                            <ol>
-                                <li class="mt-10 mb-10">Login pada alamat Internet Banking <?= $payment['bank_code'] ?> (<a href="https://klik<?= $payment['bank_code'] ?>.com" target="_blank">https://klik<?= $payment['bank_code'] ?>.com</a>)</li>
-                                <li class="mt-10 mb-10">Pilih menu Pembayaran Tagihan &gt; Pembayaran &gt; <?= $payment['bank_code'] ?> Virtual Account</li>
-                                <li class="mt-10 mb-10">Pada kolom kode bayar, masukkan 5 angka kode perusahaan untuk J99 (80777) dan Nomor HP yang terdaftar di akun J99 Anda (Contoh: <?= $payment['account_number'] ?></)</li>
-                                <li class="mt-10 mb-10">Di halaman konfirmasi, pastikan detil pembayaran sudah sesuai seperti Nomor <?= $payment['bank_code'] ?> Virtual Account, Nama Pelanggan dan Jumlah Pembayaran</li>
-                                <li class="mt-10 mb-10">Masukkan <span class="italic">password</span> dan mToken</li>
-                                <li class="mt-10 mb-10">Cetak/simpan struk pembayaran <?= $payment['bank_code'] ?> Virtual Account sebagai bukti pembayaran</li>
-                            </ol>
-                        </div>
-                        <div class="w-accordion-menu">
-                            Kantor Bank <?= $payment['bank_code'] ?>
-                            <div class="float-right"><i class="far fa-chevron-down"></i></div>
-                        </div>
-                        <div class="w-accordion-content">
-                            <ol>
-                                <li class="mt-10 mb-10">Ambil nomor antrian transaksi Teller dan isi slip setoran</li>
-                                <li class="mt-10 mb-10">Serahkan slip dan jumlah setoran kepada Teller <?= $payment['bank_code'] ?></li>
-                                <li class="mt-10 mb-10">Teller <?= $payment['bank_code'] ?> akan melakukan validasi transaksi</li>
-                                <li class="mt-10 mb-10">Simpan slip setoran hasil validasi sebagai bukti pembayaran</li>
-                            </ol>
-                        </div>
-                    </div>
+                    <?php } ?>
                 </div>  
                 <?php } ?>
                 <?php if ($bookingData['payment_method'] == 'EWALLET') { ?>
