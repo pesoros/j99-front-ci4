@@ -265,16 +265,6 @@ function redirectBut(targetLink) {
     return false;
 }
 
-function copyToClipboard(textToCopy) {
-    var $temp = $("<input>");
-    $("body").append($temp);
-    $temp.val(textToCopy).select();
-    document.execCommand("copy");
-    $temp.remove();
-    $("#copyText").text("Copied");
-    console.log(textToCopy)
-}
-
 function copyToClipboard(copyText) {
     /* Select the text field */
     copyText.select();
