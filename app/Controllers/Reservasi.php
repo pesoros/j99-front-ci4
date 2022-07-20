@@ -69,6 +69,7 @@ class Reservasi extends BaseController
         $datav['tanggal'] = $reqData['tanggal'];
         $datav['listBus'] = $listbus;
         $ldata['listBus'] = view('reservasi/listmore',$datav);
+        $ldata['session'] = session('logged_in');
         $ldata['roundTrip'] = $roundTrip;
         $ldata['footer'] = view('layouts/footer');
         return view('reservasi/index', $ldata);
@@ -151,6 +152,9 @@ class Reservasi extends BaseController
 
     public function pick($trip_id_no, $trip_route_id, $pricePerSeat, $fleetTypeId, $restoId, $from, $to)
     {
+        if (!session('logged_in')) {
+            return redirect()->to(base_url()."/daftar");
+        }
         if (!empty(session('dataToSave'))) {
             $dataToSave = session('dataToSave');
         }
