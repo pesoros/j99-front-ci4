@@ -17,6 +17,9 @@ class Reservasi extends BaseController
 
         $reqData['kelas'] = $reqData['kelas'] == "-" ? '' : $reqData['kelas'];
 
+        echo 'ee';
+        return;
+
         return redirect()->to(base_url()."/reservasi?berangkat=".$reqData['berangkat']
             ."&tujuan=".$reqData['tujuan']
             ."&pergi=".$reqData['pergi']
