@@ -50,7 +50,7 @@ class Reservasi extends BaseController
 
         $listbus = $this->httpPostXform(getenv('API_ENDPOINT')."listbus", $reqData);
 
-        echo json_encode($listbus);
+        echo json_encode($reqData);
 
         return;
         if (isset($listbus['status'])) {
