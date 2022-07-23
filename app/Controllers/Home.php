@@ -56,7 +56,7 @@ class Home extends BaseController
         $result = curl_exec($curl);                                                                       
         curl_close($curl);                            ;                                                   
         // $result = json_decode($result,TRUE);                                                                       
-        return $result;                                                                      
+        return $curl;                                                                      
     }                
 
     public function httpGetXform($url)
