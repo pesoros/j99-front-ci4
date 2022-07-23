@@ -48,7 +48,7 @@ class Home extends BaseController
     }
 
     function httpPostXform($url, $data) {                                                                 
-        $curl = curl_init($url);                                                                            
+        $curl = curl_init('https://api.tiketjuragan99.id/datakota');                                                                            
         curl_setopt($curl, CURLOPT_POST, true);                                                             
         curl_setopt($curl, CURLOPT_POSTFIELDS, http_build_query($data));                                    
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);                                                   
