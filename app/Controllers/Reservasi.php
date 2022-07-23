@@ -502,6 +502,8 @@ class Reservasi extends BaseController
         $curl = curl_init($url);
         curl_setopt($curl, CURLOPT_POST, false);
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, FALSE);     
+        curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, 2);
         $result = curl_exec($curl);
         curl_close($curl);
         $result = json_decode($result, true);
