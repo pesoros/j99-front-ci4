@@ -18,7 +18,7 @@ class Home extends BaseController
         $reqData['keyword'] = '';
         $dataKelas = $this->httpPostXform(getenv('API_ENDPOINT')."datakelas",$reqData);
 
-        echo getenv('API_ENDPOINT');
+        echo json_encode($dataKota);
         return;
 
         $ldata['dataKota'] = $dataKota; 
