@@ -55,7 +55,7 @@ class Home extends BaseController
         curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type: application/x-www-form-urlencoded'));   
         $result = curl_exec($curl);                                                                       
         curl_close($curl);                            ;                                                   
-        $result = json_decode($result,TRUE);                                                                       
+        // $result = json_decode($result,TRUE);                                                                       
         return $result;                                                                      
     }                
 
@@ -66,7 +66,7 @@ class Home extends BaseController
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
         $result = curl_exec($curl);
         curl_close($curl);
-        // $result = json_decode($result, FALSE);
+        $result = json_decode($result, FALSE);
         return $result;
     }
 }
