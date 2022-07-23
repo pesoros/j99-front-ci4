@@ -14,12 +14,9 @@ class Home extends BaseController
         session()->set('roundTrip', '');
         $reqData['keyword'] = '';
         $dataKota = $this->httpPostXform(getenv('API_ENDPOINT')."datakota",$reqData);
-        echo json_encode($dataKota);
-        return;
 
         $reqData['keyword'] = '';
         $dataKelas = $this->httpPostXform(getenv('API_ENDPOINT')."datakelas",$reqData);
-
 
         $ldata['dataKota'] = $dataKota; 
         $ldata['dataKelas'] = $dataKelas; 
@@ -54,9 +51,9 @@ class Home extends BaseController
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);                                                   
         curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type: application/x-www-form-urlencoded'));   
         $result = curl_exec($curl);                                                                       
-        // curl_close($curl);                            ;                                                   
-        // $result = json_decode($result,TRUE);                                                                       
-        return $curl;                                                                      
+        curl_close($curl);                            ;                                                   
+        $result = json_decode($result,TRUE);                                                                       
+        return $result;                                                                      
     }                
 
     public function httpGetXform($url)
