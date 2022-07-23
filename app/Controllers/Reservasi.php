@@ -39,8 +39,8 @@ class Reservasi extends BaseController
         $reqData['pergi'] = isset($bodyRaw['pergi']) ? $bodyRaw['pergi'] : '';
         $reqData['pulang'] = isset($bodyRaw['pulang']) ? $bodyRaw['pulang'] : '';
         
-        // echo json_encode($reqData);
-        // return;
+        echo json_encode($reqData);
+        return;
 
         if ($reqData['pulang'] == "") {
             $roundTrip = false;
