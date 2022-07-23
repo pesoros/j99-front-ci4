@@ -13,7 +13,7 @@ class Home extends BaseController
         session()->set('nowat', '');
         session()->set('roundTrip', '');
         $reqData['keyword'] = '';
-        $dataKota = $this->httpPostXform(getenv('API_ENDPOINT')."datakota",$reqData);
+        $dataKota = $this->httpGetXform(getenv('API_ENDPOINT'));
 
         $reqData['keyword'] = '';
         $dataKelas = $this->httpPostXform(getenv('API_ENDPOINT')."datakelas",$reqData);
@@ -48,7 +48,7 @@ class Home extends BaseController
     }
 
     function httpPostXform($url, $data) {                                                                 
-        $curl = curl_init('https://api.tiketjuragan99.id/datakota');                                                                            
+        $curl = curl_init($url);                                                                            
         curl_setopt($curl, CURLOPT_POST, true);                                                             
         curl_setopt($curl, CURLOPT_POSTFIELDS, http_build_query($data));                                    
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);                                                   
