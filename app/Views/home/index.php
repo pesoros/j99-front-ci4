@@ -15,7 +15,7 @@
     
 <section class="home">
 	<div class="list-main">
-		<div class="item-main" style="background-image: url(assets/img/bg-main-2.jpg);">
+		<div class="item-main" style="background-image: url(assets/img/bg-main-3.jpeg);">
 			<div class="container">
 				<div class="d-flex flex-column flex-md-row justify-content-lg-between">
 					<div class="d-flex flex-column">
