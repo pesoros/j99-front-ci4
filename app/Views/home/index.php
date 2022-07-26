@@ -18,7 +18,12 @@
 		<div class="item-main" style="background-image: url(assets/img/bg-main-3.jpeg);">
 			<div class="container">
 				<div class="d-flex flex-column flex-md-row justify-content-lg-between">
-					<div class="d-flex flex-column">
+					<div class="d-flex flex-column" style="
+						background: rgba(0, 0, 0, 0.5);
+						margin-bottom: 275px;
+						padding: 20px;
+						border-radius: 24px;
+					">
 						<h2>Find Trip And <br>Explore In The World</h2>
 						<p>Explore your favorit place in the world!</p>
 					</div>
