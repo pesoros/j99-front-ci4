@@ -92,11 +92,11 @@
                                 <div class="dtl d-flex flex-row">
                                     <div class="form-group">
                                         <label>Berangkat</label>
-                                        <span>08:30 PM</span>
+                                        <span><?= $value['dep_time'] ?></span>
                                     </div>
                                     <div class="form-group">
                                         <label>Sampai</label>
-                                        <span>10:40 PM</span>
+                                        <span><?= $value['arr_time'] ?></span>
                                     </div>
                                     <div class="form-group">
                                         <label>Tanggal</label>
