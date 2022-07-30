@@ -61,7 +61,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Waktu</label>
-                                    <span>08:30 PM</span>
+                                    <span><?= $ticket['dep_time'] ?></span>
                                 </div>
                                 <div class="form-group">
                                     <label>No. Kursi</label>
